@@ -84,18 +84,4 @@ public class CharacterSelectionView extends View {
         selectionButtonC.addStateChangeFunction(ButtonState.RELEASED, () -> game.playVideo(Video.INTRO, new LevelController(SpriteType.PLAYER_C)));
         quitButton.addStateChangeFunction(ButtonState.RELEASED, () -> game.setController(new MainMenuController()));
     }
-
-    /**
-     * Draws the view on a graphics context.
-     *
-     * @param gc
-     *          The graphics context.
-     */
-    public void draw(final Graphics2D gc) {
-        if (gc == null) {
-            return;
-        }
-
-        super.draw(gc);
-    }
 }
