@@ -2,6 +2,7 @@ package com.valkryst.Emberstone.map;
 
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
+import com.valkryst.Emberstone.entity.SpriteType;
 import com.valkryst.V2DSprite.AnimatedSprite;
 import com.valkryst.V2DSprite.Sprite;
 import com.valkryst.V2DSprite.SpriteAtlas;
@@ -18,8 +19,10 @@ import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 public class Region {
-    /** The cache of recently played audio clips. */
     private final static Cache<String, Region> REGIONS = Caffeine.newBuilder().expireAfterAccess(5, TimeUnit.MINUTES).build();
+
+    /** The cache of recently loaded SpriteAtlases. */
+    private final static Cache<String, SpriteAtlas> ATLAS_CACHE = Caffeine.newBuilder().expireAfterAccess(5, TimeUnit.MINUTES).build();
 
     @Getter private final int width;
     @Getter private final int height;
@@ -37,17 +40,16 @@ public class Region {
         tiles = new Tile[height][width];
 
         // Load Tilesets
-        final HashMap<String, SpriteSheet> tilesets = new HashMap<>();
-
         for (final Object tilesetObj : (JSONArray) data.get("Tilesets")) {
             String name = (String) tilesetObj;
 
-            try {
-                final SpriteAtlas spriteAtlas = SpriteAtlas.createSpriteAtlas("tilesets/" + name + ".png", "tilesets/" + name + ".json");
-                final SpriteSheet spriteSheet = spriteAtlas.getSpriteSheet("Tiles");
-                tilesets.put(name, spriteSheet);
-            } catch (IOException | ParseException e) {
-                e.printStackTrace();
+            if (ATLAS_CACHE.getIfPresent(name) == null) {
+                try {
+                    final SpriteAtlas atlas = SpriteAtlas.createSpriteAtlas("tilesets/" + name + ".png", "tilesets/" + name + ".json");
+                    ATLAS_CACHE.put(name, atlas);
+                } catch (IOException | ParseException e) {
+                    e.printStackTrace();
+                }
             }
         }
 
@@ -87,7 +89,7 @@ public class Region {
             final String tileset = VJSON.getString(tileData, "Tileset");
             final String spriteName = VJSON.getString(tileData, "Sprite Name");
 
-            final SpriteSheet spriteSheet = tilesets.get(tileset);
+            final SpriteSheet spriteSheet = ATLAS_CACHE.getIfPresent(tileset).getSpriteSheet("Tiles");
             final Sprite sprite = spriteSheet.getSprite(spriteName);
             final AnimatedSprite animatedSprite = spriteSheet.getAnimatedSprite(spriteName);
 
