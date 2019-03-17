@@ -1,6 +1,7 @@
 package com.valkryst.Emberstone.entity;
 
 import com.valkryst.Emberstone.statistic.BoundStatistic;
+import com.valkryst.Emberstone.statistic.Statistic;
 import com.valkryst.Emberstone.statistic.StatisticType;
 import com.valkryst.V2DSprite.SpriteSheet;
 
@@ -20,6 +21,9 @@ public class Player extends Entity {
         super(position, spriteSheet);
 
         final BoundStatistic experience = new BoundStatistic(StatisticType.EXPERIENCE, 0, 0, 100);
+        final Statistic speed = new Statistic(StatisticType.SPEED, 6);
+
         super.addStat(experience);
+        super.addStat(speed);
     }
 }
