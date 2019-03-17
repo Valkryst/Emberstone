@@ -1,6 +1,7 @@
 package com.valkryst.Emberstone.map;
 
 import com.valkryst.Emberstone.Camera;
+import com.valkryst.Emberstone.Game;
 import com.valkryst.Emberstone.Settings;
 import com.valkryst.Emberstone.entity.Creature;
 import com.valkryst.Emberstone.entity.Entity;
@@ -91,7 +92,7 @@ public class Map implements IBoard {
 
         // Setup entities
         try {
-            final SpriteAtlas atlas = SpriteType.SKELETON_HEAVY.getSpriteAtlas();
+            final SpriteAtlas atlas = SpriteType.ZOMBIE_WOODCUTTER.getSpriteAtlas();
             final int tileDimensions = Tile.getTileDimensions();
 
             for (int i = 0 ; i < 200 ; i++) {
@@ -155,11 +156,30 @@ public class Map implements IBoard {
             }
         });
 
-        // Draw bounds for the spawn areas.
-        if (Settings.getInstance().isDebugModeOn()) {
+        // Draw Minimap
+        final int minimapX = Game.getInstance().getCanvasWidth() - 213;
+        final int minimapY = 13;
 
+        gc.setColor(Color.BLACK);
+        gc.fillRect(minimapX, minimapY, 200, 200);
+
+        for (int y = 0 ; y < getWidth() ; y++) {
+            for (int x = 0 ; x < getHeight() ; x++) {
+                if (tiles[y][x] != null) {
+                    if (tiles[y][x].isValidSpawnPoint()) {
+                        gc.setColor(Color.GRAY);
+                    } else {
+                        gc.setColor(Color.DARK_GRAY);
+                    }
+
+
+                    gc.fillRect(minimapX + x, minimapY + y, 1, 1);
+                }
+            }
         }
 
+        gc.setColor(Color.RED);
+        gc.fillRect(minimapX + playerX, minimapY + playerY, 2, 2);
 
         if (Settings.getInstance().isDebugModeOn()) {
             gc.setColor(Color.MAGENTA);
