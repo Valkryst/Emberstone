@@ -319,4 +319,8 @@ public class MovementAI {
             PATH_CACHE.put(hash, this.path);
         }
     }
+
+    public void clearPath() {
+        this.path = new Point[0];
+    }
 }
