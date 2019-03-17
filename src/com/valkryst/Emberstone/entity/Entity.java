@@ -222,6 +222,11 @@ public class Entity implements Comparable<Entity> {
             return;
         }
 
+        // Prevent movement during defending animation.
+        if (animationState == AnimationState.DEFENDING) {
+            return;
+        }
+
         // Prevent movement during dying animation.
         if (animationState == AnimationState.DYING) {
             return;
