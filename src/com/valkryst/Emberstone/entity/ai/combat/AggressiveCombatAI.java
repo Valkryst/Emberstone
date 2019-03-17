@@ -13,7 +13,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class AggressiveCombatAI implements CombatAI {
     private final int millisecondsBetweenAttacks = ThreadLocalRandom.current().nextInt(500, 1250);
-    private final int millisecondsBetweenMovements = ThreadLocalRandom.current().nextInt(1000, 3000);
+    private final int millisecondsBetweenMovements = ThreadLocalRandom.current().nextInt(millisecondsBetweenAttacks, millisecondsBetweenAttacks * 2);
 
     private long lastAttackTime = 0;
 
