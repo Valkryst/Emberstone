@@ -72,11 +72,9 @@ public class Entity implements Comparable<Entity> {
 
         final BoundStatistic health = new BoundStatistic(StatisticType.HEALTH, 0, 100);
         final BoundStatistic level = new BoundStatistic(StatisticType.LEVEL, 1, 1, 60);
-        final Statistic speed = new Statistic(StatisticType.SPEED, 6);
 
         addStat(health);
         addStat(level);
-        addStat(speed);
     }
 
     @Override
