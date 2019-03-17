@@ -628,73 +628,265 @@
                             "x": 576,
                             "y": 160,
                             "width": 192,
-                            "height": 160
+                            "height": 160,
+                            "Bounding Boxes": [
+                                {
+                                    "Name": "Body",
+                                    "x": 42,
+                                    "y": 14,
+                                    "width": 81,
+                                    "height": 126
+                                },
+                                {
+                                    "Name": "Feet",
+                                    "x": 42,
+                                    "y": 127,
+                                    "width": 81,
+                                    "height": 13
+                                }
+                            ]
                         },
                         {
                             "x": 384,
                             "y": 480,
                             "width": 192,
-                            "height": 160
+                            "height": 160,
+                            "Bounding Boxes": [
+                                {
+                                    "Name": "Body",
+                                    "x": 42,
+                                    "y": 14,
+                                    "width": 81,
+                                    "height": 126
+                                },
+                                {
+                                    "Name": "Feet",
+                                    "x": 42,
+                                    "y": 127,
+                                    "width": 81,
+                                    "height": 13
+                                }
+                            ]
                         },
                         {
                             "x": 0,
                             "y": 640,
                             "width": 192,
-                            "height": 160
+                            "height": 160,
+                            "Bounding Boxes": [
+                                {
+                                    "Name": "Body",
+                                    "x": 42,
+                                    "y": 14,
+                                    "width": 81,
+                                    "height": 126
+                                },
+                                {
+                                    "Name": "Feet",
+                                    "x": 42,
+                                    "y": 127,
+                                    "width": 81,
+                                    "height": 13
+                                }
+                            ]
                         },
                         {
                             "x": 576,
                             "y": 320,
                             "width": 192,
-                            "height": 160
+                            "height": 160,
+                            "Bounding Boxes": [
+                                {
+                                    "Name": "Body",
+                                    "x": 42,
+                                    "y": 14,
+                                    "width": 81,
+                                    "height": 126
+                                },
+                                {
+                                    "Name": "Feet",
+                                    "x": 42,
+                                    "y": 127,
+                                    "width": 81,
+                                    "height": 13
+                                }
+                            ]
                         },
                         {
                             "x": 192,
                             "y": 640,
                             "width": 192,
-                            "height": 160
+                            "height": 160,
+                            "Bounding Boxes": [
+                                {
+                                    "Name": "Body",
+                                    "x": 42,
+                                    "y": 14,
+                                    "width": 81,
+                                    "height": 126
+                                },
+                                {
+                                    "Name": "Feet",
+                                    "x": 42,
+                                    "y": 127,
+                                    "width": 81,
+                                    "height": 13
+                                }
+                            ]
                         },
                         {
                             "x": 384,
                             "y": 640,
                             "width": 192,
-                            "height": 160
+                            "height": 160,
+                            "Bounding Boxes": [
+                                {
+                                    "Name": "Body",
+                                    "x": 42,
+                                    "y": 14,
+                                    "width": 81,
+                                    "height": 126
+                                },
+                                {
+                                    "Name": "Feet",
+                                    "x": 42,
+                                    "y": 127,
+                                    "width": 81,
+                                    "height": 13
+                                }
+                            ]
                         },
                         {
                             "x": 576,
                             "y": 480,
                             "width": 192,
-                            "height": 160
+                            "height": 160,
+                            "Bounding Boxes": [
+                                {
+                                    "Name": "Body",
+                                    "x": 42,
+                                    "y": 14,
+                                    "width": 81,
+                                    "height": 126
+                                },
+                                {
+                                    "Name": "Feet",
+                                    "x": 42,
+                                    "y": 127,
+                                    "width": 81,
+                                    "height": 13
+                                }
+                            ]
                         },
                         {
                             "x": 768,
                             "y": 0,
                             "width": 192,
-                            "height": 160
+                            "height": 160,
+                            "Bounding Boxes": [
+                                {
+                                    "Name": "Body",
+                                    "x": 42,
+                                    "y": 14,
+                                    "width": 81,
+                                    "height": 126
+                                },
+                                {
+                                    "Name": "Feet",
+                                    "x": 42,
+                                    "y": 127,
+                                    "width": 81,
+                                    "height": 13
+                                }
+                            ]
                         },
                         {
                             "x": 768,
                             "y": 160,
                             "width": 192,
-                            "height": 160
+                            "height": 160,
+                            "Bounding Boxes": [
+                                {
+                                    "Name": "Body",
+                                    "x": 42,
+                                    "y": 14,
+                                    "width": 81,
+                                    "height": 126
+                                },
+                                {
+                                    "Name": "Feet",
+                                    "x": 42,
+                                    "y": 127,
+                                    "width": 81,
+                                    "height": 13
+                                }
+                            ]
                         },
                         {
                             "x": 0,
                             "y": 800,
                             "width": 192,
-                            "height": 160
+                            "height": 160,
+                            "Bounding Boxes": [
+                                {
+                                    "Name": "Body",
+                                    "x": 42,
+                                    "y": 14,
+                                    "width": 81,
+                                    "height": 126
+                                },
+                                {
+                                    "Name": "Feet",
+                                    "x": 42,
+                                    "y": 127,
+                                    "width": 81,
+                                    "height": 13
+                                }
+                            ]
                         },
                         {
                             "x": 192,
                             "y": 800,
                             "width": 192,
-                            "height": 160
+                            "height": 160,
+                            "Bounding Boxes": [
+                                {
+                                    "Name": "Body",
+                                    "x": 42,
+                                    "y": 14,
+                                    "width": 81,
+                                    "height": 126
+                                },
+                                {
+                                    "Name": "Feet",
+                                    "x": 42,
+                                    "y": 127,
+                                    "width": 81,
+                                    "height": 13
+                                }
+                            ]
                         },
                         {
                             "x": 768,
                             "y": 320,
                             "width": 192,
-                            "height": 160
+                            "height": 160,
+                            "Bounding Boxes": [
+                                {
+                                    "Name": "Body",
+                                    "x": 42,
+                                    "y": 14,
+                                    "width": 81,
+                                    "height": 126
+                                },
+                                {
+                                    "Name": "Feet",
+                                    "x": 42,
+                                    "y": 127,
+                                    "width": 81,
+                                    "height": 13
+                                }
+                            ]
                         }
                     ]
                 },
