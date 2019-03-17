@@ -146,8 +146,8 @@ public class LevelController extends Controller {
 
     @Override
     public void draw(final Graphics2D gc) {
-        super.draw(gc);
         map.draw(gc);
+        super.draw(gc);
     }
 
     @Override
