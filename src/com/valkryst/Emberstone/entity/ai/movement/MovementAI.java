@@ -62,7 +62,7 @@ public class MovementAI {
         }
     }
 
-    public void findAndSetPath(final Map map, final java.awt.Point selfPosition, final java.awt.Point targetPosition) {
+    public void constructPath(final Map map, final java.awt.Point selfPosition, final java.awt.Point targetPosition) {
         final int tileDimensions = Tile.getTileDimensions();
 
         final int startX = selfPosition.x / tileDimensions;

@@ -109,7 +109,7 @@ public class AggressiveCombatAI implements CombatAI {
         if (attackedTarget == false && closestEnemy != null) {
             if (currentTime - lastMovementTime >= millisecondsBetweenMovements) {
                 lastMovementTime = currentTime;
-                self.getMovementAI().findAndSetPath(map, self.getPosition(), closestEnemy.getPosition());
+                self.getMovementAI().constructPath(map, self.getPosition(), closestEnemy.getPosition());
             }
         }
     }
