@@ -1,0 +1,14 @@
+{
+    "Regions": [
+        ["Room - R", "Connector - LRD", "Room - L", "None", "Room - RD", "Connector - LR", "Room - LD", "None", "None", "None"],
+        ["None", "Room - RU", "Connector - LR", "Connector - LR", "Connector - LUD", "Room - RD", "Connector - LU", "None", "None", "None"],
+        ["None", "None", "None", "None", "Connector - RUD", "Connector - LU", "None", "None", "None", "None"],
+        ["None", "None", "Connector - RD", "Room - LR", "Connector - LRU", "Room - LR", "Connector - LD", "None", "None", "None"],
+        ["None", "Connector - RD", "Room - LRU", "Connector - LD", "None", "None", "Room - UD", "None", "None", "None"],
+        ["None", "Room - RU", "Connector - LR", "Connector - LUD", "None", "Room - RD", "Connector - LRU", "Room - L", "None", "None"],
+        ["None", "None", "Connector - RD", "Room - LU", "Connector - RD", "Connector - LU", "None", "None", "None", "None"],
+        ["None", "None", "Connector - UD", "None", "Connector - RU", "Room - LR", "Room - LD", "None", "None", "None"],
+        ["None", "Room - RD", "Connector - LUD", "None", "None", "None", "Connector - UD", "None", "None", "None"],
+        ["None", "Connector - RU", "Connector - LRU", "Connector - LR", "Room - LR", "Connector - LR", "Connector - LU", "None", "None", "None"]
+    ]
+}

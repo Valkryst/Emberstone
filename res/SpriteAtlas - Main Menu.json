@@ -1,0 +1,24 @@
+{
+    "Sprite Atlas": [
+        {
+            "Name": "Main Menu",
+            "Sprite Sheet": [
+                {
+                    "Name": "Background",
+                    "x": 0,
+                    "y": 0,
+                    "width": 1920,
+                    "height": 1080
+                },
+
+                {
+                    "Name": "Logo",
+                    "x": 0,
+                    "y": 1080,
+                    "width": 1409,
+                    "height": 164
+                }
+            ]
+        }
+    ]
+}

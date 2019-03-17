@@ -1,0 +1,14 @@
+{
+    "Regions": [
+        ["None", "None", "None", "None", "None", "Room - D", "None", "None", "None", "None"],
+        ["None", "Room - RD", "Connector - LD", "None", "None", "Connector - UD", "None", "None", "None", "None"],
+        ["None", "Connector - RU", "Connector - LRU", "Room - LRD", "Connector - LR", "Room - LU", "None", "None", "None", "None"],
+        ["None", "None", "None", "Connector - UD", "None", "None", "None", "None", "None", "None"],
+        ["None", "None", "None", "Room - U", "None", "None", "None", "None", "None", "None"],
+        ["None", "None", "None", "None", "None", "None", "None", "None", "None", "None"],
+        ["None", "None", "None", "None", "None", "None", "None", "None", "None", "None"],
+        ["None", "None", "None", "None", "None", "None", "None", "None", "None", "None"],
+        ["None", "None", "None", "None", "None", "None", "None", "None", "None", "None"],
+        ["None", "None", "None", "None", "None", "None", "None", "None", "None", "None"]
+    ]
+}
