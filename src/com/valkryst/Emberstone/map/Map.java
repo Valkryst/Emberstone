@@ -35,6 +35,8 @@ public class Map implements IBoard {
 
     @Getter private Camera camera;
 
+    private boolean minimapEnemiesVisible = true;
+
     public Map(final SpriteType playerSpriteType) {
         tiles = new Tile[REGION_DIMENSIONS * MAP_DIMENSIONS][REGION_DIMENSIONS * MAP_DIMENSIONS];
 
@@ -92,7 +94,6 @@ public class Map implements IBoard {
 
         // Setup entities
         try {
-            final SpriteAtlas atlas = SpriteType.ZOMBIE_WOODCUTTER.getSpriteAtlas();
             final int tileDimensions = Tile.getTileDimensions();
 
             for (int i = 0 ; i < 200 ; i++) {
@@ -104,7 +105,32 @@ public class Map implements IBoard {
                     y = ThreadLocalRandom.current().nextInt(0, REGION_DIMENSIONS * MAP_DIMENSIONS);
                 }
 
-                addEntity(new Creature(new Point(x * tileDimensions, y * tileDimensions), atlas.getSpriteSheet("Entity")));
+                switch (ThreadLocalRandom.current().nextInt(0, 6)) {
+                    case 0: {
+                        addEntity(new Creature(new Point(x * tileDimensions, y * tileDimensions), SpriteType.SKELETON_HEAVY.getSpriteAtlas().getSpriteSheet("Entity")));
+                        break;
+                    }
+                    case 1: {
+                        addEntity(new Creature(new Point(x * tileDimensions, y * tileDimensions), SpriteType.SKELETON_LIGHT.getSpriteAtlas().getSpriteSheet("Entity")));
+                        break;
+                    }
+                    case 2: {
+                        addEntity(new Creature(new Point(x * tileDimensions, y * tileDimensions), SpriteType.SKELETON_CULTIST.getSpriteAtlas().getSpriteSheet("Entity")));
+                        break;
+                    }
+                    case 3: {
+                        addEntity(new Creature(new Point(x * tileDimensions, y * tileDimensions), SpriteType.ZOMBIE_FARMER.getSpriteAtlas().getSpriteSheet("Entity")));
+                        break;
+                    }
+                    case 4: {
+                        addEntity(new Creature(new Point(x * tileDimensions, y * tileDimensions), SpriteType.ZOMBIE_VILLAGER.getSpriteAtlas().getSpriteSheet("Entity")));
+                        break;
+                    }
+                    case 5: {
+                        addEntity(new Creature(new Point(x * tileDimensions, y * tileDimensions), SpriteType.ZOMBIE_WOODCUTTER.getSpriteAtlas().getSpriteSheet("Entity")));
+                        break;
+                    }
+                }
             }
         } catch (final ParseException | IOException e) {
             e.printStackTrace();
@@ -156,7 +182,7 @@ public class Map implements IBoard {
             }
         });
 
-        // Draw Minimap
+        // Draw tiles on minimap
         final int minimapX = Game.getInstance().getCanvasWidth() - 213;
         final int minimapY = 13;
 
@@ -173,13 +199,26 @@ public class Map implements IBoard {
                     }
 
 
-                    gc.fillRect(minimapX + x, minimapY + y, 1, 1);
+                    gc.fillRect(minimapX + x, minimapY + y, 2, 2);
                 }
             }
         }
 
-        gc.setColor(Color.RED);
-        gc.fillRect(minimapX + playerX, minimapY + playerY, 2, 2);
+        // Draw entities on minimap.
+        if (minimapEnemiesVisible) {
+            for (final Entity entity : entities) {
+                if (entity instanceof Player) {
+                    gc.setColor(Color.CYAN);
+                } else {
+                    gc.setColor(Color.RED);
+                }
+
+                final Point position = entity.getPosition();
+                final int x = minimapX + (position.x / tileDimensions);
+                final int y = minimapY + (position.y / tileDimensions);
+                gc.fillRect(x, y, 1, 1);
+            }
+        }
 
         if (Settings.getInstance().isDebugModeOn()) {
             gc.setColor(Color.MAGENTA);
@@ -296,12 +335,12 @@ public class Map implements IBoard {
 
     @Override
     public boolean blocksLight(final int x, final int y) {
-        return tiles[y][x] == null || tiles[y][x].isValidSpawnPoint() == false;
+        return false;
     }
 
     @Override
     public boolean blocksStep(final int x, final int y) {
-        return tiles[y][x] == null || tiles[y][x].isValidSpawnPoint() == false;
+        return false;
     }
 
     @Override
