@@ -106,6 +106,12 @@ public class AggressiveCombatAI implements CombatAI {
             self.addAction(new SwapFacing());
         }
 
+        if (closestEnemy == null) {
+            self.setHorizontalSpeed(0);
+            self.setVerticalSpeed(0);
+            self.getMovementAI().clearPath();
+        }
+
         if (attackedTarget == false && closestEnemy != null) {
             if (currentTime - lastMovementTime >= millisecondsBetweenMovements) {
                 lastMovementTime = currentTime;
