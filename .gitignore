@@ -124,3 +124,4 @@ $RECYCLE.BIN/
 # Project Specific
 log/
 dependency-reduced-pom.xml
+Settings.json
