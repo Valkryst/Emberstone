@@ -1,10 +1,13 @@
 package com.valkryst.Emberstone.entity;
 
+import com.github.benmanes.caffeine.cache.Cache;
+import com.github.benmanes.caffeine.cache.Caffeine;
 import com.valkryst.V2DSprite.SpriteAtlas;
 import lombok.Getter;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 public enum SpriteType {
     PLAYER_A("entities/player/A/Image.png", "entities/player/Data.json"),
@@ -17,6 +20,9 @@ public enum SpriteType {
     ZOMBIE_VILLAGER("entities/zombie/Villager/Image.png", "entities/zombie/Villager/Data.json"),
     ZOMBIE_WOODCUTTER("entities/zombie/Woodcutter/Image.png", "entities/zombie/Woodcutter/Data.json");
 
+    /** The cache of recently loaded SpriteAtlases. */
+    private final static Cache<SpriteType, SpriteAtlas> ATLAS_CACHE = Caffeine.newBuilder().expireAfterAccess(5, TimeUnit.MINUTES).build();
+
     @Getter private final String pngPath;
     @Getter private final String jsonPath;
 
@@ -27,6 +33,14 @@ public enum SpriteType {
     }
 
     public SpriteAtlas getSpriteAtlas() throws IOException, ParseException {
-        return SpriteAtlas.createSpriteAtlas(pngPath, jsonPath);
+        SpriteAtlas atlas = ATLAS_CACHE.getIfPresent(this);
+
+        if (atlas != null) {
+            return atlas;
+        } else {
+            atlas = SpriteAtlas.createSpriteAtlas(pngPath, jsonPath);
+            ATLAS_CACHE.put(this, atlas);
+            return atlas;
+        }
     }
 }
