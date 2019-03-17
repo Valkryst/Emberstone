@@ -14,7 +14,8 @@ public enum SpriteType {
     SKELETON_LIGHT("entities/skeleton/Light/Image.png", "entities/skeleton/Light/Data.json"),
     SKELETON_CULTIST("entities/skeleton/Cultist/Image.png", "entities/skeleton/Cultist/Data.json"),
     ZOMBIE_FARMER("entities/zombie/Farmer/Image.png", "entities/zombie/Farmer/Data.json"),
-    ZOMBIE_VILLAGER("entities/zombie/Villager/Image.png", "entities/zombie/Villager/Data.json");
+    ZOMBIE_VILLAGER("entities/zombie/Villager/Image.png", "entities/zombie/Villager/Data.json"),
+    ZOMBIE_WOODCUTTER("entities/zombie/Woodcutter/Image.png", "entities/zombie/Woodcutter/Data.json");
 
     @Getter private final String pngPath;
     @Getter private final String jsonPath;
