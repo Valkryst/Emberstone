@@ -1,15 +1,11 @@
 package com.valkryst.Emberstone.action;
 
+import com.valkryst.Emberstone.entity.AnimationState;
 import com.valkryst.Emberstone.entity.Entity;
 import com.valkryst.Emberstone.map.Map;
-import com.valkryst.Emberstone.media.GameAudio;
-import com.valkryst.Emberstone.media.SoundEffect;
 import com.valkryst.Emberstone.statistic.BoundStatistic;
 import com.valkryst.Emberstone.statistic.StatisticType;
 import com.valkryst.VDice.DiceRoller;
-
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
 public class AttackAction extends Action {
     /** The target. */
@@ -60,6 +56,11 @@ public class AttackAction extends Action {
         // Critical Attack
         if (actionRoll == 20) {
             damage = calculateDamage(self, target) * 3;
+        }
+
+        // If the target is defending, then halve the damage dealt.
+        if (target.getAnimationState() == AnimationState.DEFENDING) {
+            damage /= 2;
         }
 
         final BoundStatistic health = (BoundStatistic) target.getStat(StatisticType.HEALTH);
