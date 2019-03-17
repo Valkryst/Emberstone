@@ -106,7 +106,6 @@ public class MovementAI {
 
             // Construct path if there are no obstructions.
             if (allTilesWalkable) {
-                System.out.println("Moving directly down.");
                 this.path = new Point[]{new Point(endX, endY)};
                 PATH_CACHE.put(hash, this.path);
                 return;
@@ -129,7 +128,6 @@ public class MovementAI {
 
             // Construct path if there are no obstructions.
             if (allTilesWalkable) {
-                System.out.println("Moving directly up.");
                 this.path = new Point[]{new Point(endX, endY)};
                 PATH_CACHE.put(hash, this.path);
                 return;
