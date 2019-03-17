@@ -1,0 +1,558 @@
+{
+    "Sprite Atlas": [
+        {
+            "Name": "Tiles",
+            "Sprite Sheet": [
+                {
+                    "Name": "Stone Floor",
+                    "Frames": [
+                        {
+                            "x": 896,
+                            "y": 512,
+                            "width": 128,
+                            "height": 128
+                        },
+                        {
+                            "x": 1024,
+                            "y": 512,
+                            "width": 128,
+                            "height": 128
+                        },
+                        {
+                            "x": 1536,
+                            "y": 512,
+                            "width": 128,
+                            "height": 128
+                        },
+                        {
+                            "x": 896,
+                            "y": 640,
+                            "width": 128,
+                            "height": 128
+                        },
+                        {
+                            "x": 1408,
+                            "y": 640,
+                            "width": 128,
+                            "height": 128
+                        },
+                        {
+                            "x": 1536,
+                            "y": 640,
+                            "width": 128,
+                            "height": 128
+                        }
+                    ]
+                },
+                {
+                    "Name": "Doorway Top Left A",
+                    "x": 128,
+                    "y": 512,
+                    "width": 128,
+                    "height": 128,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Body A",
+                            "x": 0,
+                            "y": 0,
+                            "width": 96,
+                            "height": 128
+                        }
+                    ]
+                },
+                {
+                    "Name": "Doorway Top Left B",
+                    "x": 128,
+                    "y": 640,
+                    "width": 128,
+                    "height": 128,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Body A",
+                            "x": 0,
+                            "y": 0,
+                            "width": 96,
+                            "height": 112
+                        }
+                    ]
+                },
+                {
+                    "Name": "Doorway Bottom Left A",
+                    "x": 128,
+                    "y": 768,
+                    "width": 128,
+                    "height": 128,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Body A",
+                            "x": 0,
+                            "y": 112,
+                            "width": 96,
+                            "height": 16
+                        }
+                    ]
+                },
+                {
+                    "Name": "Doorway Bottom Left B",
+                    "x": 128,
+                    "y": 896,
+                    "width": 128,
+                    "height": 128,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Body A",
+                            "x": 0,
+                            "y": 0,
+                            "width": 96,
+                            "height": 128
+                        }
+                    ]
+                },
+                {
+                    "Name": "Doorway Top Right A",
+                    "x": 256,
+                    "y": 512,
+                    "width": 128,
+                    "height": 128,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Body A",
+                            "x": 32,
+                            "y": 0,
+                            "width": 96,
+                            "height": 128
+                        }
+                    ]
+                },
+                {
+                    "Name": "Doorway Top Right B",
+                    "x": 256,
+                    "y": 640,
+                    "width": 128,
+                    "height": 128,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Body A",
+                            "x": 32,
+                            "y": 0,
+                            "width": 96,
+                            "height": 112
+                        }
+                    ]
+                },
+                {
+                    "Name": "Doorway Bottom Right A",
+                    "x": 256,
+                    "y": 768,
+                    "width": 128,
+                    "height": 128,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Body A",
+                            "x": 32,
+                            "y": 112,
+                            "width": 96,
+                            "height": 16
+                        }
+                    ]
+                },
+                {
+                    "Name": "Doorway Bottom Right B",
+                    "x": 256,
+                    "y": 896,
+                    "width": 128,
+                    "height": 128,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Body A",
+                            "x": 32,
+                            "y": 0,
+                            "width": 96,
+                            "height": 128
+                        }
+                    ]
+                },
+                {
+                    "Name": "Doorway Middle Top Left A",
+                    "x": 128,
+                    "y": 512,
+                    "width": 128,
+                    "height": 128,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Body A",
+                            "x": 0,
+                            "y": 0,
+                            "width": 96,
+                            "height": 128
+                        }
+                    ]
+                },
+                {
+                    "Name": "Doorway Middle Top Right A",
+                    "x": 256,
+                    "y": 512,
+                    "width": 128,
+                    "height": 128,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Body A",
+                            "x": 32,
+                            "y": 0,
+                            "width": 96,
+                            "height": 128
+                        }
+                    ]
+                },
+                {
+                    "Name": "Doorway Middle Top Right B",
+                    "x": 256,
+                    "y": 640,
+                    "width": 128,
+                    "height": 128,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Body A",
+                            "x": 32,
+                            "y": 0,
+                            "width": 96,
+                            "height": 112
+                        }
+                    ]
+                },
+                {
+                    "Name": "Doorway Middle Top Left B",
+                    "x": 128,
+                    "y": 640,
+                    "width": 128,
+                    "height": 128,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Body A",
+                            "x": 0,
+                            "y": 0,
+                            "width": 96,
+                            "height": 112
+                        }
+                    ]
+                },
+                {
+                    "Name": "Doorway Middle Bottom Left A",
+                    "x": 128,
+                    "y": 768,
+                    "width": 128,
+                    "height": 128,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Body A",
+                            "x": 0,
+                            "y": 112,
+                            "width": 96,
+                            "height": 16
+                        }
+                    ]
+                },
+                {
+                    "Name": "Doorway Middle Bottom Left B",
+                    "x": 128,
+                    "y": 896,
+                    "width": 128,
+                    "height": 128,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Body A",
+                            "x": 0,
+                            "y": 0,
+                            "width": 96,
+                            "height": 128
+                        }
+                    ]
+                },
+                {
+                    "Name": "Doorway Middle Bottom Right A",
+                    "x": 256,
+                    "y": 768,
+                    "width": 128,
+                    "height": 128,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Body A",
+                            "x": 32,
+                            "y": 112,
+                            "width": 96,
+                            "height": 16
+                        }
+                    ]
+                },
+                {
+                    "Name": "Doorway Middle Bottom Right B",
+                    "x": 256,
+                    "y": 896,
+                    "width": 128,
+                    "height": 128,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Body A",
+                            "x": 32,
+                            "y": 0,
+                            "width": 96,
+                            "height": 128
+                        }
+                    ]
+                },
+                {
+                    "Name": "Left Wall",
+                    "x": 256,
+                    "y": 128,
+                    "width": 128,
+                    "height": 128,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Body A",
+                            "x": 0,
+                            "y": 0,
+                            "width": 96,
+                            "height": 128
+                        }
+                    ]
+                },
+                {
+                    "Name": "Right Wall",
+                    "x": 0,
+                    "y": 128,
+                    "width": 128,
+                    "height": 128,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Body A",
+                            "x": 32,
+                            "y": 0,
+                            "width": 96,
+                            "height": 128
+                        }
+                    ]
+                },
+                {
+                    "Name": "Top Wall A",
+                    "x": 128,
+                    "y": 256,
+                    "width": 128,
+                    "height": 128,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Body A",
+                            "x": 0,
+                            "y": 0,
+                            "width": 128,
+                            "height": 128
+                        }
+                    ]
+                },
+                {
+                    "Name": "Top Wall B",
+                    "x": 128,
+                    "y": 384,
+                    "width": 128,
+                    "height": 128,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Body A",
+                            "x": 0,
+                            "y": 0,
+                            "width": 128,
+                            "height": 112
+                        }
+                    ]
+                },
+                {
+                    "Name": "Bottom Wall A",
+                    "x": 384,
+                    "y": 256,
+                    "width": 128,
+                    "height": 128,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Body A",
+                            "x": 0,
+                            "y": 112,
+                            "width": 128,
+                            "height": 16
+                        }
+                    ]
+                },
+                {
+                    "Name": "Bottom Wall B",
+                    "x": 384,
+                    "y": 384,
+                    "width": 128,
+                    "height": 128,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Body A",
+                            "x": 0,
+                            "y": 0,
+                            "width": 128,
+                            "height": 128
+                        }
+                    ]
+                },
+                {
+                    "Name": "Top Left Corner A",
+                    "x": 0,
+                    "y": 512,
+                    "width": 128,
+                    "height": 128,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Body A",
+                            "x": 0,
+                            "y": 0,
+                            "width": 128,
+                            "height": 128
+                        }
+                    ]
+                },
+                {
+                    "Name": "Top Left Corner B",
+                    "x": 0,
+                    "y": 640,
+                    "width": 128,
+                    "height": 128,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Body A",
+                            "x": 0,
+                            "y": 0,
+                            "width": 128,
+                            "height": 112
+                        },
+                        {
+                            "Name": "Body B",
+                            "x": 0,
+                            "y": 111,
+                            "width": 96,
+                            "height": 17
+                        }
+                    ]
+                },
+                {
+                    "Name": "Top Right Corner A",
+                    "x": 384,
+                    "y": 512,
+                    "width": 128,
+                    "height": 128,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Body A",
+                            "x": 0,
+                            "y": 0,
+                            "width": 128,
+                            "height": 128
+                        }
+                    ]
+                },
+                {
+                    "Name": "Top Right Corner B",
+                    "x": 384,
+                    "y": 640,
+                    "width": 128,
+                    "height": 128,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Body A",
+                            "x": 0,
+                            "y": 0,
+                            "width": 128,
+                            "height": 112
+                        },
+                        {
+                            "Name": "Body B",
+                            "x": 32,
+                            "y": 111,
+                            "width": 96,
+                            "height": 17
+                        }
+                    ]
+                },
+                {
+                    "Name": "Bottom Left Corner A",
+                    "x": 0,
+                    "y": 768,
+                    "width": 128,
+                    "height": 128,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Body A",
+                            "x": 0,
+                            "y": 0,
+                            "width": 96,
+                            "height": 128
+                        },
+                        {
+                            "Name": "Body B",
+                            "x": 96,
+                            "y": 112,
+                            "width": 32,
+                            "height": 16
+                        }
+                    ]
+                },
+                {
+                    "Name": "Bottom Left Corner B",
+                    "x": 0,
+                    "y": 896,
+                    "width": 128,
+                    "height": 128,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Body A",
+                            "x": 0,
+                            "y": 0,
+                            "width": 128,
+                            "height": 128
+                        }
+                    ]
+                },
+                {
+                    "Name": "Bottom Right Corner A",
+                    "x": 384,
+                    "y": 768,
+                    "width": 128,
+                    "height": 128,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Body A",
+                            "x": 32,
+                            "y": 0,
+                            "width": 96,
+                            "height": 128
+                        },
+                        {
+                            "Name": "Body B",
+                            "x": 0,
+                            "y": 112,
+                            "width": 32,
+                            "height": 16
+                        }
+                    ]
+                },
+                {
+                    "Name": "Bottom Right Corner B",
+                    "x": 384,
+                    "y": 896,
+                    "width": 128,
+                    "height": 128,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Body A",
+                            "x": 0,
+                            "y": 0,
+                            "width": 128,
+                            "height": 128
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

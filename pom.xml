@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.github.Valkryst</groupId>
+    <artifactId>Emberstone</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.4</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.6</version>
+        </dependency>
+
+        <!-- Valkryst -->
+        <dependency>
+            <groupId>com.github.Valkryst</groupId>
+            <artifactId>VJSON</artifactId>
+            <version>1.2.7</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.Valkryst</groupId>
+            <artifactId>V2DSprite</artifactId>
+            <version>73ea87b</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.Valkryst</groupId>
+            <artifactId>VDice</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.Valkryst</groupId>
+            <artifactId>VNameGenerator</artifactId>
+            <version>23da524</version>
+        </dependency>
+
+        <!-- Audio/Video -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-swing</artifactId>
+            <version>11.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-media</artifactId>
+            <version>11.0.2</version>
+        </dependency>
+
+        <!-- Pathfindihng -->
+        <dependency>
+            <groupId>com.github.fabio-t</groupId>
+            <artifactId>rlforj-alt</artifactId>
+            <version>0.3.0</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <sourceDirectory>src</sourceDirectory>
+        <resources>
+            <resource>
+                <directory>res</directory>
+            </resource>
+        </resources>
+        <plugins>
+            <!-- Used, during the test phase of the build, to run the unit tests -->
+            <plugin>
+                <groupId>org.apache.maven.surefire</groupId>
+                <artifactId>surefire</artifactId>
+                <version>2.21.0</version>
+            </plugin>
+
+            <!-- Used to include all of the dependencies in the packaged Jar file -->
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.valkryst.Emberstone.Driver</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id> <!-- this is used for inheritance merges -->
+                        <phase>package</phase> <!-- bind to the packaging phase -->
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Used to generate the executable. -->
+            <plugin>
+                <artifactId>maven-jlink-plugin</artifactId>
+                <version>3.0.0-alpha-1</version>
+                <extensions>true</extensions>
+                <configuration>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>com.akathist.maven.plugins.launch4j</groupId>
+                <artifactId>launch4j-maven-plugin</artifactId>
+                <version>1.7.25</version>
+                <executions>
+                    <execution>
+                        <id>l4j-gui</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>launch4j</goal>
+                        </goals>
+                        <configuration>
+                            <headerType>gui</headerType>
+                            <outfile>target/Emberstone.exe</outfile>
+                            <jar>target/${project.artifactId}-${project.version}-jar-with-dependencies.jar</jar>
+                            <dontWrapJar>false</dontWrapJar>
+                            <errTitle>Error in launch4j plugin</errTitle>
+                            <classPath>
+                                <mainClass>com.valkryst.Emberstone.Driver</mainClass>
+                            </classPath>
+                            <icon>res/icon/Icon.ico</icon>
+                            <jre>
+                                <path>jdk-11.0.2</path>
+                            </jre>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

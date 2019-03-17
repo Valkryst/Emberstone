@@ -1,0 +1,30 @@
+{
+    "Sprite Atlas": [
+        {
+            "Name": "Button",
+            "Sprite Sheet": [
+                {
+                    "Name": "Normal",
+                    "x": 0,
+                    "y": 0,
+                    "width": 398,
+                    "height": 71
+                },
+                {
+                    "Name": "Hover",
+                    "x": 0,
+                    "y": 71,
+                    "width": 398,
+                    "height": 71
+                },
+                {
+                    "Name": "Pressed",
+                    "x": 0,
+                    "y": 142,
+                    "width": 398,
+                    "height": 71
+                }
+            ]
+        }
+    ]
+}
