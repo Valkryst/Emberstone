@@ -54,7 +54,13 @@ public class LevelController extends Controller {
             @Override
             public void mousePressed(final MouseEvent mouseEvent) {
                 if (mouseEvent.getButton() == MouseEvent.BUTTON1) {
+                    if (map.getPlayer().getAnimationState() == AnimationState.DEFENDING) {
+                        map.getPlayer().setAnimation(AnimationState.IDLE);
+                    }
+
                     autoAttackTimer.start();
+                } else if (mouseEvent.getButton() == MouseEvent.BUTTON3) {
+                    map.getPlayer().setAnimation(AnimationState.DEFENDING);
                 }
             }
 
@@ -62,6 +68,10 @@ public class LevelController extends Controller {
             public void mouseReleased(final MouseEvent mouseEvent) {
                 if (mouseEvent.getButton() == MouseEvent.BUTTON1) {
                     autoAttackTimer.stop();
+                } else if (mouseEvent.getButton() == MouseEvent.BUTTON3) {
+                    if (map.getPlayer().getAnimationState() == AnimationState.DEFENDING) {
+                        map.getPlayer().setAnimation(AnimationState.IDLE);
+                    }
                 }
             }
 
