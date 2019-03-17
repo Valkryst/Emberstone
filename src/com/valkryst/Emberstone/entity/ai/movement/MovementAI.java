@@ -23,6 +23,10 @@ public class MovementAI {
             return;
         }
 
+        if (entity.getStat(StatisticType.SPEED) == null) {
+            return;
+        }
+
         final int startX = entity.getPosition().x / Tile.getTileDimensions();
         final int startY = entity.getPosition().y / Tile.getTileDimensions();
         final Point destination = path[pathPosition];
