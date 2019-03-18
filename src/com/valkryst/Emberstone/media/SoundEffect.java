@@ -6,13 +6,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.concurrent.TimeUnit;
 
 public enum SoundEffect {
-    BUTTON_HOVER("/sfx/gui/Button Hover.mp3"),
-    BUTTON_PRESS("/sfx/gui/Button Press.mp3"),
     IMPACT_1("/sfx/combat/Impact - 1.mp3"),
     IMPACT_2("/sfx/combat/Impact - 2.mp3"),
     IMPACT_3("/sfx/combat/Impact - 3.mp3"),
