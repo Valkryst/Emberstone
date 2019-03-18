@@ -4,7 +4,9 @@ import com.valkryst.Emberstone.media.Video;
 import com.valkryst.Emberstone.mvc.controller.Controller;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -19,6 +21,8 @@ import java.awt.image.BufferStrategy;
 import java.io.IOException;
 import java.util.EventListener;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -84,6 +88,7 @@ public class Game {
         if (Settings.getInstance().isDebugModeOn()) {
             System.out.println("Adding event listeners for the Game class.");
         }
+
         addEventListener(new KeyListener() {
             @Override
             public void keyTyped(final KeyEvent keyEvent) {}
@@ -385,13 +390,8 @@ public class Game {
             System.out.println(Thread.currentThread().getName() + ": Loading video at " + System.currentTimeMillis() + "ms: " + media.getSource());
         }
 
-        final ScheduledExecutorService faultDetectionService = Executors.newSingleThreadScheduledExecutor();
-        faultDetectionService.schedule(() -> {
+        final Runnable switchToCanvas = () -> {
             try {
-                if (settings.isDebugModeOn()) {
-                    System.out.println(Thread.currentThread().getName() + ": Video failed to load after the allotted time.");
-                }
-
                 Platform.runLater(mediaPlayer::dispose);
 
                 SwingUtilities.invokeLater(() -> {
@@ -411,18 +411,27 @@ public class Game {
 
                     // AWT doesn't play nicely with JavaFX, so we have to start/stop the game loop when playing
                     // video.
-                    this.stopGameLoop();
-                    this.startGameLoop();
+                    Game.getInstance().stopGameLoop();
+                    Game.getInstance().startGameLoop();
                 });
             } catch (final Exception e) {
                 e.printStackTrace();
             }
-        }, 3, TimeUnit.SECONDS);
+        };
+
+        // Sometimes the video fails to load, so we need to skip it.
+        final Timer faultDetectionTimer = new Timer();
+        faultDetectionTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                switchToCanvas.run();
+            }
+        }, 3000);
 
         mediaPlayer.setAutoPlay(true);
         mediaPlayer.setOnReady(() -> {
             try {
-                faultDetectionService.shutdownNow();
+                faultDetectionTimer.cancel();
                 if (settings.isDebugModeOn()) {
                     System.out.println(Thread.currentThread().getName() + ": Video loaded at " + System.currentTimeMillis() + "ms.");
                 }
@@ -434,6 +443,16 @@ public class Game {
                 root.getChildren().add(mediaView);
 
                 final Scene scene = new Scene(root);
+                scene.setOnKeyPressed(e -> {
+                    if (e.getCode() == KeyCode.ESCAPE) {
+                        if (settings.isDebugModeOn()) {
+                            System.out.println(Thread.currentThread().getName() + ": Video skipped by user.");
+                        }
+
+                        switchToCanvas.run();
+                    }
+                });
+
                 videoPlayer.setScene(scene);
 
                 SwingUtilities.invokeLater(() -> {
@@ -450,6 +469,8 @@ public class Game {
                     frame.add(videoPlayer);
                     frame.revalidate();
 
+                    videoPlayer.requestFocus();
+
                     if (settings.isDebugModeOn()) {
                         System.out.println(Thread.currentThread().getName() + ": Added video player to the frame.");
                     }
@@ -464,29 +485,7 @@ public class Game {
                 e.printStackTrace();
             }
         });
-        mediaPlayer.setOnEndOfMedia(() -> {
-            mediaPlayer.dispose();
-
-            SwingUtilities.invokeLater(() -> {
-                if (settings.isDebugModeOn()) {
-                    System.out.println(Thread.currentThread().getName() + ": Removing video player from the frame.");
-                }
-
-                frame.remove(videoPlayer);
-                frame.add(canvas);
-                frame.revalidate();
-
-                if (settings.isDebugModeOn()) {
-                    System.out.println(Thread.currentThread().getName() + ": Removed video player from the frame.");
-                }
-
-                setController(controller);
-
-                // AWT doesn't play nicely with JavaFX, so we have to start/stop the game loop when playing
-                // video.
-                this.startGameLoop();
-            });
-        });
+        mediaPlayer.setOnEndOfMedia(switchToCanvas);
     }
 
     /**
