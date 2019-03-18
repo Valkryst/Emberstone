@@ -1,6 +1,7 @@
 package com.valkryst.Emberstone.mvc.component;
 
 import com.valkryst.Emberstone.Game;
+import com.valkryst.Emberstone.Settings;
 import com.valkryst.V2DSprite.Sprite;
 import com.valkryst.V2DSprite.SpriteSheet;
 import lombok.Getter;
@@ -110,7 +111,13 @@ public class Button extends Component {
 
     @Override
     public void draw(final Graphics2D gc) {
-        spriteSheet.getSprite(state.name()).draw(gc, super.position.x, super.position.y);
+        final Sprite sprite = spriteSheet.getSprite(state.name());
+        sprite.draw(gc, super.position.x, super.position.y);
+
+        if (Settings.getInstance().isDebugModeOn()) {
+            gc.setColor(Color.MAGENTA);
+            gc.drawRect(super.position.x, super.position.y, sprite.getWidth(), sprite.getHeight());
+        }
     }
 
     @Override
@@ -158,6 +165,10 @@ public class Button extends Component {
      *          The new state.
      */
     public void setState(final ButtonState state) {
+        if (this.state == state) {
+            return;
+        }
+
         this.state = state;
 
         final List<Runnable> runnables = stateChangeFunctions.get(state);
