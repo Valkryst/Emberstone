@@ -205,9 +205,9 @@
                                 {
                                     "Name": "Weapon",
                                     "x": 119,
-                                    "y": 64,
+                                    "y": 8,
                                     "width": 61,
-                                    "height": 60
+                                    "height": 128
                                 }
                             ]
                         },
@@ -477,6 +477,13 @@
                                     "y": 124,
                                     "width": 82,
                                     "height": 12
+                                },
+                                {
+                                    "Name": "Weapon",
+                                    "x": 119,
+                                    "y": 8,
+                                    "width": 61,
+                                    "height": 128
                                 }
                             ]
                         },
