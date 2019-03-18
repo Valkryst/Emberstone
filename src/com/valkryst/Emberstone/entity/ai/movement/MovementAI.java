@@ -92,102 +92,6 @@ public class MovementAI {
          * A similar process is repeated for left, right, and down.
          */
 
-        // Destination directly below current position
-        if (startX == endX && startY < endY) {
-            // Check all tiles along the path to ensure there are no obstructions.
-            boolean allTilesWalkable = true;
-
-            for (int y = startY ; y != endY + 1 ; y++) {
-                final Tile tile = map.getTileAt(startX, y);
-
-                if (tile == null || tile.isValidSpawnPoint() == false) {
-                    allTilesWalkable = false;
-                    break;
-                }
-            }
-
-            // Construct path if there are no obstructions.
-            if (allTilesWalkable) {
-                this.path = new Point[]{new Point(endX, endY)};
-                PATH_CACHE.put(hash, this.path);
-                return;
-            } else {
-                this.path = new Point[0];
-            }
-        }
-
-        // Destination directly above current position
-        if (startX == endX && startY > endY) {
-            // Check all tiles along the path to ensure there are no obstructions.
-            boolean allTilesWalkable = true;
-
-            for (int y = endY ; y != startY + 1 ; y++) {
-                final Tile tile = map.getTileAt(startX, y);
-
-                if (tile == null || tile.isValidSpawnPoint() == false) {
-                    allTilesWalkable = false;
-                    break;
-                }
-            }
-
-            // Construct path if there are no obstructions.
-            if (allTilesWalkable) {
-                this.path = new Point[]{new Point(endX, endY)};
-                PATH_CACHE.put(hash, this.path);
-                return;
-            } else {
-                this.path = new Point[0];
-            }
-        }
-
-        // Destination directly left of current position.
-        if (startX > endX && startY == endY) {
-            // Check all tiles along the path to ensure there are no obstructions.
-            boolean allTilesWalkable = true;
-
-            for (int x = endX ; x != startX + 1 ; x++) {
-                final Tile tile = map.getTileAt(x, startY);
-
-                if (tile == null || tile.isValidSpawnPoint() == false) {
-                    allTilesWalkable = false;
-                    break;
-                }
-            }
-
-            // Construct path if there are no obstructions.
-            if (allTilesWalkable) {
-                this.path = new Point[]{new Point(endX, endY)};
-                PATH_CACHE.put(hash, this.path);
-                return;
-            } else {
-                this.path = new Point[0];
-            }
-        }
-
-        // Destination directly right of current position.
-        if (startX < endX && startY == endY) {
-            // Check all tiles along the path to ensure there are no obstructions.
-            boolean allTilesWalkable = true;
-
-            for (int x = startX ; x != endX ; x++) {
-                final Tile tile = map.getTileAt(x, startY);
-
-                if (tile == null || tile.isValidSpawnPoint() == false) {
-                    allTilesWalkable = false;
-                    break;
-                }
-            }
-
-            // Construct path if there are no obstructions.
-            if (allTilesWalkable) {
-                this.path = new Point[]{new Point(endX, endY)};
-                PATH_CACHE.put(hash, this.path);
-                return;
-            } else {
-                this.path = new Point[0];
-            }
-        }
-
         // Destination to the top-left of current position.
         if (startX > endX && startY > endY) {
             // Check all tiles along the path to ensure there are no obstructions.
@@ -294,6 +198,102 @@ public class MovementAI {
                 }
 
                 if (allTilesWalkable == false) {
+                    break;
+                }
+            }
+
+            // Construct path if there are no obstructions.
+            if (allTilesWalkable) {
+                this.path = new Point[]{new Point(endX, endY)};
+                PATH_CACHE.put(hash, this.path);
+                return;
+            } else {
+                this.path = new Point[0];
+            }
+        }
+
+        // Destination directly below current position
+        if (startX == endX && startY < endY) {
+            // Check all tiles along the path to ensure there are no obstructions.
+            boolean allTilesWalkable = true;
+
+            for (int y = startY ; y != endY + 1 ; y++) {
+                final Tile tile = map.getTileAt(startX, y);
+
+                if (tile == null || tile.isValidSpawnPoint() == false) {
+                    allTilesWalkable = false;
+                    break;
+                }
+            }
+
+            // Construct path if there are no obstructions.
+            if (allTilesWalkable) {
+                this.path = new Point[]{new Point(endX, endY)};
+                PATH_CACHE.put(hash, this.path);
+                return;
+            } else {
+                this.path = new Point[0];
+            }
+        }
+
+        // Destination directly above current position
+        if (startX == endX && startY > endY) {
+            // Check all tiles along the path to ensure there are no obstructions.
+            boolean allTilesWalkable = true;
+
+            for (int y = endY ; y != startY + 1 ; y++) {
+                final Tile tile = map.getTileAt(startX, y);
+
+                if (tile == null || tile.isValidSpawnPoint() == false) {
+                    allTilesWalkable = false;
+                    break;
+                }
+            }
+
+            // Construct path if there are no obstructions.
+            if (allTilesWalkable) {
+                this.path = new Point[]{new Point(endX, endY)};
+                PATH_CACHE.put(hash, this.path);
+                return;
+            } else {
+                this.path = new Point[0];
+            }
+        }
+
+        // Destination directly left of current position.
+        if (startX > endX && startY == endY) {
+            // Check all tiles along the path to ensure there are no obstructions.
+            boolean allTilesWalkable = true;
+
+            for (int x = endX ; x != startX + 1 ; x++) {
+                final Tile tile = map.getTileAt(x, startY);
+
+                if (tile == null || tile.isValidSpawnPoint() == false) {
+                    allTilesWalkable = false;
+                    break;
+                }
+            }
+
+            // Construct path if there are no obstructions.
+            if (allTilesWalkable) {
+                this.path = new Point[]{new Point(endX, endY)};
+                PATH_CACHE.put(hash, this.path);
+                return;
+            } else {
+                this.path = new Point[0];
+            }
+        }
+
+        // Destination directly right of current position.
+        if (startX < endX && startY == endY) {
+            // Check all tiles along the path to ensure there are no obstructions.
+            boolean allTilesWalkable = true;
+
+            for (int x = startX ; x != endX ; x++) {
+                final Tile tile = map.getTileAt(x, startY);
+
+                if (tile == null || tile.isValidSpawnPoint() == false) {
+                    allTilesWalkable = false;
                     break;
                 }
             }
