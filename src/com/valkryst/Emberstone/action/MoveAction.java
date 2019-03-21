@@ -64,18 +64,12 @@ public class MoveAction extends Action {
                 final Rectangle tileBodyB = tile.getBoundingBoxB(x * tileDimensions, y * tileDimensions);
 
                 if (tileBodyA != null) {
-                    while (entityFeet.intersects(tileBodyA)) {
-                        position.x -= dx;
-                        position.y -= dy;
-                        entityFeet = self.getFeetBoundingBox();
+                    if (entityFeet.intersects(tileBodyA)) {
+                        self.getPosition().setLocation(position.x - dx, position.y - dy);
                     }
-                }
-
-                if (tileBodyB != null) {
-                    while (entityFeet.intersects(tileBodyB)) {
-                        position.x -= dx;
-                        position.y -= dy;
-                        entityFeet = self.getFeetBoundingBox();
+                } else if (tileBodyB != null) {
+                    if (entityFeet.intersects(tileBodyB)) {
+                        self.getPosition().setLocation(position.x - dx, position.y - dy);
                     }
                 }
             }
