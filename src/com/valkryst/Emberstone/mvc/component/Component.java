@@ -70,7 +70,7 @@ public abstract class Component {
      * Retrieves the x-axis position of the top-left corner of the component.
      *
      * @return
-     *          The x-axis position of the top-left corner of the component.
+     *          The x-axis position.
      */
     public int getX() {
         return position.x;
@@ -80,9 +80,29 @@ public abstract class Component {
      * Retrieves the y-axis position of the top-left corner of the component.
      *
      * @return
-     *          The y-axis position of the top-left corner of the component.
+     *          The y-axis position.
      */
     public int getY() {
         return position.y;
+    }
+
+    /**
+     * Sets the new x-axis position of the top-left corner of the component.
+     *
+     * @param x
+     *          The new x-axis position.
+     */
+    public void setX(final int x) {
+        position.x = x;
+    }
+
+    /**
+     * Sets the new y-axis position of the top-left corner of the component.
+     *
+     * @param y
+     *          The new y-axis position.
+     */
+    public void setY(final int y) {
+        position.y = y;
     }
 }
