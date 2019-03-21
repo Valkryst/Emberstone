@@ -3,6 +3,7 @@ package com.valkryst.Emberstone.mvc.component;
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
 import lombok.NonNull;
+import lombok.Setter;
 
 import java.awt.*;
 import java.io.IOException;
@@ -14,7 +15,7 @@ public class Label extends Component {
 
     private final String text;
     private Font font;
-    private final Color color;
+    @Setter private Color color;
 
     public Label(final @NonNull Point position, final String text, final int size, final Color color) {
         super(position);
