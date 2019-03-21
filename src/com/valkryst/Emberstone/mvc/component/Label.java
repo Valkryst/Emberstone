@@ -2,6 +2,7 @@ package com.valkryst.Emberstone.mvc.component;
 
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
+import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
 
@@ -13,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 public class Label extends Component {
     private final static Cache<Integer, Font> FONT_CACHE = Caffeine.newBuilder().expireAfterAccess(5, TimeUnit.MINUTES).build();
 
-    private final String text;
+    @Getter @Setter private String text;
     private Font font;
     @Setter private Color color;
 
@@ -25,7 +26,7 @@ public class Label extends Component {
         Font font = FONT_CACHE.getIfPresent(size);
 
         if (font == null) {
-            try (final InputStream is = Component.class.getResourceAsStream("/fonts/Deneane Regular.ttf")) {
+            try (final InputStream is = Component.class.getResourceAsStream("/fonts/Deneane.ttf")) {
                 this.font = Font.createFont(Font.TRUETYPE_FONT, is).deriveFont(Font.PLAIN, size);
                 FONT_CACHE.put(size, this.font);
             } catch (final IOException | FontFormatException e) {
