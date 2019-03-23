@@ -5,6 +5,7 @@ import com.valkryst.Emberstone.Settings;
 import com.valkryst.Emberstone.action.Action;
 import com.valkryst.Emberstone.action.AttackAction;
 import com.valkryst.Emberstone.action.MoveAction;
+import com.valkryst.Emberstone.item.Inventory;
 import com.valkryst.Emberstone.map.Map;
 import com.valkryst.Emberstone.media.GameAudio;
 import com.valkryst.Emberstone.media.SoundEffect;
@@ -23,6 +24,9 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class Entity implements Comparable<Entity> {
+    /** The inventory. */
+    @Getter private final Inventory inventory = new Inventory();
+
     /** Location within the map. */
     @Getter private final Point position;
     /** Previous location within the map. */

@@ -1,18 +1,13 @@
 package com.valkryst.Emberstone.entity;
 
-import com.valkryst.Emberstone.item.Inventory;
 import com.valkryst.Emberstone.statistic.BoundStatistic;
 import com.valkryst.Emberstone.statistic.Statistic;
 import com.valkryst.Emberstone.statistic.StatisticType;
 import com.valkryst.V2DSprite.SpriteSheet;
-import lombok.Getter;
 
 import java.awt.*;
 
 public class Player extends Entity {
-    /** The player's inventory. */
-    @Getter private final Inventory inventory = new Inventory();
-
     /**
      * Constructs a new Player.
      *
