@@ -2,6 +2,9 @@ package com.valkryst.Emberstone.action;
 
 import com.valkryst.Emberstone.entity.AnimationState;
 import com.valkryst.Emberstone.entity.Entity;
+import com.valkryst.Emberstone.item.Equipment;
+import com.valkryst.Emberstone.item.EquipmentSlot;
+import com.valkryst.Emberstone.item.Inventory;
 import com.valkryst.Emberstone.map.Map;
 import com.valkryst.Emberstone.statistic.BoundStatistic;
 import com.valkryst.Emberstone.statistic.StatisticType;
@@ -87,7 +90,6 @@ public class AttackAction extends Action {
      *        The damage dealt.
      */
     private int calculateDamage(final Entity self, final Entity target) {
-        /*
         // Calculate Target Armor
         final Inventory targetInventory = target.getInventory();
 
@@ -110,7 +112,5 @@ public class AttackAction extends Action {
         // Calculate Result
         final int result = damage - armor;
         return result > 0 ? result : 0;
-        */
-        return 0;
     }
 }

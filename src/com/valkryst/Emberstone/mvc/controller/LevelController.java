@@ -9,6 +9,7 @@ import com.valkryst.Emberstone.media.GameAudio;
 import com.valkryst.Emberstone.media.Music;
 import com.valkryst.Emberstone.mvc.view.LevelView;
 import com.valkryst.Emberstone.statistic.StatisticType;
+import lombok.Getter;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,7 +22,7 @@ public class LevelController extends Controller {
     /** The event listeners. */
     private final List<EventListener> eventListeners = new ArrayList<>();
 
-    private Map map;
+    @Getter private Map map;
 
     /**
      * Constructs a new LevelController.
@@ -32,6 +33,8 @@ public class LevelController extends Controller {
     public LevelController(final SpriteType playerSpriteType) {
         super(new LevelView());
         map = new Map(playerSpriteType);
+
+        final LevelController levelController = this;
 
         // Add player controls
         final Timer autoAttackTimer = new Timer(500, actionEvent -> {
@@ -113,6 +116,11 @@ public class LevelController extends Controller {
                         player.setVerticalSpeed(player.getStat(StatisticType.SPEED).getValue());
                         break;
                     }
+                    case KeyEvent.VK_I: {
+                        final InventoryController inventoryController = new InventoryController(levelController, map.getPlayer().getInventory());
+                        Game.getInstance().setController(inventoryController);
+                        break;
+                    }
                 }
             }
 
@@ -138,16 +146,16 @@ public class LevelController extends Controller {
         });
     }
 
-    @Override
+    //@Override
     public void update(final double deltaTime) {
-        super.update(deltaTime);
+        //super.update(deltaTime);
         map.update(deltaTime);
     }
 
-    @Override
+    //@Override
     public void draw(final Graphics2D gc) {
         map.draw(gc);
-        super.draw(gc);
+        //super.draw(gc);
     }
 
     @Override

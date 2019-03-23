@@ -7,6 +7,8 @@ import com.valkryst.Emberstone.entity.Creature;
 import com.valkryst.Emberstone.entity.Entity;
 import com.valkryst.Emberstone.entity.Player;
 import com.valkryst.Emberstone.entity.SpriteType;
+import com.valkryst.Emberstone.item.EquipmentSlot;
+import com.valkryst.Emberstone.item.generator.EquipmentGenerator;
 import com.valkryst.V2DSprite.SpriteAtlas;
 import com.valkryst.VJSON.VJSON;
 import lombok.Getter;
@@ -88,6 +90,12 @@ public class Map implements IBoard {
             player = new Player(new Point(35 * tileDimensions, 35 * tileDimensions), atlas.getSpriteSheet("Entity"));
             addEntity(player);
             camera = new Camera(tiles[0].length * tileDimensions, tiles.length * tileDimensions, player);
+
+            // Generate Equipment for Player
+            for (final EquipmentSlot slot : EquipmentSlot.values()) {
+                final EquipmentGenerator equipmentGenerator = new EquipmentGenerator(1, slot);
+                player.getInventory().equip(equipmentGenerator.generate());
+            }
         } catch (final ParseException | IOException e) {
             e.printStackTrace();
         }
@@ -130,6 +138,12 @@ public class Map implements IBoard {
                         addEntity(new Creature(new Point(x * tileDimensions, y * tileDimensions), SpriteType.ZOMBIE_WOODCUTTER.getSpriteAtlas().getSpriteSheet("Entity")));
                         break;
                     }
+                }
+
+                // Generate Equipment for Player
+                for (final EquipmentSlot slot : EquipmentSlot.values()) {
+                    final EquipmentGenerator equipmentGenerator = new EquipmentGenerator(1, slot);
+                    entities.get(entities.size() - 1).getInventory().equip(equipmentGenerator.generate());
                 }
             }
         } catch (final ParseException | IOException e) {

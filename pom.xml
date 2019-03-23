@@ -20,10 +20,6 @@
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
         </repository>
-        <repository>
-            <id>glg2d-repo</id>
-            <url>http://brandonborkholder.github.com/glg2d/maven2/</url>
-        </repository>
     </repositories>
 
     <dependencies>
@@ -54,7 +50,7 @@
         <dependency>
             <groupId>com.github.Valkryst</groupId>
             <artifactId>V2DSprite</artifactId>
-            <version>0664d34</version>
+            <version>73ea87b</version>
         </dependency>
         <dependency>
             <groupId>com.github.Valkryst</groupId>
@@ -138,7 +134,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>fully.qualified.MainClass</mainClass>
+                            <mainClass>Driver</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>

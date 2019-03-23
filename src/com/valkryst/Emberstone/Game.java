@@ -39,7 +39,7 @@ public class Game {
     private ScheduledExecutorService gameLoopExecutorService;
 
     /** The frame in which the game is drawn. */
-    private final JFrame frame;
+    @Getter private final JFrame frame;
 
     /** The canvas on which the game is rendered. */
     private final Canvas canvas;
@@ -69,7 +69,7 @@ public class Game {
         frame.setResizable(false);
         frame.pack();
         frame.setLocationRelativeTo(null);
-        frame.setIgnoreRepaint(true);
+        frame.setIgnoreRepaint(false);
         frame.addWindowListener(new WindowAdapter() {
             public void windowClosing(final WindowEvent e) {
                 frame.dispose();
