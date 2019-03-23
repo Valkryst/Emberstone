@@ -155,8 +155,8 @@ public class Map implements IBoard {
 
         final int minX = Math.max(0, playerX - 8); // The +/- values are all arbitrary, they work well enough.
         final int minY = Math.max(0, playerY - 6);
-        final int maxX = Math.min(playerX + 15, this.getWidth());
-        final int maxY = Math.min(playerY + 9, this.getHeight());
+        final int maxX = Math.min(playerX + 15, tiles[0].length);
+        final int maxY = Math.min(playerY + 9, tiles.length);
 
         for (int y = minY ; y < maxY ; y++) {
             for (int x = minX ; x < maxX ; x++) {
@@ -189,8 +189,8 @@ public class Map implements IBoard {
         gc.setColor(Color.BLACK);
         gc.fillRect(minimapX, minimapY, 200, 200);
 
-        for (int y = 0 ; y < getWidth() ; y++) {
-            for (int x = 0 ; x < getHeight() ; x++) {
+        for (int y = 0 ; y < tiles[0].length ; y++) {
+            for (int x = 0 ; x < tiles.length ; x++) {
                 if (tiles[y][x] != null) {
                     if (tiles[y][x].isValidSpawnPoint()) {
                         gc.setColor(Color.GRAY);
