@@ -758,6 +758,144 @@
                     ]
                 }
             ]
+        },
+        {
+            "Name": "Equip",
+            "Sprite Sheet": [
+                {
+                    "Name": "NORMAL",
+                    "x": 398,
+                    "y": 639,
+                    "width": 398,
+                    "height": 71,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Default",
+                            "x": 0,
+                            "y": 0,
+                            "width": 398,
+                            "height": 71
+                        }
+                    ]
+                },
+                {
+                    "Name": "HOVERED",
+                    "x": 398,
+                    "y": 710,
+                    "width": 398,
+                    "height": 71,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Default",
+                            "x": 0,
+                            "y": 0,
+                            "width": 398,
+                            "height": 71
+                        }
+                    ]
+                },
+                {
+                    "Name": "PRESSED",
+                    "x": 398,
+                    "y": 781,
+                    "width": 398,
+                    "height": 71,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Default",
+                            "x": 0,
+                            "y": 0,
+                            "width": 398,
+                            "height": 71
+                        }
+                    ]
+                },
+                {
+                    "Name": "RELEASED",
+                    "x": 398,
+                    "y": 639,
+                    "width": 398,
+                    "height": 71,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Default",
+                            "x": 0,
+                            "y": 0,
+                            "width": 398,
+                            "height": 71
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "Unequip",
+            "Sprite Sheet": [
+                {
+                    "Name": "NORMAL",
+                    "x": 0,
+                    "y": 710,
+                    "width": 398,
+                    "height": 71,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Default",
+                            "x": 0,
+                            "y": 0,
+                            "width": 398,
+                            "height": 71
+                        }
+                    ]
+                },
+                {
+                    "Name": "HOVERED",
+                    "x": 0,
+                    "y": 781,
+                    "width": 398,
+                    "height": 71,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Default",
+                            "x": 0,
+                            "y": 0,
+                            "width": 398,
+                            "height": 71
+                        }
+                    ]
+                },
+                {
+                    "Name": "PRESSED",
+                    "x": 0,
+                    "y": 852,
+                    "width": 398,
+                    "height": 71,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Default",
+                            "x": 0,
+                            "y": 0,
+                            "width": 398,
+                            "height": 71
+                        }
+                    ]
+                },
+                {
+                    "Name": "RELEASED",
+                    "x": 0,
+                    "y": 710,
+                    "width": 398,
+                    "height": 71,
+                    "Bounding Boxes": [
+                        {
+                            "Name": "Default",
+                            "x": 0,
+                            "y": 0,
+                            "width": 398,
+                            "height": 71
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
