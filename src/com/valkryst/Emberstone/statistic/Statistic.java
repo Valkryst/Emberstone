@@ -1,7 +1,9 @@
 package com.valkryst.Emberstone.statistic;
 
+import com.valkryst.Emberstone.mvc.component.Label;
 import lombok.Getter;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,5 +43,15 @@ public class Statistic {
         for (final Runnable runnable : runnables) {
             runnable.run();
         }
+    }
+
+    /**
+     * Retrieves a label component, displaying the stat's name and value.
+     *
+     * @return
+     *          The label component.
+     */
+    public Label getLabel() {
+        return new Label(new Point(0, 0), type.getName() + ": " + value);
     }
 }

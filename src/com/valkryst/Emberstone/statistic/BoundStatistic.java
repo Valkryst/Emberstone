@@ -1,6 +1,9 @@
 package com.valkryst.Emberstone.statistic;
 
+import com.valkryst.Emberstone.mvc.component.Label;
 import lombok.Getter;
+
+import java.awt.*;
 
 public class BoundStatistic extends Statistic {
     /** The minimum value. */
@@ -55,6 +58,11 @@ public class BoundStatistic extends Statistic {
      */
     public BoundStatistic(final StatisticType type, final int minValue, final int maxValue) {
         this(type, maxValue, minValue, maxValue);
+    }
+
+    @Override
+    public Label getLabel() {
+        return new Label(new Point(0, 0), super.getType().getName() + ": " + minValue + "-" + maxValue);
     }
 
     @Override
