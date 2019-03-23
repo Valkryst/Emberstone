@@ -52,6 +52,6 @@ public class Statistic {
      *          The label component.
      */
     public Label getLabel() {
-        return new Label(new Point(0, 0), type.getName() + ": " + value);
+        return new Label(new Point(0, 0), type.getName() + ": " + value, 32);
     }
 }

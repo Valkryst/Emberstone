@@ -62,7 +62,7 @@ public class BoundStatistic extends Statistic {
 
     @Override
     public Label getLabel() {
-        return new Label(new Point(0, 0), super.getType().getName() + ": " + minValue + "-" + maxValue);
+        return new Label(new Point(0, 0), super.getType().getName() + ": " + minValue + "-" + maxValue, 32);
     }
 
     @Override
