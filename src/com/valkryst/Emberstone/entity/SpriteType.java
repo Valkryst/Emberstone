@@ -18,7 +18,14 @@ public enum SpriteType {
     SKELETON_CULTIST("entities/skeleton/Cultist/Image.png", "entities/skeleton/Cultist/Data.json"),
     ZOMBIE_FARMER("entities/zombie/Farmer/Image.png", "entities/zombie/Farmer/Data.json"),
     ZOMBIE_VILLAGER("entities/zombie/Villager/Image.png", "entities/zombie/Villager/Data.json"),
-    ZOMBIE_WOODCUTTER("entities/zombie/Woodcutter/Image.png", "entities/zombie/Woodcutter/Data.json");
+    ZOMBIE_WOODCUTTER("entities/zombie/Woodcutter/Image.png", "entities/zombie/Woodcutter/Data.json"),
+    PORTAL("entities/portal/Image.png", "entities/portal/Data.json"),
+    CHEST_COMMON("entities/chest/Common.png", "entities/chest/Data.json"),
+    CHEST_UNCOMMON("entities/chest/Uncommon.png", "entities/chest/Data.json"),
+    CHEST_RARE("entities/chest/Rare.png", "entities/chest/Data.json"),
+    CHEST_EPIC("entities/chest/Epic.png", "entities/chest/Data.json"),
+    CHEST_LEGENDARY("entities/chest/Legendary.png", "entities/chest/Data.json"),
+    CHEST_ARTIFACT("entities/chest/Artifact.png", "entities/chest/Data.json");
 
     /** The cache of recently loaded SpriteAtlases. */
     private final static Cache<SpriteType, SpriteAtlas> ATLAS_CACHE = Caffeine.newBuilder().expireAfterAccess(5, TimeUnit.MINUTES).build();

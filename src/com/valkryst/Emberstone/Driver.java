@@ -1,6 +1,6 @@
 package com.valkryst.Emberstone;
 
-import com.valkryst.Emberstone.mvc.controller.MainMenuController;
+import com.valkryst.Emberstone.mvc.controller.menu.MainController;
 import javafx.application.Platform;
 
 public class Driver {
@@ -21,6 +21,6 @@ public class Driver {
         Platform.startup(() -> {});
 
         final Game game = Game.getInstance();
-        game.setController(new MainMenuController());
+        game.setController(new MainController());
     }
 }

@@ -5,7 +5,11 @@ import com.valkryst.Emberstone.Settings;
 import com.valkryst.Emberstone.action.Action;
 import com.valkryst.Emberstone.action.AttackAction;
 import com.valkryst.Emberstone.action.MoveAction;
+import com.valkryst.Emberstone.item.Equipment;
+import com.valkryst.Emberstone.item.EquipmentSlot;
 import com.valkryst.Emberstone.item.Inventory;
+import com.valkryst.Emberstone.item.Rarity;
+import com.valkryst.Emberstone.item.generator.EquipmentGenerator;
 import com.valkryst.Emberstone.map.Map;
 import com.valkryst.Emberstone.media.GameAudio;
 import com.valkryst.Emberstone.media.SoundEffect;
@@ -14,14 +18,19 @@ import com.valkryst.Emberstone.statistic.Statistic;
 import com.valkryst.Emberstone.statistic.StatisticType;
 import com.valkryst.V2DSprite.AnimatedSprite;
 import com.valkryst.V2DSprite.Sprite;
+import com.valkryst.V2DSprite.SpriteAtlas;
 import com.valkryst.V2DSprite.SpriteSheet;
 import lombok.Getter;
 import lombok.Setter;
+import org.json.simple.parser.ParseException;
 
 import java.awt.*;
+import java.io.IOException;
+import java.lang.annotation.Target;
 import java.util.*;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Entity implements Comparable<Entity> {
     /** The inventory. */
@@ -54,11 +63,11 @@ public class Entity implements Comparable<Entity> {
     /** The sprite sheet. */
     private final SpriteSheet spriteSheet;
     /** The active sprite animation. */
-    @Getter private AnimatedSprite spriteAnimation;
+    @Getter protected AnimatedSprite spriteAnimation;
     /** The animation state. */
     @Getter private AnimationState animationState;
     /** The amount of time the current frame has been displayed. */
-    private double frameTime = 0;
+    protected double frameTime = 0;
 
     /**
      * Constructs a new Entity.
@@ -76,14 +85,20 @@ public class Entity implements Comparable<Entity> {
 
         final BoundStatistic health = new BoundStatistic(StatisticType.HEALTH, 0, 100);
         final BoundStatistic level = new BoundStatistic(StatisticType.LEVEL, 1, 1, 60);
-
         addStat(health);
         addStat(level);
     }
 
     @Override
     public int compareTo(final Entity otherEntity) {
-        return Integer.compare(position.y, otherEntity.getPosition().y);
+        final Rectangle entityFeet = getBoundingBox("Feet");
+        final Rectangle otherEntityFeet = otherEntity.getBoundingBox("Feet");
+
+        if (entityFeet != null && otherEntityFeet != null) {
+            return Integer.compare(entityFeet.y, otherEntityFeet.y);
+        } else {
+            return Integer.compare(position.y, otherEntity.getPosition().y);
+        }
     }
 
     /**
@@ -170,7 +185,7 @@ public class Entity implements Comparable<Entity> {
 
         // Check weapon collision against all other entities.
         if (map.getCamera().isInView(this) && hasAttacked == false) {
-            final Rectangle weaponBoundingBox = getWeaponBoundingBox();
+            final Rectangle weaponBoundingBox = getBoundingBox("Weapon");
 
             if (weaponBoundingBox != null) {
                 hasAttacked = true;
@@ -191,6 +206,16 @@ public class Entity implements Comparable<Entity> {
                         continue;
                     }
 
+                    // Nothing can attack a chest.
+                    if (target instanceof Chest) {
+                        continue;
+                    }
+
+                    // Nothing can attack a portal.
+                    if (target instanceof Portal) {
+                        continue;
+                    }
+
                     // A dying entity cannot be attacked.
                     if (target.getAnimationState() == AnimationState.DYING) {
                         continue;
@@ -201,7 +226,7 @@ public class Entity implements Comparable<Entity> {
                         continue;
                     }
 
-                    final Rectangle bodyBoundingBox = target.getBodyBoundingBox();
+                    final Rectangle bodyBoundingBox = target.getBoundingBox("Body");
                     if (bodyBoundingBox == null) {
                         continue;
                     }
@@ -277,7 +302,7 @@ public class Entity implements Comparable<Entity> {
 
             // Draw Health Bar
             final BoundStatistic health = (BoundStatistic) getStat(StatisticType.HEALTH);
-            if (health.getValue() < health.getMaxValue() && animationState != AnimationState.DYING) {
+            if (health != null && health.getValue() < health.getMaxValue() && animationState != AnimationState.DYING) {
                 // todo This code can be very slightly optimized by calculating the actual positions, widths, and
                 // todo heights of each section of the bar (border, green, and red sections).
                 final int halfSpriteWidth = spriteAnimation.getCurrentSprite().getWidth() / 2;
@@ -346,7 +371,7 @@ public class Entity implements Comparable<Entity> {
             return;
         }
 
-        stats.putIfAbsent(stat.getType(), stat);
+        stats.put(stat.getType(), stat);
     }
 
     /**
@@ -382,30 +407,17 @@ public class Entity implements Comparable<Entity> {
         return stats.get(type);
     }
 
-    public Rectangle getBodyBoundingBox() {
-        final Rectangle boundingBox = spriteAnimation.getCurrentSprite().getBoundingBox("Body");
-
-        if (boundingBox != null) {
-            boundingBox.x += position.x;
-            boundingBox.y += position.y;
-        }
-
-        return boundingBox;
-    }
-
-    public Rectangle getFeetBoundingBox() {
-        final Rectangle boundingBox = spriteAnimation.getCurrentSprite().getBoundingBox("Feet");
-
-        if (boundingBox != null) {
-            boundingBox.x += position.x;
-            boundingBox.y += position.y;
-        }
-
-        return boundingBox;
-    }
-
-    public Rectangle getWeaponBoundingBox() {
-        final Rectangle boundingBox = spriteAnimation.getCurrentSprite().getBoundingBox("Weapon");
+    /**
+     * Retrieves a specific bounding box from the current sprite.
+     *
+     * @param name
+     *          The bounding box's name.
+     *
+     * @return
+     *          The bounding box, or null if no bounding box with a matching name was found.
+     */
+    public Rectangle getBoundingBox(final String name) {
+        Rectangle boundingBox = spriteAnimation.getCurrentSprite().getBoundingBox(name);
 
         if (boundingBox != null) {
             boundingBox.x += position.x;

@@ -3,15 +3,14 @@ package com.valkryst.Emberstone.map;
 import com.valkryst.Emberstone.Camera;
 import com.valkryst.Emberstone.Game;
 import com.valkryst.Emberstone.Settings;
-import com.valkryst.Emberstone.entity.Creature;
-import com.valkryst.Emberstone.entity.Entity;
-import com.valkryst.Emberstone.entity.Player;
-import com.valkryst.Emberstone.entity.SpriteType;
-import com.valkryst.Emberstone.item.EquipmentSlot;
-import com.valkryst.Emberstone.item.generator.EquipmentGenerator;
+import com.valkryst.Emberstone.entity.*;
+import com.valkryst.Emberstone.mvc.component.EFontFactory;
+import com.valkryst.Emberstone.statistic.BoundStatistic;
+import com.valkryst.Emberstone.statistic.StatisticType;
 import com.valkryst.V2DSprite.SpriteAtlas;
 import com.valkryst.VJSON.VJSON;
 import lombok.Getter;
+import lombok.Setter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
@@ -26,10 +25,9 @@ import java.util.concurrent.ThreadLocalRandom;
 
 
 public class Map implements IBoard {
-    private final static int REGION_DIMENSIONS = 10;
-    private final static int MAP_DIMENSIONS = 20;
+    private final static int MAP_DIMENSIONS = 10;
 
-    private final Tile[][] tiles;
+    private final Tile[][] tiles = new Tile[MAP_DIMENSIONS * Region.getRegionDimensions()][MAP_DIMENSIONS * Region.getRegionDimensions()];
 
     private final List<Entity> entities = new CopyOnWriteArrayList<>();
 
@@ -39,115 +37,61 @@ public class Map implements IBoard {
 
     private boolean minimapEnemiesVisible = true;
 
-    public Map(final SpriteType playerSpriteType) {
-        tiles = new Tile[REGION_DIMENSIONS * MAP_DIMENSIONS][REGION_DIMENSIONS * MAP_DIMENSIONS];
+    @Getter @Setter private int shardsGathered = 0;
+    @Getter @Setter private int shardsRequired = 20;
 
-        // Load Regions
-        final Region[][] regions = new Region[REGION_DIMENSIONS][REGION_DIMENSIONS];
+    @Getter @Setter private boolean portalSpawned = false;
+
+    public Map(final Player player, final String mapJsonFilePath, final int maxEntities) {
+        this.player = player;
+
+        // Load regions and copy them onto the map.
         try {
-            final JSONObject levelData = VJSON.loadJson("levels/Level2.json");
-            final JSONArray rowData = (JSONArray) levelData.get("Regions");
+            final JSONObject levelData = VJSON.loadJson(mapJsonFilePath);
 
-            int y = 0;
-            for (final Object columnObj : rowData) {
-                final JSONArray columnData = (JSONArray) columnObj;
+            int column = 0;
+            int row = 0;
 
-                for (int x = 0 ; x < columnData.size() ; x++) {
-                    final String name = (String) columnData.get(x);
-                    regions[y][x] = Region.getRegion(name);
+            for (final Object rowArray : (JSONArray) levelData.get("Regions")) {
+                for (final Object columnObject : (JSONArray) rowArray) {
+                    final Region region = Region.getRegion((String) columnObject);
+                    if (region != null) {
+                        region.copyOntoMap(tiles, column, row);
+                    }
+
+                    column++;
                 }
 
-                y++;
+                column = 0;
+                row++;
             }
         } catch (final IOException | ParseException | ClassNotFoundException e) {
             e.printStackTrace();
         }
 
-        // Copy Region Tiles onto the Map.
-        for (int regionY = 0 ; regionY < REGION_DIMENSIONS ; regionY++) {
-            for (int regionX = 0 ; regionX < REGION_DIMENSIONS ; regionX++) {
-                final Region region = regions[regionY][regionX];
-
-                if (region == null) {
-                    continue;
-                }
-
-                for (int tileY = 0 ; tileY < region.getHeight() ; tileY++) {
-                    for (int tileX = 0 ; tileX < region.getWidth() ; tileX++) {
-                        final int placementX = (regionX * MAP_DIMENSIONS) + tileX;
-                        final int placementY = (regionY * MAP_DIMENSIONS) + tileY;
-                        tiles[placementY][placementX] = region.getTileAt(tileX, tileY);
-                    }
-                }
-            }
-        }
-
         // Setup player
-        try {
-            final int tileDimensions = Tile.getTileDimensions();
-
-            final SpriteAtlas atlas = playerSpriteType.getSpriteAtlas();
-            player = new Player(new Point(35 * tileDimensions, 35 * tileDimensions), atlas.getSpriteSheet("Entity"));
-            addEntity(player);
-            camera = new Camera(tiles[0].length * tileDimensions, tiles.length * tileDimensions, player);
-
-            // Generate Equipment for Player
-            for (final EquipmentSlot slot : EquipmentSlot.values()) {
-                final EquipmentGenerator equipmentGenerator = new EquipmentGenerator(1, slot);
-                player.getInventory().equip(equipmentGenerator.generate());
-            }
-        } catch (final ParseException | IOException e) {
-            e.printStackTrace();
-        }
+        final int tileDimensions = Tile.getTileDimensions();
+        this.player.getPosition().setLocation(21 * tileDimensions, 21 * tileDimensions);
+        addEntity(player);
+        camera = new Camera(tiles[0].length * tileDimensions, tiles.length * tileDimensions, player);
 
         // Setup entities
-        try {
-            final int tileDimensions = Tile.getTileDimensions();
+        final int regionDimensions = Region.getRegionDimensions();
 
-            for (int i = 0 ; i < 200 ; i++) {
-                int x = ThreadLocalRandom.current().nextInt(0, REGION_DIMENSIONS * MAP_DIMENSIONS);
-                int y = ThreadLocalRandom.current().nextInt(0, REGION_DIMENSIONS * MAP_DIMENSIONS);
+        for (int i = 0 ; i < maxEntities ; i++) {
+            while (true) {
+                int x = 0;
+                int y = 0;
 
-                while (tiles[y][x] == null || tiles[y][x].isValidSpawnPoint() == false) {
-                    x = ThreadLocalRandom.current().nextInt(0, REGION_DIMENSIONS * MAP_DIMENSIONS);
-                    y = ThreadLocalRandom.current().nextInt(0, REGION_DIMENSIONS * MAP_DIMENSIONS);
+                while (tiles[y][x] == null || tiles[y][x].isWalkable() == false) {
+                    x = ThreadLocalRandom.current().nextInt(25, MAP_DIMENSIONS * regionDimensions);
+                    y = ThreadLocalRandom.current().nextInt(0, MAP_DIMENSIONS * regionDimensions);
                 }
 
-                switch (ThreadLocalRandom.current().nextInt(0, 6)) {
-                    case 0: {
-                        addEntity(new Creature(new Point(x * tileDimensions, y * tileDimensions), SpriteType.SKELETON_HEAVY.getSpriteAtlas().getSpriteSheet("Entity")));
-                        break;
-                    }
-                    case 1: {
-                        addEntity(new Creature(new Point(x * tileDimensions, y * tileDimensions), SpriteType.SKELETON_LIGHT.getSpriteAtlas().getSpriteSheet("Entity")));
-                        break;
-                    }
-                    case 2: {
-                        addEntity(new Creature(new Point(x * tileDimensions, y * tileDimensions), SpriteType.SKELETON_CULTIST.getSpriteAtlas().getSpriteSheet("Entity")));
-                        break;
-                    }
-                    case 3: {
-                        addEntity(new Creature(new Point(x * tileDimensions, y * tileDimensions), SpriteType.ZOMBIE_FARMER.getSpriteAtlas().getSpriteSheet("Entity")));
-                        break;
-                    }
-                    case 4: {
-                        addEntity(new Creature(new Point(x * tileDimensions, y * tileDimensions), SpriteType.ZOMBIE_VILLAGER.getSpriteAtlas().getSpriteSheet("Entity")));
-                        break;
-                    }
-                    case 5: {
-                        addEntity(new Creature(new Point(x * tileDimensions, y * tileDimensions), SpriteType.ZOMBIE_WOODCUTTER.getSpriteAtlas().getSpriteSheet("Entity")));
-                        break;
-                    }
-                }
-
-                // Generate Equipment for Player
-                for (final EquipmentSlot slot : EquipmentSlot.values()) {
-                    final EquipmentGenerator equipmentGenerator = new EquipmentGenerator(1, slot);
-                    entities.get(entities.size() - 1).getInventory().equip(equipmentGenerator.generate());
+                if (addEntity(Creature.createCreature(new Point(x * tileDimensions, y * tileDimensions)))) {
+                    break;
                 }
             }
-        } catch (final ParseException | IOException e) {
-            e.printStackTrace();
         }
     }
 
@@ -192,28 +136,42 @@ public class Map implements IBoard {
             // todo This could be further optimized by only iterating over the entities nearest to the player.
             // Draw only visible entities.
             if (camera.isInView(entity)) {
+                // Generate an inventory for the creature, when it first comes into view.
+                if (entity instanceof Creature) {
+                    if (((Creature) entity).isStatsGenerated() == false) {
+                        ((Creature) entity).generateStats(player);
+                    }
+                }
+
                 entity.draw(gc, camera);
             }
         });
 
+        // Draw red filter depending on the player's health.
+        final BoundStatistic playerHealth = (BoundStatistic) player.getStat(StatisticType.HEALTH);
+        if (playerHealth.getValue() < playerHealth.getMaxValue()) {
+            gc.setColor(new Color(255, 0, 0, (int) (64 - ((playerHealth.getValue() / (double) playerHealth.getMaxValue()) * 64))));
+            gc.fillRect(0, 0, 1920, 1080);
+        }
+
         // Draw tiles on minimap
-        final int minimapX = Game.getInstance().getCanvasWidth() - 213;
+        final int minimapX = Game.getInstance().getViewWidth() - 413;
         final int minimapY = 13;
 
-        gc.setColor(Color.BLACK);
-        gc.fillRect(minimapX, minimapY, 200, 200);
+        gc.setColor(new Color(0, 0, 0, 128));
+        gc.fillRect(minimapX, minimapY, 400, 400);
 
         for (int y = 0 ; y < tiles[0].length ; y++) {
             for (int x = 0 ; x < tiles.length ; x++) {
                 if (tiles[y][x] != null) {
-                    if (tiles[y][x].isValidSpawnPoint()) {
+                    if (tiles[y][x].isWalkable()) {
                         gc.setColor(Color.GRAY);
                     } else {
                         gc.setColor(Color.DARK_GRAY);
                     }
 
 
-                    gc.fillRect(minimapX + x, minimapY + y, 2, 2);
+                    gc.fillRect(minimapX + (x * 2), minimapY + (y * 2), 2, 2);
                 }
             }
         }
@@ -221,21 +179,35 @@ public class Map implements IBoard {
         // Draw entities on minimap.
         if (minimapEnemiesVisible) {
             for (final Entity entity : entities) {
+                if (entity.getAnimationState() == AnimationState.DYING) {
+                    continue;
+                }
+
                 if (entity instanceof Player) {
+                    gc.setColor(Color.CYAN);
+                } else if (entity instanceof Chest) {
+                    gc.setColor(Color.YELLOW);
+                } else if (entity instanceof Portal) {
                     gc.setColor(Color.CYAN);
                 } else {
                     gc.setColor(Color.RED);
                 }
 
                 final Point position = entity.getPosition();
-                final int x = minimapX + (position.x / tileDimensions);
-                final int y = minimapY + (position.y / tileDimensions);
-                gc.fillRect(x, y, 1, 1);
+                final int x = minimapX + (position.x / tileDimensions) * 2;
+                final int y = minimapY + (position.y / tileDimensions) * 2;
+                gc.fillRect(x, y, 2, 2);
             }
         }
 
+        // Draw Shards Collected
+        gc.setColor(Color.WHITE);
+        gc.setFont(EFontFactory.createFont(28));
+        gc.drawString("Phylactery Shards Collected: " + shardsGathered + "/" + shardsRequired, 10, 1070);
+
         if (Settings.getInstance().isDebugModeOn()) {
             gc.setColor(Color.MAGENTA);
+            gc.setFont(EFontFactory.createFont(12));
             gc.drawString("Total Entities: " + entities.size(), 16, 32);
             gc.drawString("Player Position: (" + playerX + "x, " + playerY + "y)", 16, 48);
         }
@@ -247,22 +219,20 @@ public class Map implements IBoard {
         }
 
         // Check if the entity would collide with a tile if placed.
-        final int tileDimensions = Tile.getTileDimensions();
-
         for (int y = 0 ; y < tiles.length ; y++) {
             for (int x = 0 ; x < tiles[0].length ; x++) {
                 if (tiles[y][x] == null) {
                     continue;
                 }
 
-                Rectangle entityFeet = entity.getFeetBoundingBox();
+                Rectangle entityFeet = entity.getBoundingBox("Feet");
 
                 if (entityFeet == null) {
                     continue;
                 }
 
-                final Rectangle tileBodyA = tiles[y][x].getBoundingBoxA(x * tileDimensions, y * tileDimensions);
-                final Rectangle tileBodyB = tiles[y][x].getBoundingBoxB(x * tileDimensions, y * tileDimensions);
+                final Rectangle tileBodyA = tiles[y][x].getBoundingBox("Body A", x, y);
+                final Rectangle tileBodyB = tiles[y][x].getBoundingBox("Body B", x, y);
 
                 if (tileBodyA != null) {
                     if (entityFeet.intersects(tileBodyA)) {

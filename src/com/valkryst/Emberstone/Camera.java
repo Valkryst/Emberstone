@@ -16,9 +16,9 @@ public class Camera {
     private final Rectangle viewBoundingBox;
 
     /** Width of the camera's view. */
-    @Getter private final int viewWidth = Game.getInstance().getCanvasWidth();
+    @Getter private final int viewWidth = Game.getInstance().getViewWidth();
     /** Height of the camera's view. */
-    @Getter private final int viewHeight = Game.getInstance().getCanvasHeight();
+    @Getter private final int viewHeight = Game.getInstance().getViewHeight();
 
     /** Width of the map, in pixels. */
     private final int mapWidth;
@@ -88,7 +88,7 @@ public class Camera {
      *          Whether the entity is within view of the camera.
      */
     public boolean isInView(final Entity entity) {
-        final Rectangle entityBoundingBox = entity.getBodyBoundingBox();
+        final Rectangle entityBoundingBox = entity.getBoundingBox("Body");
 
         if (entityBoundingBox == null) {
             if (Settings.getInstance().isDebugModeOn()) {

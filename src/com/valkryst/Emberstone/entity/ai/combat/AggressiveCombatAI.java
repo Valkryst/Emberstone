@@ -1,10 +1,9 @@
 package com.valkryst.Emberstone.entity.ai.combat;
 
 import com.valkryst.Emberstone.action.SwapFacing;
-import com.valkryst.Emberstone.entity.AnimationState;
-import com.valkryst.Emberstone.entity.Creature;
-import com.valkryst.Emberstone.entity.Entity;
+import com.valkryst.Emberstone.entity.*;
 import com.valkryst.Emberstone.map.Map;
+import javafx.concurrent.Task;
 import lombok.NonNull;
 
 import java.awt.*;
@@ -13,7 +12,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class AggressiveCombatAI implements CombatAI {
     private final int millisecondsBetweenAttacks = ThreadLocalRandom.current().nextInt(500, 1250);
-    private final int millisecondsBetweenMovements = ThreadLocalRandom.current().nextInt(millisecondsBetweenAttacks, millisecondsBetweenAttacks * 2);
+    private final int millisecondsBetweenMovements = millisecondsBetweenAttacks / 4;
 
     private long lastAttackTime = 0;
 
@@ -42,6 +41,18 @@ public class AggressiveCombatAI implements CombatAI {
 
             // Creatures ignore creatures
             if (target instanceof Creature) {
+                continue;
+            }
+
+            // Creatures ignore chests.
+            if (target instanceof Chest) {
+                continue;
+            }
+
+
+
+            // Creatures ignore portals.
+            if (target instanceof Portal) {
                 continue;
             }
 

@@ -1,0 +1,102 @@
+{
+    "Sprite Atlas": [
+        {
+            "Name": "Entity",
+            "Sprite Sheet": [
+                {
+                    "Name": "IDLE",
+                    "Frames": [
+                        {
+                            "x": 0,
+                            "y": 0,
+                            "width": 320,
+                            "height": 320,
+                            "Bounding Boxes": [
+                                {
+                                    "Name": "Body",
+                                    "x": 0,
+                                    "y": 0,
+                                    "width": 320,
+                                    "height": 320
+                                },
+                                {
+                                    "Name": "Feet",
+                                    "x": 0,
+                                    "y": 250,
+                                    "width": 320,
+                                    "height": 20
+                                }
+                            ]
+                        },
+                        {
+                            "x": 320,
+                            "y": 0,
+                            "width": 320,
+                            "height": 320,
+                            "Bounding Boxes": [
+                                {
+                                    "Name": "Body",
+                                    "x": 0,
+                                    "y": 0,
+                                    "width": 320,
+                                    "height": 320
+                                },
+                                {
+                                    "Name": "Feet",
+                                    "x": 0,
+                                    "y": 250,
+                                    "width": 320,
+                                    "height": 20
+                                }
+                            ]
+                        },
+                        {
+                            "x": 0,
+                            "y": 320,
+                            "width": 320,
+                            "height": 320,
+                            "Bounding Boxes": [
+                                {
+                                    "Name": "Body",
+                                    "x": 0,
+                                    "y": 0,
+                                    "width": 320,
+                                    "height": 320
+                                },
+                                {
+                                    "Name": "Feet",
+                                    "x": 0,
+                                    "y": 250,
+                                    "width": 320,
+                                    "height": 20
+                                }
+                            ]
+                        },
+                        {
+                            "x": 320,
+                            "y": 320,
+                            "width": 320,
+                            "height": 320,
+                            "Bounding Boxes": [
+                                {
+                                    "Name": "Body",
+                                    "x": 0,
+                                    "y": 0,
+                                    "width": 320,
+                                    "height": 320
+                                },
+                                {
+                                    "Name": "Feet",
+                                    "x": 0,
+                                    "y": 250,
+                                    "width": 320,
+                                    "height": 20
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

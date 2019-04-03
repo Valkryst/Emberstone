@@ -2,6 +2,7 @@ package com.valkryst.Emberstone.action;
 
 import com.valkryst.Emberstone.entity.AnimationState;
 import com.valkryst.Emberstone.entity.Entity;
+import com.valkryst.Emberstone.entity.Player;
 import com.valkryst.Emberstone.item.Equipment;
 import com.valkryst.Emberstone.item.EquipmentSlot;
 import com.valkryst.Emberstone.item.Inventory;
@@ -73,6 +74,10 @@ public class AttackAction extends Action {
         }
 
         if (health.getValue() <= health.getMinValue()) {
+            if (self instanceof Player) {
+                ((Player) self).levelUp();
+            }
+
             new DeathAction().perform(map, target);
         }
     }
@@ -110,7 +115,7 @@ public class AttackAction extends Action {
         damage+= (offHand == null ? 0 : offHand.rollDamage());
 
         // Calculate Result
-        final int result = damage - armor;
+        final int result = (int) (damage - (armor / 50.0));
         return result > 0 ? result : 0;
     }
 }

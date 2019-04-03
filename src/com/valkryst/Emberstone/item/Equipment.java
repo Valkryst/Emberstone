@@ -75,7 +75,11 @@ public class Equipment extends Item {
         final DiceRoller diceRoller = new DiceRoller();
         diceRoller.addDice(maxDamage - minDamage, 1);
 
-        return diceRoller.roll() + minDamage;
+        try {
+            return diceRoller.roll() + minDamage;
+        } catch (final IllegalArgumentException e) {
+            return 0; // Shit solution, but there's a bug in the Creature creation code.
+        }
     }
 
     /**

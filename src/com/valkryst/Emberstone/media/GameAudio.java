@@ -52,22 +52,28 @@ public class GameAudio {
             return;
         }
 
-        if (Settings.getInstance().isDebugAudioOn()) {
-            System.out.println("Playing music track.\n\t" + music.getUri());
-        }
+        Platform.runLater(() -> {
+            try {
+                if (Settings.getInstance().isDebugAudioOn()) {
+                    System.out.println("Playing music track.\n\t" + music.getUri());
+                }
 
-        if (activeMusic.containsKey(music)) {
-            if (Settings.getInstance().isDebugAudioOn()) {
-                System.out.println("Cannot play music track, because it is already playing.\n\t" + music.getUri());
+                if (activeMusic.containsKey(music)) {
+                    if (Settings.getInstance().isDebugAudioOn()) {
+                        System.out.println("Cannot play music track, because it is already playing.\n\t" + music.getUri());
+                    }
+                } else {
+                    final Media media = new Media(music.getUri());
+                    final MediaPlayer mediaPlayer = new MediaPlayer(media);
+
+                    activeMusic.put(music, mediaPlayer);
+
+                    fadeInAndStart(mediaPlayer);
+                }
+            } catch (final Exception e) {
+                e.printStackTrace();
             }
-        } else {
-            final Media media = new Media(music.getUri());
-            final MediaPlayer mediaPlayer = new MediaPlayer(media);
-
-            activeMusic.put(music, mediaPlayer);
-
-            fadeInAndStart(mediaPlayer);
-        }
+        });
     }
 
     /**
@@ -81,18 +87,25 @@ public class GameAudio {
             return;
         }
 
-        if (Settings.getInstance().isDebugAudioOn()) {
-            System.out.println("Fading-In Music: " + mediaPlayer.getMedia().getSource());
-        }
+        Platform.runLater(() -> {
+            try {
+                if (Settings.getInstance().isDebugAudioOn()) {
+                    System.out.println("Fading-In Music: " + mediaPlayer.getMedia().getSource());
+                }
 
-        mediaPlayer.setVolume(0);
+                mediaPlayer.setCycleCount(Integer.MAX_VALUE);
+                mediaPlayer.setVolume(0);
 
-        final KeyValue keyValue = new KeyValue(mediaPlayer.volumeProperty(), 1);
-        final KeyFrame keyFrame = new KeyFrame(Duration.seconds(10), keyValue);
-        final Timeline timeline = new Timeline(keyFrame);
+                final KeyValue keyValue = new KeyValue(mediaPlayer.volumeProperty(), 1);
+                final KeyFrame keyFrame = new KeyFrame(Duration.seconds(10), keyValue);
+                final Timeline timeline = new Timeline(keyFrame);
 
-        mediaPlayer.play();
-        timeline.play();
+                mediaPlayer.play();
+                timeline.play();
+            } catch (final Exception e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     /**
@@ -106,19 +119,25 @@ public class GameAudio {
             return;
         }
 
-        if (Settings.getInstance().isDebugAudioOn()) {
-            System.out.println("Fading-Out Music: " + mediaPlayer.getMedia().getSource());
-        }
+        Platform.runLater(() -> {
+            try {
+                if (Settings.getInstance().isDebugAudioOn()) {
+                    System.out.println("Fading-Out Music: " + mediaPlayer.getMedia().getSource());
+                }
 
-        final KeyValue keyValue = new KeyValue(mediaPlayer.volumeProperty(), 0);
-        final KeyFrame keyFrame = new KeyFrame(Duration.seconds(3), keyValue);
-        final Timeline timeline = new Timeline(keyFrame);
-        timeline.setOnFinished(actionEvent -> {
-            mediaPlayer.stop();
-            Platform.runLater(mediaPlayer::dispose);
+                final KeyValue keyValue = new KeyValue(mediaPlayer.volumeProperty(), 0);
+                final KeyFrame keyFrame = new KeyFrame(Duration.seconds(3), keyValue);
+                final Timeline timeline = new Timeline(keyFrame);
+                timeline.setOnFinished(actionEvent -> {
+                    mediaPlayer.stop();
+                    Platform.runLater(mediaPlayer::dispose);
+                });
+
+                timeline.play();
+            } catch (final Exception e) {
+                e.printStackTrace();
+            }
         });
-
-        timeline.play();
     }
 
     /**
@@ -132,15 +151,27 @@ public class GameAudio {
             return;
         }
 
-        fadeOutAndStop(activeMusic.get(music));
-        activeMusic.remove(music);
+        Platform.runLater(() -> {
+            try {
+                fadeOutAndStop(activeMusic.get(music));
+                activeMusic.remove(music);
+            } catch (final Exception e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     /** Stops all active music. */
     public void stopAllActiveMusic() {
-        for (final Music music : activeMusic.keySet()) {
-            stopMusic(music);
-        }
+        Platform.runLater(() -> {
+            try {
+                for (final Music music : activeMusic.keySet()) {
+                    stopMusic(music);
+                }
+            } catch (final Exception e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     /**
@@ -158,23 +189,28 @@ public class GameAudio {
             return;
         }
 
-        if (effect == null) {
-            return;
-        }
+        Platform.runLater(() -> {
+            try {
+                if (effect == null) {
+                    return;
+                }
 
-        if (Settings.getInstance().isDebugAudioOn()) {
-            System.out.println("Playing SFX: " + effect.getUri());
-        }
+                if (Settings.getInstance().isDebugAudioOn()) {
+                    System.out.println("Playing SFX: " + effect.getUri());
+                }
 
-        AudioClip audioClip = audioClipCache.getIfPresent(effect);
-        if (audioClip != null) {
-            audioClip.setVolume(0.75);
-            audioClip.play();
-            return;
-        }
+                AudioClip audioClip = audioClipCache.getIfPresent(effect);
+                if (audioClip != null) {
+                    audioClip.setVolume(0.75);
+                    audioClip.play();
+                    return;
+                }
 
-        audioClip = new AudioClip(effect.getUri());
-        audioClipCache.put(effect, audioClip);
-        audioClip.play();
+                audioClip = new AudioClip(effect.getUri());
+                audioClip.play();
+            } catch (final Exception e) {
+                e.printStackTrace();
+            }
+        });
     }
 }

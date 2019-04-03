@@ -38,7 +38,13 @@ public enum SoundEffect {
     MISS_6("/sfx/combat/Miss - 6.mp3"),
     MISS_7("/sfx/combat/Miss - 7.mp3"),
     MISS_8("/sfx/combat/Miss - 8.mp3"),
-    MISS_9("/sfx/combat/Miss - 9.mp3");
+    MISS_9("/sfx/combat/Miss - 9.mp3"),
+    CHEST_OPEN("/sfx/inventory/Chest Open.mp3"),
+    CHEST_CLOSE("/sfx/inventory/Chest Close.mp3"),
+    CHEST_APPEAR("/sfx/inventory/Chest Appear.mp3"),
+    LEVEL_UP("/sfx/Level Up.mp3"),
+    EVIL_LAUGH("/sfx/Evil Laugh.mp3"),
+    PORTAL_SPAWN("/sfx/Portal Spawn.mp3");
 
     /** The URI of the sound effect file. */
     @Getter private final String uri;

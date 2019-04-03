@@ -91,36 +91,6 @@
             </resource>
         </resources>
         <plugins>
-            <!--- Creates a JAR of the source files in the target directory during build. -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>3.0.1</version>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <!--- Generates JavaDoc files during build. -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.0.0</version>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
             <!-- Used, during the test phase of the build, to run the unit tests -->
             <plugin>
                 <groupId>org.apache.maven.surefire</groupId>
@@ -134,7 +104,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>Driver</mainClass>
+                            <mainClass>com.valkryst.Emberstone.Driver</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>

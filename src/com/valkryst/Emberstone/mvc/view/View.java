@@ -1,93 +1,36 @@
 package com.valkryst.Emberstone.mvc.view;
 
-import com.valkryst.Emberstone.Game;
-import com.valkryst.Emberstone.Settings;
-import com.valkryst.Emberstone.mvc.component.Component;
+import lombok.Setter;
 
+import javax.swing.*;
 import java.awt.*;
-import java.util.EventListener;
-import java.util.LinkedList;
-import java.util.List;
+import java.awt.image.BufferedImage;
 
-public abstract class View {
-    /** The components. */
-    private final List<Component> components = new LinkedList<>();
+public class View extends JPanel {
+    /** The background image. */
+    @Setter private BufferedImage backgroundImage;
 
-    /**
-     * Draws the view on a graphics context.
-     *
-     * @param gc
-     *          The graphics context.
-     */
-    public void draw(final Graphics2D gc) {
-        if (gc == null) {
-            return;
-        }
-
-        for (final Component component : components) {
-            component.draw(gc);
-        }
+    /** Constructs a new View. */
+    public View() {
+        this.setLayout(null);
+        backgroundImage = null;
     }
 
     /**
-     * Adds a component to the view.
+     * Constructs a new View.
      *
-     * @param component
-     *          The component.
+     * @param backgroundImage
+     *          The background image.
      */
-    protected void addComponent(final Component component) {
-        if (components.contains(component)) {
-            return;
-        }
-
-        this.components.add(component);
+    public View(final BufferedImage backgroundImage) {
+        this.setLayout(null);
+        this.backgroundImage = backgroundImage;
     }
 
-    /**
-     * Removes a component from the view.
-     *
-     * @param component
-     *          The component.
-     */
-    protected void removeComponent(final Component component) {
-        components.remove(component);
-    }
-
-    public void addToCanvas() {
-        final Settings settings = Settings.getInstance();
-
-        if (settings.isDebugModeOn()) {
-            System.out.println("Adding " + components.size() + " components for the " + this.getClass().getSimpleName() + " class.");
-        }
-
-        for (final Component component : components) {
-            if (settings.isDebugModeOn()) {
-                System.out.println("\tAdding " + component.getEventListeners().size() + " event listeners for a " + component.getClass().getSimpleName() + ".");
-            }
-
-            final Game game = Game.getInstance();
-            for (final EventListener eventListener : component.getEventListeners()) {
-                game.addEventListener(eventListener);
-            }
-        }
-    }
-
-    public void removeFromCanvas() {
-        final Settings settings = Settings.getInstance();
-
-        if (settings.isDebugModeOn()) {
-            System.out.println("Removing " + components.size() + " components for the " + this.getClass().getSimpleName() + " class.");
-        }
-
-        for (final Component component : components) {
-            if (settings.isDebugModeOn()) {
-                System.out.println("\tRemoving " + component.getEventListeners().size() + " event listeners for a " + component.getClass().getSimpleName() + ".");
-            }
-
-            final Game game = Game.getInstance();
-            for (final EventListener eventListener : component.getEventListeners()) {
-                game.removeEventListener(eventListener);
-            }
+    @Override
+    protected void paintComponent(final Graphics gc) {
+        if (backgroundImage != null) {
+            gc.drawImage(backgroundImage, 0, 0, null);
         }
     }
 }

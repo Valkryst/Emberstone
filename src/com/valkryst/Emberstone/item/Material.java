@@ -4,11 +4,11 @@ import lombok.Getter;
 
 public enum Material {
     COPPER("Copper", 1),
-    BRONZE("Bronze", 2),
-    IRON("Iron", 3),
-    STEEL("Steel", 4),
-    MITHRIL("Mithril", 8),
-    ADAMANTINE("Adamantine", 12);
+    BRONZE("Bronze", 1.2),
+    IRON("Iron", 1.3),
+    STEEL("Steel", 1.4),
+    MITHRIL("Mithril", 1.8),
+    ADAMANTINE("Adamantine", 2.0);
 
     /** The name. */
     @Getter private final String name;

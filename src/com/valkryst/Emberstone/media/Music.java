@@ -8,8 +8,9 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 public enum Music {
-    MAIN_MENU("/music/Emberstone - Title Diddy.mp3"),
-    GAME("/music/Emberstone - No Clue.mp3");
+    MAIN_MENU("/music/Title.mp3"),
+    GAME("/music/Crypt.mp3"),
+    DEATH("/music/Death.mp3");
 
     /** The URI of the music file. */
     @Getter  private final String uri;

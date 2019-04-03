@@ -9,6 +9,7 @@ import java.net.URISyntaxException;
 
 public enum Video {
     INTRO("/video/Intro.mp4"),
+    OUTRO("/video/Outro.mp4"),
     CREDITS("/video/Credits.mp4");
 
     /** The URI of the video file. */

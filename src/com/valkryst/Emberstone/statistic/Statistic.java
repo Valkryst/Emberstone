@@ -1,10 +1,11 @@
 package com.valkryst.Emberstone.statistic;
 
-import com.valkryst.Emberstone.mvc.component.Label;
+import com.valkryst.Emberstone.mvc.component.ELabel;
 import lombok.Getter;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Statistic {
@@ -13,9 +14,6 @@ public class Statistic {
 
     /** The value. */
     @Getter private int value;
-
-    /** The runnable functions to run whenever the value is changed. */
-    @Getter private final List<Runnable> runnables = new ArrayList<>();
 
     /**
      * Constructs a new Stat.
@@ -31,6 +29,10 @@ public class Statistic {
         this.value = value;
     }
 
+    public ELabel getLabel(final int textSize) {
+        return new ELabel(type.getName() + ": " + value, textSize, Color.WHITE);
+    }
+
     /**
      * Sets a new value.
      *
@@ -39,19 +41,5 @@ public class Statistic {
      */
     public void setValue(final int value) {
         this.value = value;
-
-        for (final Runnable runnable : runnables) {
-            runnable.run();
-        }
-    }
-
-    /**
-     * Retrieves a label component, displaying the stat's name and value.
-     *
-     * @return
-     *          The label component.
-     */
-    public Label getLabel() {
-        return new Label(new Point(0, 0), type.getName() + ": " + value, 32);
     }
 }

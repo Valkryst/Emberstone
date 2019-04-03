@@ -1,0 +1,36 @@
+{
+    "Sprite Atlas": [
+        {
+            "Name": "Entity",
+            "Sprite Sheet": [
+                {
+                    "Name": "IDLE",
+                    "Frames": [
+                        {
+                            "x": 0,
+                            "y": 0,
+                            "width": 90,
+                            "height": 90,
+                            "Bounding Boxes": [
+                                {
+                                    "Name": "Body",
+                                    "x": 0,
+                                    "y": 0,
+                                    "width": 90,
+                                    "height": 90
+                                },
+                                {
+                                    "Name": "Feet",
+                                    "x": 0,
+                                    "y": 60,
+                                    "width": 90,
+                                    "height": 30
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

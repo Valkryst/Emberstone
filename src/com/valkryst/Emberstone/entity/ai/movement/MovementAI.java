@@ -101,7 +101,7 @@ public class MovementAI {
                 for (int x = endX ; x != startX + 1 ; x++) {
                     final Tile tile = map.getTileAt(x, y);
 
-                    if (tile == null || tile.isValidSpawnPoint() == false) {
+                    if (tile == null || tile.isWalkable() == false) {
                         allTilesWalkable = false;
                         break;
                     }
@@ -131,7 +131,7 @@ public class MovementAI {
                 for (int x = startX ; x != endX + 1 ; x++) {
                     final Tile tile = map.getTileAt(x, y);
 
-                    if (tile == null || tile.isValidSpawnPoint() == false) {
+                    if (tile == null || tile.isWalkable() == false) {
                         allTilesWalkable = false;
                         break;
                     }
@@ -161,7 +161,7 @@ public class MovementAI {
                 for (int x = endX ; x != startX + 1 ; x++) {
                     final Tile tile = map.getTileAt(x, y);
 
-                    if (tile == null || tile.isValidSpawnPoint() == false) {
+                    if (tile == null || tile.isWalkable() == false) {
                         allTilesWalkable = false;
                         break;
                     }
@@ -191,7 +191,7 @@ public class MovementAI {
                 for (int x = startX ; x != endX + 1 ; x++) {
                     final Tile tile = map.getTileAt(x, y);
 
-                    if (tile == null || tile.isValidSpawnPoint() == false) {
+                    if (tile == null || tile.isWalkable() == false) {
                         allTilesWalkable = false;
                         break;
                     }
@@ -220,7 +220,7 @@ public class MovementAI {
             for (int y = startY ; y != endY + 1 ; y++) {
                 final Tile tile = map.getTileAt(startX, y);
 
-                if (tile == null || tile.isValidSpawnPoint() == false) {
+                if (tile == null || tile.isWalkable() == false) {
                     allTilesWalkable = false;
                     break;
                 }
@@ -244,7 +244,7 @@ public class MovementAI {
             for (int y = endY ; y != startY + 1 ; y++) {
                 final Tile tile = map.getTileAt(startX, y);
 
-                if (tile == null || tile.isValidSpawnPoint() == false) {
+                if (tile == null || tile.isWalkable() == false) {
                     allTilesWalkable = false;
                     break;
                 }
@@ -268,7 +268,7 @@ public class MovementAI {
             for (int x = endX ; x != startX + 1 ; x++) {
                 final Tile tile = map.getTileAt(x, startY);
 
-                if (tile == null || tile.isValidSpawnPoint() == false) {
+                if (tile == null || tile.isWalkable() == false) {
                     allTilesWalkable = false;
                     break;
                 }
@@ -292,7 +292,7 @@ public class MovementAI {
             for (int x = startX ; x != endX ; x++) {
                 final Tile tile = map.getTileAt(x, startY);
 
-                if (tile == null || tile.isValidSpawnPoint() == false) {
+                if (tile == null || tile.isWalkable() == false) {
                     allTilesWalkable = false;
                     break;
                 }

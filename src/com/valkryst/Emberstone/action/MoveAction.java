@@ -54,14 +54,14 @@ public class MoveAction extends Action {
                 }
 
                 // Not all entities are set-up with feet bounding boxes.
-                Rectangle entityFeet = self.getFeetBoundingBox();
+                Rectangle entityFeet = self.getBoundingBox("Feet");
                 if (entityFeet == null) {
                     continue;
                 }
 
                 // Tiles can have multiple body bounding boxes, so we need to check against all of them.
-                final Rectangle tileBodyA = tile.getBoundingBoxA(x * tileDimensions, y * tileDimensions);
-                final Rectangle tileBodyB = tile.getBoundingBoxB(x * tileDimensions, y * tileDimensions);
+                final Rectangle tileBodyA = tile.getBoundingBox("Body A", x, y);
+                final Rectangle tileBodyB = tile.getBoundingBox("Body B", x, y);
 
                 if (tileBodyA != null) {
                     if (entityFeet.intersects(tileBodyA)) {

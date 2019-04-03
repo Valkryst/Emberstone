@@ -1,6 +1,6 @@
 package com.valkryst.Emberstone.statistic;
 
-import com.valkryst.Emberstone.mvc.component.Label;
+import com.valkryst.Emberstone.mvc.component.ELabel;
 import lombok.Getter;
 
 import java.awt.*;
@@ -61,8 +61,21 @@ public class BoundStatistic extends Statistic {
     }
 
     @Override
-    public Label getLabel() {
-        return new Label(new Point(0, 0), super.getType().getName() + ": " + minValue + "-" + maxValue, 32);
+    public ELabel getLabel(final int textSize) {
+        switch (super.getType()) {
+            case LEVEL: {
+                return super.getLabel(textSize);
+            }
+            case EXPERIENCE: {
+                return new ELabel(super.getType().getName() + ": " + super.getValue() + "/" + maxValue, textSize, Color.WHITE);
+            }
+            case HEALTH: {
+                return super.getLabel(textSize);
+            }
+            default: {
+                return new ELabel(super.getType().getName() + ": " + minValue + "-" + maxValue, textSize, Color.WHITE);
+            }
+        }
     }
 
     @Override

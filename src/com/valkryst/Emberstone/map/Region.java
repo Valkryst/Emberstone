@@ -2,6 +2,7 @@ package com.valkryst.Emberstone.map;
 
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
+import com.valkryst.Emberstone.Settings;
 import com.valkryst.Emberstone.entity.SpriteType;
 import com.valkryst.V2DSprite.AnimatedSprite;
 import com.valkryst.V2DSprite.Sprite;
@@ -19,64 +20,30 @@ import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 public class Region {
+    private final static int REGION_DIMENSIONS = 20;
+
     private final static Cache<String, Region> REGIONS = Caffeine.newBuilder().expireAfterAccess(5, TimeUnit.MINUTES).build();
 
     /** The cache of recently loaded SpriteAtlases. */
     private final static Cache<String, SpriteAtlas> ATLAS_CACHE = Caffeine.newBuilder().expireAfterAccess(5, TimeUnit.MINUTES).build();
 
-    @Getter private final int width;
-    @Getter private final int height;
     @Getter private final String name;
     private final Tile[][] tiles;
 
-    private final ConnectorDirection[] connectorDirections;
-
-    @Getter private final Rectangle[] spawnRegions;
-
-    private Region(final int width, final int height, final JSONObject data) {
-        this.width = width;
-        this.height = height;
+    private Region(final JSONObject data) {
         name = VJSON.getString(data, "Name");
-        tiles = new Tile[height][width];
+        tiles = new Tile[REGION_DIMENSIONS][REGION_DIMENSIONS];
 
-        // Load Tilesets
-        for (final Object tilesetObj : (JSONArray) data.get("Tilesets")) {
-            String name = (String) tilesetObj;
+        // Load Tileset
+        final String tilesetName = VJSON.getString(data, "Tileset");
 
-            if (ATLAS_CACHE.getIfPresent(name) == null) {
-                try {
-                    final SpriteAtlas atlas = SpriteAtlas.createSpriteAtlas("tilesets/" + name + ".png", "tilesets/" + name + ".json");
-                    ATLAS_CACHE.put(name, atlas);
-                } catch (IOException | ParseException e) {
-                    e.printStackTrace();
-                }
+        if (ATLAS_CACHE.getIfPresent(tilesetName) == null) {
+            try {
+                final SpriteAtlas atlas = SpriteAtlas.createSpriteAtlas("tilesets/" + tilesetName + ".png", "tilesets/" + tilesetName + ".json");
+                ATLAS_CACHE.put(tilesetName, atlas);
+            } catch (IOException | ParseException e) {
+                e.printStackTrace();
             }
-        }
-
-        // Load Connector Directions
-        final JSONArray connectorData = (JSONArray) data.get("Connectors"); // todo Throw error if a region has no connectors.
-        connectorDirections = new ConnectorDirection[connectorData.size()];
-
-        for (int i = 0 ; i < connectorData.size() ; i++) {
-            connectorDirections[i] = ConnectorDirection.valueOf((String) connectorData.get(i));
-        }
-
-        // Load Spawn Regions
-        final JSONArray spawnRegionsData = (JSONArray) data.get("Spawn Regions"); // todo Add handling for when these are missing.
-
-        if (spawnRegionsData != null) {
-            spawnRegions = new Rectangle[spawnRegionsData.size()];
-
-            for (int i = 0; i < spawnRegionsData.size(); i++) {
-                final JSONObject spawnRegionData = (JSONObject) spawnRegionsData.get(i);
-                final int x = VJSON.getInt(spawnRegionData, "X");
-                final int y = VJSON.getInt(spawnRegionData, "Y");
-                final int w = VJSON.getInt(spawnRegionData, "Width");
-                final int h = VJSON.getInt(spawnRegionData, "Height");
-                spawnRegions[i] = new Rectangle(x, y, w, h);
-            }
-        } else {
-            spawnRegions = new Rectangle[0];
         }
 
         // Load Tiles
@@ -86,10 +53,16 @@ public class Region {
             final int x = VJSON.getInt(tileData, "X");
             final int y = VJSON.getInt(tileData, "Y");
 
-            final String tileset = VJSON.getString(tileData, "Tileset");
             final String spriteName = VJSON.getString(tileData, "Sprite Name");
 
-            final SpriteSheet spriteSheet = ATLAS_CACHE.getIfPresent(tileset).getSpriteSheet("Tiles");
+            final SpriteAtlas spriteAtlas = ATLAS_CACHE.getIfPresent(tilesetName);
+            if (spriteAtlas == null) {
+                if (Settings.getInstance().isDebugModeOn()) {
+                    System.out.println("The tile (" + x + ", " + y + ") of region " + name + " is using an unknown '" + tilesetName + "' tileset.");
+                }
+            }
+
+            final SpriteSheet spriteSheet = spriteAtlas.getSpriteSheet("Tiles");
             final Sprite sprite = spriteSheet.getSprite(spriteName);
             final AnimatedSprite animatedSprite = spriteSheet.getAnimatedSprite(spriteName);
 
@@ -113,14 +86,11 @@ public class Region {
         try {
             final JSONObject regionsJson = VJSON.loadJson("levels/Regions.json");
 
-            final int width = VJSON.getInt(regionsJson, "Width");
-            final int height = VJSON.getInt(regionsJson, "Height");
-
             for (final Object regionObj : (JSONArray) regionsJson.get("Regions")) {
                 final JSONObject regionData = (JSONObject) regionObj;
 
                 if (VJSON.getString(regionData, "Name").equals(name)) {
-                    region = new Region(width, height, regionData);
+                    region = new Region(regionData);
                     REGIONS.put(region.getName(), region);
                 }
             }
@@ -131,17 +101,32 @@ public class Region {
         return region;
     }
 
-    public boolean hasConnector(final ConnectorDirection connectorDirection) {
-        for (int i = 0 ; i <connectorDirections.length ; i++) {
-            if (connectorDirections[i] == connectorDirection) {
-                return true;
+    /**
+     * Copies the region's tiles onto a map's tiles.
+     *
+     * @param mapTiles
+     *          The map's tiles.
+     *
+     * @param startX
+     *          The x-axis position, on the map, of the region's top-left corner.
+     *
+     * @param startY
+     *          The y-axis position, on the map, of the region's top-left corner.
+     */
+    public void copyOntoMap(final Tile[][] mapTiles, int startX, int startY) {
+        startX *= REGION_DIMENSIONS;
+        startY *= REGION_DIMENSIONS;
+        final int endX = startX + REGION_DIMENSIONS;
+        final int endY = startY + REGION_DIMENSIONS;
+
+        for (int y = startY ; y < endY ; y++) {
+            if (endX - startX >= 0) {
+                System.arraycopy(this.tiles[y - startY], 0, mapTiles[y], startX, endX - startX);
             }
         }
-
-        return false;
     }
 
-    public Tile getTileAt(final int x, final int y) {
-        return tiles[y][x];
+    public static int getRegionDimensions() {
+        return REGION_DIMENSIONS;
     }
 }

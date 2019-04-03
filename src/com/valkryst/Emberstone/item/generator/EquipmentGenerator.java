@@ -196,10 +196,11 @@ public class EquipmentGenerator extends ItemGenerator {
         diceRoller.reset();
         diceRoller.addDice(level * 2, 1);
 
-        item.addStat(new Statistic(StatisticType.ARMOR, diceRoller.roll() + level));
+        final double statModifier = rarity.getMultiplier() * material.getMultiplier();
+        item.addStat(new Statistic(StatisticType.ARMOR, (int) ((diceRoller.roll() + level) * statModifier)));
 
         for (int i = 0 ; i < modifier.getStats().length ; i++) {
-            item.addStat(new Statistic(modifier.getStats()[i], diceRoller.roll() + level));
+            item.addStat(new Statistic(modifier.getStats()[i], (int) ((diceRoller.roll() + level) * statModifier)));
         }
 
         return item;
@@ -234,20 +235,22 @@ public class EquipmentGenerator extends ItemGenerator {
         // Generate Stat
         diceRoller.reset();
 
+        final double statModifier = rarity.getMultiplier() * material.getMultiplier();
+
         if (isMainHand) {
             diceRoller.addDice(level * 9, 1);
 
-            final int minDmg = diceRoller.roll() + level;
-            final int maxDmg = minDmg * 4;
+            final int minDmg = (int) ((diceRoller.roll() + level) * statModifier);
+            final int maxDmg = (int) (minDmg * 2.5);
             item.addStat(new BoundStatistic(StatisticType.DAMAGE, minDmg, maxDmg));
         } else {
             diceRoller.addDice(level * 2, 1);
 
-            item.addStat(new Statistic(StatisticType.ARMOR, diceRoller.roll() + level));
+            item.addStat(new Statistic(StatisticType.ARMOR, (int) ((diceRoller.roll() + level) * statModifier)));
         }
 
         for (int i = 0 ; i < modifier.getStats().length ; i++) {
-            item.addStat(new Statistic(modifier.getStats()[i], diceRoller.roll() + level));
+            item.addStat(new Statistic(modifier.getStats()[i], (int) ((diceRoller.roll() + level) * statModifier)));
         }
 
         return item;

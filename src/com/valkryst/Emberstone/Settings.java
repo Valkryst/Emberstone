@@ -17,7 +17,7 @@ public class Settings {
     private static Settings instance;
 
     /** The target FPS. */
-    @Getter @Setter private int targetFps = 60;
+    @Getter @Setter private int targetFps = 50;
 
     @Getter @Setter private double uiScale = 1.0;
 
