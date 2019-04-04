@@ -47,7 +47,7 @@ public class DeathAction extends Action {
         }
 
         if (self instanceof Creature) {
-            map.setShardsGathered(map.getShardsGathered() + ThreadLocalRandom.current().nextInt(3));
+            map.setShardsGathered(map.getShardsGathered() + ThreadLocalRandom.current().nextInt(1, 3));
 
             if (map.isPortalSpawned() == false && map.getShardsGathered() >= map.getShardsRequired()) {
                 map.setShardsGathered(map.getShardsRequired());

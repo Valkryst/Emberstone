@@ -203,7 +203,7 @@ public class Map implements IBoard {
         // Draw Shards Collected
         gc.setColor(Color.WHITE);
         gc.setFont(EFontFactory.createFont(28));
-        gc.drawString("Phylactery Shards Collected: " + shardsGathered + "/" + shardsRequired, 10, 1070);
+        gc.drawString("Phylactery Shards Collected: " + shardsGathered + "/" + shardsRequired, 1470, 450);
 
         if (Settings.getInstance().isDebugModeOn()) {
             gc.setColor(Color.MAGENTA);

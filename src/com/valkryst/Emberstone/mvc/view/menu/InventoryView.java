@@ -71,11 +71,13 @@ public class InventoryView extends View {
 
         // Create the equip button
         final JButton equipButton = new EButton("Equip Selected Loot", 38);
+        final JButton backButton = new EButton("Back", 38);
 
         final Game game = Game.getInstance();
         final int x = (int) ((game.getViewWidth() / 2.0) - (equipButton.getWidth() / 2.0));
         int y = (int) (game.getViewHeight() / 2.0) + equipButton.getHeight() * 2;
         equipButton.setLocation(x, y);
+        backButton.setLocation(x, y + (equipButton.getHeight() * 2));
 
         equipButton.addActionListener(e -> {
             if (selectedItem == null || playerInventory == null || lootInventory == null || player == null) {
@@ -94,7 +96,11 @@ public class InventoryView extends View {
             displayLootInventory(lootInventory);
             displayPlayerStats(player);
         });
+        backButton.addActionListener(e -> {
+            Game.getInstance().setController(previousController);
+        });
         super.add(equipButton);
+        super.add(backButton);
     }
 
     public void displayPlayerInventory(final Inventory playerInventory) {

@@ -52,10 +52,22 @@ public class SettingsView extends View {
         musicButton.addActionListener(e -> {
             settings.setMusicEnabled(!settings.isMusicEnabled());
             musicButton.setText("Music: " + (settings.isMusicEnabled() ? "On" : "Off"));
+
+            try {
+                settings.save();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
         });
         sfxButton.addActionListener(e -> {
             settings.setSfxEnabled(!settings.isSfxEnabled());
             sfxButton.setText("SFX: " + (settings.isSfxEnabled() ? "On" : "Off"));
+
+            try {
+                settings.save();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
         });
         backButton.addActionListener(e -> game.setController(new MainController()));
 
