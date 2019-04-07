@@ -219,30 +219,32 @@ public class Map implements IBoard {
         }
 
         // Check if the entity would collide with a tile if placed.
-        for (int y = 0 ; y < tiles.length ; y++) {
-            for (int x = 0 ; x < tiles[0].length ; x++) {
-                if (tiles[y][x] == null) {
-                    continue;
-                }
-
-                Rectangle entityFeet = entity.getBoundingBox("Feet");
-
-                if (entityFeet == null) {
-                    continue;
-                }
-
-                final Rectangle tileBodyA = tiles[y][x].getBoundingBox("Body A", x, y);
-                final Rectangle tileBodyB = tiles[y][x].getBoundingBox("Body B", x, y);
-
-                if (tileBodyA != null) {
-                    if (entityFeet.intersects(tileBodyA)) {
-                        return false;
+        if (entity instanceof Portal == false) {
+            for (int y = 0; y < tiles.length; y++) {
+                for (int x = 0; x < tiles[0].length; x++) {
+                    if (tiles[y][x] == null) {
+                        continue;
                     }
-                }
 
-                if (tileBodyB != null) {
-                    if (entityFeet.intersects(tileBodyB)) {
-                        return false;
+                    Rectangle entityFeet = entity.getBoundingBox("Feet");
+
+                    if (entityFeet == null) {
+                        continue;
+                    }
+
+                    final Rectangle tileBodyA = tiles[y][x].getBoundingBox("Body A", x, y);
+                    final Rectangle tileBodyB = tiles[y][x].getBoundingBox("Body B", x, y);
+
+                    if (tileBodyA != null) {
+                        if (entityFeet.intersects(tileBodyA)) {
+                            return false;
+                        }
+                    }
+
+                    if (tileBodyB != null) {
+                        if (entityFeet.intersects(tileBodyB)) {
+                            return false;
+                        }
                     }
                 }
             }
