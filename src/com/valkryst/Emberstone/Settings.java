@@ -1,78 +1,292 @@
 package com.valkryst.Emberstone;
 
-import com.valkryst.Emberstone.media.GameAudio;
-import com.valkryst.VJSON.VJSON;
+import com.valkryst.Emberstone.display.renderer.*;
+import com.valkryst.Emberstone.display.renderer.Renderer;
 import lombok.Getter;
-import lombok.Setter;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.ParseException;
+import org.ini4j.Config;
+import org.ini4j.Ini;
+import org.ini4j.IniPreferences;
 
-import java.io.*;
+import javax.swing.*;
+import java.awt.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Optional;
+import java.util.prefs.Preferences;
 
 public class Settings {
-    /** The settings filename. */
-    private static final String FILE_NAME = "Settings.json";
+    /** Name of the settings file. */
+    private final static String SETTINGS_FILE = "settings.ini";
 
-    /** The singleton instance. */
+    /** Singleton instance. */
     private static Settings instance;
 
-    /** The target FPS. */
-    @Getter @Setter private int targetFps = 50;
+    /**
+     * Whether alpha blending algorithm choices should be biased for more speed
+     * or quality.
+     */
+    @Getter private Object alphaInterpolation;
 
-    @Getter @Setter private double uiScale = 1.0;
+    /**
+     * Whether geometry rendering methods of a Graphics2D object should attempt
+     * to reduce aliasing artifacts along the edges of shapes.
+     */
+    @Getter private Object antialiasing;
 
-    /** Whether music is enabled. */
-    @Getter private boolean musicEnabled = true;
+    /**
+     * Whether color conversion algorithms should be biased for more accurate
+     * approximations/conversions when storing colors into a destination image
+     * or surface with limited color resolution.
+     */
+    @Getter private Object colorRendering;
 
-    /** Whether music is disabled. */
-    @Getter @Setter private boolean sfxEnabled = true;
+    /**
+     * Whether color conversion algorithms should be biased to use dithering
+     * when storing colors into a destination image or surface with limited
+     * color resolution.
+     */
+    @Getter private Object dithering;
 
-    /** Whether Direct3D hardware acceleration is enabled. */
-    @Getter private boolean direct3DEnabled = true;
+    /**
+     * Controls how image pixels are filtered, or resamples, during image
+     * rendering operations.
+     */
+    @Getter private Object interpolation;
 
-    /** Whether OpenGL hardware acceleration is enabled. */
-    @Getter private boolean openGLEnabled = false;
+    /**
+     * Whether rendering algorithm choices should be biased for more speed or
+     * quality.
+     */
+    @Getter private Object rendering;
 
-    /** Whether debug mode is enabled. */
-    @Getter @Setter private boolean debugModeOn = false;
-
-    /** Whether bounding boxes are displayed when debug mode is on. */
-    @Setter private boolean debugBoundingBoxesOn = false;
-
-    /** Whether spawn points are displayed when debug mode is on. */
-    @Setter private boolean debugSpawnPointsOn = false;
-
-    /** Whether debug messages for the audio system are displayed when debug mode is on. */
-    @Setter private boolean debugAudioOn = false;
-
-    /** Constructs a new Settings object. */
-    private Settings() {}
+    @Getter private Class<? extends Renderer> renderer;
 
     /**
      * Constructs a new Settings object.
      *
-     * @param json
-     *          A JSON object containing the settings.
+     * @throws IOException
+     *          If the settings file doesn't exist and can't be created.
+     *          If the settings file is a directory.
+     *          If the user doesn't have permissions to read the settings file.
+     *          If the settings file can't be opened for any other reason.
      */
-    private Settings(final JSONObject json) {
-        targetFps = VJSON.getInt(json, "Target FPS");
-        uiScale = VJSON.getDouble(json, "UI Scale");
+    private Settings() throws IOException {
+        final var file = new File(SETTINGS_FILE);
 
-        musicEnabled = VJSON.getBoolean(json, "Music Enabled");
-        sfxEnabled = VJSON.getBoolean(json, "SFX Enabled");
-
-        direct3DEnabled = VJSON.getBoolean(json, "Direct3D Hardware Acceleration Enabled");
-        openGLEnabled = VJSON.getBoolean(json, "OpenGL Hardware Acceleration Enabled");
-
-        debugModeOn = VJSON.getBoolean(json, "Debug Mode On");
-        debugBoundingBoxesOn = VJSON.getBoolean(json, "Debug Bounding Boxes On");
-        debugSpawnPointsOn = VJSON.getBoolean(json, "Debug Spawn Points On");
-        debugAudioOn = VJSON.getBoolean(json, "Debug Audio On");
-
-        // Only one should be active.
-        if (direct3DEnabled && openGLEnabled) {
-            direct3DEnabled = false;
+        if (!file.exists()) {
+            System.err.printf("There is no settings file at '%s'. Generating default settings file.\n", file.getAbsoluteFile());
+            generateDefaultSettingsFile();
         }
+
+        if (file.isDirectory()) {
+            throw new IOException(String.format("The settings file at '%s' is a directory.\n", file.getAbsoluteFile()));
+        }
+
+        if (!file.canRead()) {
+            throw new IOException(String.format("Unable to read the settings file at '%s'.", file.getAbsoluteFile()));
+        }
+
+        Config.getGlobal().setEscape(false);
+        final var settings = new IniPreferences(new Ini(file));
+
+        // Load Graphics Settings
+        final var graphicsSettings = settings.node("graphics");
+        loadString(graphicsSettings, "alphaInterpolation").ifPresent(s -> {
+            switch (s) {
+                case "default": {
+                    alphaInterpolation = RenderingHints.VALUE_ALPHA_INTERPOLATION_DEFAULT;
+                    break;
+                }
+                case "quality": {
+                    alphaInterpolation = RenderingHints.VALUE_ALPHA_INTERPOLATION_QUALITY;
+                    break;
+                }
+                case "speed": {
+                    alphaInterpolation = RenderingHints.VALUE_ALPHA_INTERPOLATION_SPEED;
+                    break;
+                }
+                default: {
+                    // todo value not supported
+                }
+            }
+        });
+        loadString(graphicsSettings, "antialiasing").ifPresent(s -> {
+            switch (s) {
+                case "default": {
+                    antialiasing = RenderingHints.VALUE_ANTIALIAS_DEFAULT;
+                    break;
+                }
+                case "on": {
+                    antialiasing = RenderingHints.VALUE_ANTIALIAS_ON;
+                    break;
+                }
+                case "off": {
+                    antialiasing = RenderingHints.VALUE_ANTIALIAS_OFF;
+                    break;
+                }
+                default: {
+                    // todo value not supported
+                }
+            }
+        });
+        loadString(graphicsSettings, "colorRendering").ifPresent(s -> {
+            switch (s) {
+                case "default": {
+                    colorRendering = RenderingHints.VALUE_COLOR_RENDER_DEFAULT;
+                    break;
+                }
+                case "quality": {
+                    colorRendering = RenderingHints.VALUE_COLOR_RENDER_QUALITY;
+                    break;
+                }
+                case "speed": {
+                    colorRendering = RenderingHints.VALUE_COLOR_RENDER_SPEED;
+                    break;
+                }
+                default: {
+                    // todo value not supported
+                }
+            }
+        });
+        loadString(graphicsSettings, "dithering").ifPresent(s -> {
+            switch (s) {
+                case "default": {
+                    dithering = RenderingHints.VALUE_DITHER_DEFAULT;
+                    break;
+                }
+                case "enable": {
+                    dithering = RenderingHints.VALUE_DITHER_ENABLE;
+                    break;
+                }
+                case "disable": {
+                    dithering = RenderingHints.VALUE_DITHER_DISABLE;
+                    break;
+                }
+                default: {
+                    // todo value not supported
+                }
+            }
+        });
+        loadString(graphicsSettings, "interpolation").ifPresent(s -> {
+            switch (s) {
+                case "bicubic": {
+                    interpolation = RenderingHints.VALUE_INTERPOLATION_BICUBIC;
+                    break;
+                }
+                case "bilinear": {
+                    interpolation = RenderingHints.VALUE_INTERPOLATION_BILINEAR;
+                    break;
+                }
+                case "nearestNeighbor": {
+                    interpolation = RenderingHints.VALUE_INTERPOLATION_NEAREST_NEIGHBOR;
+                    break;
+                }
+                default: {
+                    // todo value not supported
+                }
+            }
+        });
+        loadString(graphicsSettings, "rendering").ifPresent(s -> {
+            switch (s) {
+                case "default": {
+                    rendering = RenderingHints.VALUE_RENDER_DEFAULT;
+                    break;
+                }
+                case "quality": {
+                    rendering = RenderingHints.VALUE_RENDER_QUALITY;
+                    break;
+                }
+                case "speed": {
+                    rendering = RenderingHints.VALUE_RENDER_SPEED;
+                    break;
+                }
+                default: {
+                    // todo value not supported
+                }
+            }
+        });
+        loadString(graphicsSettings, "renderer").ifPresent(s -> {
+            switch (s) {
+                case "d3d": {
+                    renderer = D3DRenderer.class;
+                    break;
+                }
+                case "gdi": {
+                    renderer = GDIRenderer.class;
+                    break;
+                }
+                case "glx": {
+                    renderer = GLXRenderer.class;
+                    break;
+                }
+                case "lw": {
+                    renderer = LWRenderer.class;
+                    break;
+                }
+                case "wgl": {
+                    renderer = WGLRenderer.class;
+                    break;
+                }
+                case "x11": {
+                    renderer = X11Renderer.class;
+                    break;
+                }
+                case "x": {
+                    renderer = XRenderer.class;
+                    break;
+                }
+                default: {
+                    // todo value not supported
+                }
+            }
+        });
+    }
+
+    private void generateDefaultSettingsFile() throws IOException {
+        final var fileWriter = new FileWriter(new File(SETTINGS_FILE));
+        final var printWriter = new PrintWriter(fileWriter);
+
+        printWriter.println("[graphics]");
+        printWriter.println("alphaInterpolation = default");
+        printWriter.println("antialiasing = default");
+        printWriter.println("colorRendering = default");
+        printWriter.println("dithering = default");
+        printWriter.println("interpolation = nearestNeighbor");
+        printWriter.println("rendering = default");
+        printWriter.println("renderer = lw");
+
+        printWriter.close();
+        fileWriter.close();
+    }
+
+    private Optional<String> loadString(final Preferences preferences, final String key) {
+        final var data = preferences.get(key, null);
+
+        if (data == null || data.isEmpty()) {
+            final var message = String.format("There is no value associated with the '%s' key in the '%s' section.\n", key, preferences.name());
+            JOptionPane.showMessageDialog(null, message, "Settings Error", JOptionPane.ERROR_MESSAGE);
+            System.exit(1);
+        }
+
+        return Optional.of(data);
+    }
+
+    private Optional<Integer> loadInteger(final Preferences preferences, final String key) {
+        final var string = loadString(preferences, key);
+
+        if (string.isPresent()) {
+            try {
+                return Optional.of(Integer.parseInt(string.get()));
+            } catch(final NumberFormatException e) {
+                final var message = String.format("Unable to parse the value '%s', associated with the '%s' key in the '%s' section, as an integer.", string.get(), key, preferences.name());
+                JOptionPane.showMessageDialog(null, message, "Settings Error", JOptionPane.ERROR_MESSAGE);
+                System.exit(1);
+            }
+        }
+
+        return Optional.empty();
     }
 
     /**
@@ -84,101 +298,13 @@ public class Settings {
     public static Settings getInstance() {
         if (instance == null) {
             try {
-                instance = new Settings(VJSON.loadJson(FILE_NAME));
-            } catch (final FileNotFoundException e) {
                 instance = new Settings();
-
-                try {
-                    instance.save();
-                } catch (final IOException ee) {
-                    ee.printStackTrace();
-                }
-            } catch (final IOException | ParseException | ClassNotFoundException e) {
-                e.printStackTrace();
+            } catch(final IOException e) {
+                JOptionPane.showMessageDialog(null, e.getMessage(), "Settings Error", JOptionPane.ERROR_MESSAGE);
+                System.exit(1);
             }
-
-            // Save the settings when the game shuts down.
-            Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-                try {
-                    instance.save();
-                } catch (final IOException e) {
-                    e.printStackTrace();
-                }
-            }));
         }
 
         return instance;
-    }
-
-    /**
-     * Saves the settings to an on-disk file.
-     *
-     * @throws IOException
-     *          If the named file exists, but is a directory rather than a regular file.
-     *          If the file does not exist, but cannot be created.
-     *          If the file cannot be opened.
-     */
-    public void save() throws IOException {
-        // Prepare Data
-        final JSONObject json = new JSONObject();
-        json.put("Target FPS", targetFps);
-        json.put("UI Scale", uiScale);
-        json.put("Music Enabled", musicEnabled);
-        json.put("SFX Enabled", sfxEnabled);
-        json.put("Direct3D Hardware Acceleration Enabled", direct3DEnabled);
-        json.put("OpenGL Hardware Acceleration Enabled", openGLEnabled);
-        json.put("Debug Mode On", debugModeOn);
-        json.put("Debug Bounding Boxes On", debugBoundingBoxesOn);
-        json.put("Debug Spawn Points On", debugSpawnPointsOn);
-        json.put("Debug Audio On", debugAudioOn);
-
-        // Write Data
-        final FileWriter fw = new FileWriter(FILE_NAME);
-        json.writeJSONString(fw);
-        fw.flush();
-        fw.close();
-    }
-
-    /**
-     * Determines whether bounding boxes should be displayed.
-     *
-     * @return
-     *          Whether bounding boxes should be displayed.
-     */
-    public boolean areDebugBoundingBoxesOn() {
-        return debugModeOn & debugBoundingBoxesOn;
-    }
-
-    /**
-     * Determines whether spawn points should be displayed.
-     *
-     * @return
-     *          Whether spawn points should be displayed.
-     */
-    public boolean areDebugSpawnPointsOn() {
-        return debugModeOn & debugSpawnPointsOn;
-    }
-
-    /**
-     * Determines whether debug audio should be displayed.
-     *
-     * @return
-     *          Whether debug audio should be displayed.
-     */
-    public boolean isDebugAudioOn() {
-        return debugModeOn && debugAudioOn;
-    }
-
-    /**
-     * En/disables music.
-     *
-     * If disabling, then all active music is stopped.
-     *
-     * @param musicEnabled
-     *          Whether music is en/disabled.
-     */
-    public void setMusicEnabled(final boolean musicEnabled) {
-        this.musicEnabled = musicEnabled;
-        GameAudio.getInstance().stopAllActiveMusic();
     }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_13">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_11">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
@@ -15,18 +15,14 @@
     <orderEntry type="library" name="Maven: org.json:json:20190722" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.projectlombok:lombok:1.18.10" level="project" />
     <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.6" level="project" />
-    <orderEntry type="library" name="Maven: com.github.Valkryst:V2DSprite:2020.01.20-FULL_REWRITE.0" level="project" />
+    <orderEntry type="library" name="Maven: com.github.Valkryst:V2DSprite:2020.03.01" level="project" />
     <orderEntry type="library" name="Maven: com.github.Valkryst:VDice:1.1.2" level="project" />
     <orderEntry type="library" name="Maven: com.github.Valkryst:VNameGenerator:23da524" level="project" />
     <orderEntry type="library" name="Maven: com.github.Valkryst:VParser_CFG:1.0.0" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-swing:11.0.2" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-swing:win:11.0.2" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:11.0.2" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:win:11.0.2" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-base:11.0.2" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-base:win:11.0.2" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-media:11.0.2" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-media:win:11.0.2" level="project" />
-    <orderEntry type="library" name="Maven: com.github.fabio-t:rlforj-alt:0.3.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-core:2.13.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-api:2.13.1" level="project" />
+    <orderEntry type="library" name="Maven: org.ini4j:ini4j:0.5.4" level="project" />
+    <orderEntry type="library" name="Maven: com.badlogicgames.ashley:ashley:1.7.3" level="project" />
+    <orderEntry type="library" name="Maven: com.badlogicgames.gdx:gdx:1.9.4" level="project" />
   </component>
 </module>

@@ -9,8 +9,9 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>13</maven.compiler.source>
-        <maven.compiler.target>13</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.release>11</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
@@ -19,6 +20,13 @@
         <repository>
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
+        </repository>
+
+        <!-- Used by Ashley -->
+        <repository>
+            <id>sonatype</id>
+            <name>Sonatype</name>
+            <url>https://oss.sonatype.org/content/repositories/releases</url>
         </repository>
     </repositories>
 
@@ -53,8 +61,9 @@
         <dependency>
             <groupId>com.github.Valkryst</groupId>
             <artifactId>V2DSprite</artifactId>
-            <version>2020.01.20-FULL_REWRITE.0</version>
+            <version>2020.03.01</version>
         </dependency>
+
         <dependency>
             <groupId>com.github.Valkryst</groupId>
             <artifactId>VDice</artifactId>
@@ -66,23 +75,30 @@
             <version>23da524</version>
         </dependency>
 
-        <!-- Audio/Video -->
+        <!-- Logging -->
         <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-swing</artifactId>
-            <version>11.0.2</version>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.13.1</version>
         </dependency>
         <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-media</artifactId>
-            <version>11.0.2</version>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.13.1</version>
         </dependency>
 
-        <!-- Pathfindihng -->
+        <!-- INI File Parsing -->
         <dependency>
-            <groupId>com.github.fabio-t</groupId>
-            <artifactId>rlforj-alt</artifactId>
-            <version>0.3.0</version>
+            <groupId>org.ini4j</groupId>
+            <artifactId>ini4j</artifactId>
+            <version>0.5.4</version>
+        </dependency>
+
+        <!-- Entity Component System -->
+        <dependency>
+            <groupId>com.badlogicgames.ashley</groupId>
+            <artifactId>ashley</artifactId>
+            <version>1.7.3</version>
         </dependency>
     </dependencies>
 
@@ -94,6 +110,20 @@
             </resource>
         </resources>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <compilerArgs>
+                        <arg>--add-exports=java.desktop/sun.java2d.d3d=ALL-UNNAMED</arg>
+                        <arg>--add-exports=java.desktop/sun.java2d.pipe.hw=ALL-UNNAMED</arg>
+                        <arg>--add-exports=java.desktop/java.awt.peer=ALL-UNNAMED</arg>
+                        <arg>--add-exports=java.desktop/sun.java2d=ALL-UNNAMED</arg>
+                    </compilerArgs>
+                    <fork>true</fork>
+                </configuration>
+            </plugin>
+
             <!-- Used, during the test phase of the build, to run the unit tests -->
             <plugin>
                 <groupId>org.apache.maven.surefire</groupId>
@@ -156,7 +186,13 @@
                             </classPath>
                             <icon>res/icon/Icon.ico</icon>
                             <jre>
-                                <path>jdk-11.0.2</path>
+                                <!-- Folder containing the JRE -->
+                                <path>jdk-11.0.6</path>
+
+                                <!-- JVM CLI Args -->
+                                <opts>
+                                    <opt>-Djdk.module.illegalAccess=permit</opt>
+                                </opts>
                             </jre>
                         </configuration>
                     </execution>
