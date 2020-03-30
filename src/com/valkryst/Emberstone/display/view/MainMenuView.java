@@ -15,20 +15,23 @@ public class MainMenuView extends View {
     public MainMenuView(final DefaultController controller) {
         final var newGameButton = new Button("New");
         final var loadGameButton = new Button("Load");
+        final var settingsButton = new Button("Settings");
         final var creditsButton = new Button("Credits");
         final var exitButton = new Button("Exit");
 
         newGameButton.addActionListener(e -> controller.displayNewGameView(this));
         loadGameButton.addActionListener(e -> controller.displayLoadGameView(this));
-        creditsButton.addActionListener(e -> controller.displayCreditsView(this));
+        settingsButton.addActionListener(e -> controller.displaySettingsView(this));
+        creditsButton.addActionListener(e -> controller.displayCreditsView());
         exitButton.addActionListener(e -> controller.exitGame());
 
         this.add(newGameButton);
         this.add(loadGameButton);
+        this.add(settingsButton);
         this.add(creditsButton);
         this.add(exitButton);
 
-        this.setBackground(Color.RED);
+        this.setBackground(Color.BLACK);
     }
 
     @Override

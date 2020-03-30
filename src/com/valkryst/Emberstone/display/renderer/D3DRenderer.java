@@ -6,22 +6,31 @@ import sun.java2d.pipe.hw.ContextCapabilities;
 import java.awt.*;
 import java.awt.peer.ComponentPeer;
 
+/**
+ * Represents a renderer using Microsoft's Direct3D API.
+ *
+ * @see <a href="https://en.wikipedia.org/wiki/Direct3D">Direct3D</a>
+ */
 public class D3DRenderer extends Renderer {
-    public final static String PEER_CLASS_NAME = "sun.awt.windows.WComponentPeer";
-    public final static String SURFACE_CLASS_NAME = "sun.java2d.d3d.D3DSurfaceData";
-
-    public D3DRenderer(final ComponentPeer peer) throws UnsupportedOperationException {
-        super(peer, D3DRenderer.class);
-    }
+    /** Class name of the surface's peer component. */
+    private final static String PEER_CLASS_NAME = "sun.awt.windows.WComponentPeer";
+    /** Class name of the surface to render on. */
+    private final static String SURFACE_CLASS_NAME = "sun.java2d.d3d.D3DSurfaceData";
 
     /**
-     * Determines whether or not the D3DRenderer is supported on this machine.
+     * Constructs a new D3DRenderer.
      *
-     * @return
-     *          Whether the D3DRenderer is supported on this machine.
+     * @param peer
+     *          Component that the surface is displayed on.
+     *          (e.g. An instance of java.awt.Panel)
+     *
+     * @throws ClassNotFoundException
+     *          If the peer or surface classes cannot be found. This will
+     *          occur if the JRE/JDK of this machine doesn't support this
+     *          renderer.
      */
-    public static boolean isSupported() {
-        return Renderer.isSupported(D3DRenderer.class);
+    public D3DRenderer(final ComponentPeer peer) throws ClassNotFoundException {
+        super(peer, PEER_CLASS_NAME, SURFACE_CLASS_NAME);
     }
 
     @Override
@@ -30,21 +39,21 @@ public class D3DRenderer extends Renderer {
             // We use reflection so that this class loads on linux.
             final var d3dGraphicsDevice = Class.forName("sun.java2d.d3d.D3DGraphicsDevice");
             final var d3dGraphicsConfig = Class.forName("sun.java2d.d3d.D3DGraphicsConfig");
-            // final var contextCapabilities = Class.forName("sun.java2d.pipe.hw.ContextCapabilities");
+            final var contextCapabilities = Class.forName("sun.java2d.pipe.hw.ContextCapabilities");
 
             // Find the screen id.
-            final var getScreenMethod = d3dGraphicsDevice.getMethod("getScreen");
-            final int screen = (int) getScreenMethod.invoke(super.getGraphicsConfig().getDevice());
+            var method = d3dGraphicsDevice.getMethod("getScreen");
+            final int screen = (int) method.invoke(super.getGraphicsConfig().getDevice());
 
             // Find the device capability.
-            final var getDeviceCapsMethod = d3dGraphicsDevice.getDeclaredMethod("getDeviceCaps", int.class);
-            getDeviceCapsMethod.setAccessible(true);
-            final var d3dDeviceCaps = getDeviceCapsMethod.invoke(null, screen);
+            method = d3dGraphicsDevice.getDeclaredMethod("getDeviceCaps", int.class);
+            method.setAccessible(true);
+            final var d3dDeviceCaps = method.invoke(null, screen);
 
             // Check Direct3D pipeline support.
-            final var getCapsMethod = ContextCapabilities.class.getMethod("getCaps");
+            method = contextCapabilities.getMethod("getCaps");
             final int CAPS_OK = 1 << 18;
-            if ((((int) getCapsMethod.invoke(d3dDeviceCaps)) & CAPS_OK) == 0) {
+            if ((((int) method.invoke(d3dDeviceCaps)) & CAPS_OK) == 0) {
                 throw new RuntimeException("Could not enable Direct3D pipeline on " + "screen " + screen);
             }
 
@@ -66,9 +75,17 @@ public class D3DRenderer extends Renderer {
         }
     }
 
+    public static String getName() {
+        return "Direct3D";
+    }
 
-    @Override
-    public String getName() {
-        return "OpenGL";
+    /**
+     * Determines whether the D3DRenderer is supported on this machine.
+     *
+     * @return
+     *          Whether the D3DRenderer is supported on this machine.
+     */
+    public static boolean isSupported() {
+        return Renderer.isSupported(PEER_CLASS_NAME, SURFACE_CLASS_NAME);
     }
 }

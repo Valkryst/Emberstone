@@ -95,7 +95,7 @@ public abstract class Controller implements PropertyChangeListener {
                 final var method = model.getClass().getMethod(methodName, newValue.getClass());
 
                 method.invoke(model, newValue);
-            } catch (final NoSuchMethodException ignored) {
+            } catch (final NoSuchMethodException e) {
                 /*
                  * We're iterating over the models, trying to find the model
                  * that has the 'setPropertyName' method, so this could be
@@ -103,6 +103,7 @@ public abstract class Controller implements PropertyChangeListener {
                  *
                  * Because this is intended behaviour, we ignore the exception.
                  */
+                e.printStackTrace();
             } catch (final IllegalAccessException e) {
                 /*
                  * If we found the model with the 'setPropertyName' method,
@@ -112,7 +113,6 @@ public abstract class Controller implements PropertyChangeListener {
                  */
                 e.printStackTrace();
             } catch (final InvocationTargetException e) {
-                // if the underlying method throws an exception.
                 /*
                  * If we found the model with the 'setPropertyName' method, this
                  * can be thrown if the 'setPropertyName' method throws an

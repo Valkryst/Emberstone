@@ -4,19 +4,18 @@ import java.awt.*;
 import java.awt.peer.ComponentPeer;
 
 /**
- * Represents a renderer using the OpenGL Extension to the X Window System (GLX)
- * API.
+ * Represents a renderer using OpenGL and the the X Window System API.
  *
- * @see <a href="https://en.wikipedia.org/wiki/GLX">GLX</a>
+ * @see <a href="https://en.wikipedia.org/wiki/X_Window_System">X Window System</a>
  */
-public class GLXRenderer extends Renderer {
+public class X11GLRenderer extends Renderer {
     /** Class name of the surface's peer component. */
     private final static String PEER_CLASS_NAME = "sun.awt.X11ComponentPeer";
     /** Class name of the surface to render on. */
-    private final static String SURFACE_CLASS_NAME = "sun.java2d.x11.X11SurfaceData";
+    private final static String SURFACE_CLASS_NAME = "sun.java2d.opengl.GLXSurfaceData";
 
     /**
-     * Constructs a new GLXRenderer.
+     * Constructs a new X11GLRenderer.
      *
      * @param peer
      *          Component that the surface is displayed on.
@@ -27,24 +26,30 @@ public class GLXRenderer extends Renderer {
      *          occur if the JRE/JDK of this machine doesn't support this
      *          renderer.
      */
-    public GLXRenderer(final ComponentPeer peer) throws ClassNotFoundException {
+    public X11GLRenderer(final ComponentPeer peer) throws ClassNotFoundException {
         super(peer, PEER_CLASS_NAME, SURFACE_CLASS_NAME);
     }
 
     @Override
     public GraphicsConfiguration getGraphicsConfig() {
+        if (!isSupported()) {
+            return super.getGraphicsConfig();
+        }
+
         try {
             final var currentGraphicsConfiguration = super.getGraphicsConfig();
 
-            final var glxGraphicsConfig = Class.forName("sun.java2d.opengl.GLXGraphicsConfig");
             final var x11GraphicsDevice = Class.forName("sun.awt.X11GraphicsDevice");
             final var x11GraphicsConfig = Class.forName("sun.awt.X11GraphicsConfig");
 
             final var getVisualMethod = x11GraphicsConfig.getMethod("getVisual");
             final int visual = (int) getVisualMethod.invoke(currentGraphicsConfiguration);
 
-            final var getConfigMethod = glxGraphicsConfig.getMethod("getConfig", x11GraphicsDevice, int.class);
-            return (GraphicsConfiguration) getConfigMethod.invoke(null, currentGraphicsConfiguration.getDevice(), visual);
+            final var getConfigMethod = x11GraphicsConfig.getMethod("getConfig", x11GraphicsDevice, int.class, int.class, int.class, boolean.class);
+
+            // I pulled these values out of nowhere, may be wrong.
+            // 24 = depth, 0 = colormap, false= doublebuffer
+            return (GraphicsConfiguration) getConfigMethod.invoke(null, currentGraphicsConfiguration.getDevice(), visual, 24, 0, false);
         } catch (final Exception e) {
             // todo Tons of exceptions can be thrown in the above code, catch it or something.
             // Otherwise, we fall back to the default and hope for the best.
@@ -54,26 +59,16 @@ public class GLXRenderer extends Renderer {
     }
 
     public static String getName() {
-        return "OpenGL (GLX)";
+        return "OpenGL (X11)";
     }
 
     /**
-     * Determines whether the GLXRenderer is supported on this machine.
+     * Determines whether the X11GLRenderer is supported on this machine.
      *
      * @return
-     *          Whether the GLXRenderer is supported on this machine.
+     *          Whether the X11GLRenderer is supported on this machine.
      */
     public static boolean isSupported() {
-        boolean isSupported = Renderer.isSupported(PEER_CLASS_NAME, SURFACE_CLASS_NAME);
-
-        try {
-            final var x11GraphicsEnvironment = Class.forName("sun.awt.X11GraphicsEnvironment");
-            final var isGLXAvailableMethod = x11GraphicsEnvironment.getMethod("isGLXAvailable");
-            isSupported &= (boolean) isGLXAvailableMethod.invoke(null);
-        } catch (final Exception e) {
-            isSupported = false;
-        }
-
-        return isSupported;
+        return Renderer.isSupported(PEER_CLASS_NAME, SURFACE_CLASS_NAME);
     }
 }

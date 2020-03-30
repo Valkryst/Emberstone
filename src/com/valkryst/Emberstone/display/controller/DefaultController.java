@@ -1,40 +1,41 @@
 package com.valkryst.Emberstone.display.controller;
 
-import com.valkryst.Emberstone.Settings;
-import com.valkryst.Emberstone.display.view.GameView;
-import com.valkryst.Emberstone.display.view.LoadGameView;
-import com.valkryst.Emberstone.display.view.MainMenuView;
-import com.valkryst.Emberstone.display.view.View;
+import com.valkryst.Emberstone.display.view.*;
 
 public class DefaultController extends Controller {
-    public void displayMainMenuView(final View view) {
-        super.removeView(view);
-        this.addView(new MainMenuView(this));
+    public void displayMainMenuView(final View previousView) {
+        super.removeView(previousView);
 
-        System.out.println("Main Menu");
+        final var controller = new DefaultController();
+        final var view = new MainMenuView(controller);
+        controller.addView(view);
     }
 
-    public void displayNewGameView(View view) {
-        super.removeView(view);
+    public void displayNewGameView(final View previousView) {
+        super.removeView(previousView);
 
-        // The renderer MUST be set after the view is added to the Frame, or
-        // else a whole whack of errors will be thrown.
-        final var gameView = new GameView();
-        this.addView(gameView);
-        gameView.setRenderer(Settings.getInstance().getRenderer());
-        gameView.start();
-
-        System.out.println("New Game");
+        final var controller = new GameController();
+        final var view = new GameView(controller);
+        controller.addView(view);
     }
 
-    public void displayLoadGameView(final View view) {
-        super.removeView(view);
-        this.addView(new LoadGameView(this));
+    public void displayLoadGameView(final View previousView) {
+        super.removeView(previousView);
 
-        System.out.println("Load Game");
+        final var controller = new DefaultController();
+        final var view = new LoadGameView(controller);
+        controller.addView(view);
     }
 
-    public void displayCreditsView(final View view) {
+    public void displaySettingsView(final View previousView) {
+        super.removeView(previousView);
+
+        final var controller = new SettingsController();
+        final var view = new SettingsView(controller);
+        controller.addView(view);
+    }
+
+    public void displayCreditsView() {
         //super.removeView(view);
 
         System.out.println("Credits");

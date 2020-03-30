@@ -19,10 +19,9 @@
     <orderEntry type="library" name="Maven: com.github.Valkryst:VDice:1.1.2" level="project" />
     <orderEntry type="library" name="Maven: com.github.Valkryst:VNameGenerator:23da524" level="project" />
     <orderEntry type="library" name="Maven: com.github.Valkryst:VParser_CFG:1.0.0" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-core:2.13.1" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-api:2.13.1" level="project" />
     <orderEntry type="library" name="Maven: org.ini4j:ini4j:0.5.4" level="project" />
     <orderEntry type="library" name="Maven: com.badlogicgames.ashley:ashley:1.7.3" level="project" />
     <orderEntry type="library" name="Maven: com.badlogicgames.gdx:gdx:1.9.4" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains:annotations:18.0.0" level="project" />
   </component>
 </module>

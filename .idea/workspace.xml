@@ -6,124 +6,38 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="720fc8fb-5381-451a-a2af-8b11c39af682" name="Default Changelist" comment="* Update project to Java 13">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Valkryst.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_badlogicgames_ashley_ashley_1_7_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_badlogicgames_gdx_gdx_1_9_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_Valkryst_V2DSprite_2020_03_01.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_Valkryst_VDice_1_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_Valkryst_VNameGenerator_23da524.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_Valkryst_VParser_CFG_1_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_13_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_core_2_13_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_ini4j_ini4j_0_5_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20190722.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/Keyboard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/component/PositionComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/component/VelocityComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/Display.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/controller/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/controller/DefaultController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/model/Model.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/CGLRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/D3DRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/GDIRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/GLXRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/LWRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/Renderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/WGLRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/X11Renderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/XRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/v1/controller/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/v1/controller/LevelController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/v1/view/LevelView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/v1/view/View.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/view/GameView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/view/LoadGameView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/view/MainMenuView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/view/SettingsView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/view/View.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/system/MovementSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="720fc8fb-5381-451a-a2af-8b11c39af682" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_annotations_18_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/controller/GameController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/controller/SettingsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/model/SettingsModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/X11GLRenderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/log/Logger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Valkryst.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/Valkryst.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_13_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_core_2_13_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Projects.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/Camera.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/Game.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/Settings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/action/Action.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/action/AttackAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/action/DeathAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/action/MissAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/action/MoveAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/action/SwapFacing.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/entity/AnimationState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/entity/Chest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/entity/Creature.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/entity/Entity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/entity/Player.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/entity/Portal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/entity/SpriteType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/entity/ai/combat/AggressiveCombatAI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/entity/ai/combat/CombatAI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/entity/ai/movement/MovementAI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/item/Equipment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/item/EquipmentModifier.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/item/EquipmentSlot.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/item/Inventory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/item/Item.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/item/Material.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/item/Rarity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/item/WeaponType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/item/generator/EquipmentGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/item/generator/ItemGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/item/loot/LootEntry.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/item/loot/LootTable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/map/ConnectorDirection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/map/Map.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/map/Region.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/map/Tile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/media/GameAudio.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/media/Music.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/media/SoundEffect.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/media/Video.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/mvc/component/EButton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/mvc/component/EFontFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/mvc/component/EImage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/mvc/component/ELabel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/mvc/component/ERadioButton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/mvc/controller/Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/mvc/controller/LevelController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/mvc/controller/VideoController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/mvc/controller/menu/CharacterSelectionController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/mvc/controller/menu/ControlsController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/mvc/controller/menu/DeathController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/mvc/controller/menu/EscapeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/mvc/controller/menu/InventoryController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/mvc/controller/menu/MainController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/mvc/controller/menu/SettingsController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/mvc/model/InventoryModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/mvc/view/LevelView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/mvc/view/VideoView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/mvc/view/View.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/mvc/view/menu/CharacterSelectionView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/mvc/view/menu/ControlsView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/mvc/view/menu/DeathView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/mvc/view/menu/EscapeView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/mvc/view/menu/InventoryView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/mvc/view/menu/MainView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/mvc/view/menu/SettingsView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/statistic/BoundStatistic.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/statistic/Statistic.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/statistic/StatisticType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/Settings.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/Display.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/controller/DefaultController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/controller/DefaultController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/CGLRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/D3DRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/D3DRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/GDIRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/GDIRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/GLXRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/GLXRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/LWRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/Renderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/WGLRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/WGLRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/X11Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/X11Renderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/XRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/view/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/view/GameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/view/MainMenuView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/view/MainMenuView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/view/SettingsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/view/SettingsView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -261,6 +175,7 @@
       <command value="mvn compile" />
       <command value="mvn build" />
       <command value="mvn install" />
+      <command value="mvn javadoc:javadoc" />
     </option>
   </component>
   <component name="RunManager" selected="Application.Driver">
@@ -320,13 +235,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1551034592514</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Adds JSON and PNG files for the zombie farmer.">
-      <created>1552845095968</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1552845095968</updated>
     </task>
     <task id="LOCAL-00020" summary="Adds the ZOMBIE_VILLAGER SpriteType enum.">
       <created>1552845109467</created>
@@ -664,7 +572,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579563266659</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary=".">
+      <created>1585416151660</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1585416151660</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -686,7 +601,6 @@
       <path value="$PROJECT_DIR$/VJSON" />
       <path value="$PROJECT_DIR$/VUDP" />
     </ignored-roots>
-    <MESSAGE value="Adds the new intro video." />
     <MESSAGE value="Simplifies sections of the playVideo function and adds ESC functionality to skip the video." />
     <MESSAGE value="Fixes a collision detection issue, where entities would often get stuck in room walls." />
     <MESSAGE value="Adds a setter to the color instance variable." />
@@ -711,7 +625,8 @@
     <MESSAGE value="* Add VGeometry to the pom file." />
     <MESSAGE value="* Add the json dependency&#10;* Remove the VJSON dependency&#10;* Update the lombok dependency to 1.18.10&#10;* Update the V2DSprite dependency" />
     <MESSAGE value="* Update project to Java 13" />
-    <option name="LAST_COMMIT_MESSAGE" value="* Update project to Java 13" />
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
   <component name="WindowStateProjectService">
     <state x="872" y="393" key="#Java" timestamp="1584890601515">
@@ -722,10 +637,10 @@
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
     <state x="384" y="232" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585413130129" />
-    <state x="956" y="267" key="#com.intellij.ide.util.MemberChooser" timestamp="1585415237725">
+    <state x="956" y="267" key="#com.intellij.ide.util.MemberChooser" timestamp="1585441674332">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
-    <state x="956" y="267" key="#com.intellij.ide.util.MemberChooser/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585415237725" />
+    <state x="956" y="267" key="#com.intellij.ide.util.MemberChooser/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585441674332" />
     <state x="635" y="317" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1585411780013">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
@@ -738,30 +653,34 @@
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
     <state x="969" y="246" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585264126905" />
-    <state x="934" y="328" width="1406" height="813" key="CommitChangelistDialog2" timestamp="1585356020975">
+    <state x="1027" y="467" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1585512731556">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
-    <state x="934" y="328" width="1406" height="813" key="CommitChangelistDialog2/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585356020975" />
-    <state x="1060" y="489" key="FileChooserDialogImpl" timestamp="1583627939719">
+    <state x="1027" y="467" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585512731556" />
+    <state x="934" y="328" width="1406" height="813" key="CommitChangelistDialog2" timestamp="1585416150372">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
-    <state x="1060" y="489" key="FileChooserDialogImpl/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1583627939719" />
-    <state width="2517" height="509" key="GridCell.Tab.0.bottom" timestamp="1585416002132">
+    <state x="934" y="328" width="1406" height="813" key="CommitChangelistDialog2/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585416150372" />
+    <state x="1060" y="489" key="FileChooserDialogImpl" timestamp="1585512705009">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
-    <state width="2517" height="509" key="GridCell.Tab.0.bottom/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585416002132" />
-    <state width="2517" height="509" key="GridCell.Tab.0.center" timestamp="1585416002132">
+    <state x="1060" y="489" key="FileChooserDialogImpl/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585512705009" />
+    <state width="2517" height="397" key="GridCell.Tab.0.bottom" timestamp="1585528654194">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
-    <state width="2517" height="509" key="GridCell.Tab.0.center/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585416002132" />
-    <state width="2517" height="509" key="GridCell.Tab.0.left" timestamp="1585416002132">
+    <state width="2517" height="397" key="GridCell.Tab.0.bottom/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585528654194" />
+    <state width="2517" height="397" key="GridCell.Tab.0.center" timestamp="1585528654193">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
-    <state width="2517" height="509" key="GridCell.Tab.0.left/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585416002132" />
-    <state width="2517" height="509" key="GridCell.Tab.0.right" timestamp="1585416002132">
+    <state width="2517" height="397" key="GridCell.Tab.0.center/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585528654193" />
+    <state width="2517" height="397" key="GridCell.Tab.0.left" timestamp="1585528654193">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
-    <state width="2517" height="509" key="GridCell.Tab.0.right/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585416002132" />
+    <state width="2517" height="397" key="GridCell.Tab.0.left/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585528654193" />
+    <state width="2517" height="397" key="GridCell.Tab.0.right" timestamp="1585528654193">
+      <screen x="0" y="30" width="2560" height="1410" />
+    </state>
+    <state width="2517" height="397" key="GridCell.Tab.0.right/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585528654193" />
     <state x="1450" y="394" key="Maven.ArtifactSearchDialog" timestamp="1585352990013">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
@@ -774,6 +693,18 @@
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
     <state x="245" y="241" width="1341" height="716" key="SettingsEditor/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585412808246" />
+    <state x="872" y="456" key="Vcs.Push.Dialog.v2" timestamp="1585416175933">
+      <screen x="0" y="30" width="2560" height="1410" />
+    </state>
+    <state x="872" y="456" key="Vcs.Push.Dialog.v2/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585416175933" />
+    <state x="879" y="345" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1585493885736">
+      <screen x="0" y="30" width="2560" height="1410" />
+    </state>
+    <state x="879" y="345" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585493885736" />
+    <state x="976" y="467" width="607" height="536" key="find.popup" timestamp="1585503574170">
+      <screen x="0" y="30" width="2560" height="1410" />
+    </state>
+    <state x="976" y="467" width="607" height="536" key="find.popup/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585503574170" />
     <state x="1085" y="598" key="git4idea.rebase.GitRebaseDialog" timestamp="1579563217504">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
@@ -786,10 +717,10 @@
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
     <state x="662" y="355" key="new project wizard/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1583628006398" />
-    <state x="1576" y="352" width="672" height="677" key="run.anything.popup" timestamp="1585416002150">
+    <state x="1576" y="352" width="672" height="677" key="run.anything.popup" timestamp="1585512762674">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
-    <state x="1576" y="352" width="672" height="677" key="run.anything.popup/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585416002150" />
+    <state x="1576" y="352" width="672" height="677" key="run.anything.popup/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585512762674" />
     <state x="943" y="347" width="672" height="678" key="search.everywhere.popup" timestamp="1584902961969">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
