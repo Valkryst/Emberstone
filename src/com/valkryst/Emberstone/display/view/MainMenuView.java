@@ -13,6 +13,9 @@ public class MainMenuView extends View {
      *          The controller for this view.
      */
     public MainMenuView(final DefaultController controller) {
+        final var innerPanel = new Panel(new GridLayout(0, 1));
+        this.add(innerPanel);
+
         final var newGameButton = new Button("New");
         final var loadGameButton = new Button("Load");
         final var settingsButton = new Button("Settings");
@@ -25,13 +28,14 @@ public class MainMenuView extends View {
         creditsButton.addActionListener(e -> controller.displayCreditsView());
         exitButton.addActionListener(e -> controller.exitGame());
 
-        this.add(newGameButton);
-        this.add(loadGameButton);
-        this.add(settingsButton);
-        this.add(creditsButton);
-        this.add(exitButton);
+        innerPanel.add(newGameButton);
+        innerPanel.add(loadGameButton);
+        innerPanel.add(settingsButton);
+        innerPanel.add(creditsButton);
+        innerPanel.add(exitButton);
 
         this.setBackground(Color.BLACK);
+        this.setLayout(new GridBagLayout());
     }
 
     @Override

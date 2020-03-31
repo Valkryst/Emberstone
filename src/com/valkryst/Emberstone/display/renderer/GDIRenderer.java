@@ -29,6 +29,12 @@ public class GDIRenderer extends Renderer {
         super(peer, PEER_CLASS_NAME, SURFACE_CLASS_NAME);
     }
 
+    /**
+     * Retrieves this renderer's name.
+     *
+     * @return
+     *          This renderer's name.
+     */
     public static String getName() {
         return "GDI";
     }

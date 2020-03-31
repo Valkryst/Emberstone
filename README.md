@@ -5,8 +5,8 @@
 
 Add support for OSX and test support for Linux. Original attempt at OSX support below with a few links that were used.
 
+* https://tbrindus.ca/blazing-fast-java2d/
 * https://github.com/AdoptOpenJDK/openjdk-jdk11/tree/master/src/java.desktop/macosx/classes/sun/lwawt
-* 
 
 ```java
 package com.valkryst.Emberstone.display.renderer;

@@ -16,12 +16,9 @@ import java.beans.PropertyChangeEvent;
 import java.lang.reflect.Field;
 
 public class GameView extends View {
-    private Engine engine;
     private Renderer renderer;
 
     public GameView(final GameController controller) {
-        engine = controller.getEngine();
-
         // Because we're specifically using active rendering with a custom
         // buffer strategy for the GameView, we can ignore repaint events sent
         // by the OS.
@@ -50,7 +47,7 @@ public class GameView extends View {
                 final var renderConstructor = renderClass.getDeclaredConstructor(ComponentPeer.class);
                 renderer = renderClass.cast(renderConstructor.newInstance(peer));
 
-                controller.startGame(view);
+                controller.startGame();
 
                 view.removeHierarchyListener(this);
             }
@@ -59,11 +56,13 @@ public class GameView extends View {
 
     @Override
     public void modelPropertyChange(final PropertyChangeEvent event) {
-
+        if (event.getPropertyName().equals("Engine")) {
+            render((Engine) event.getNewValue());
+        }
     }
 
-    public void render() {
-        do {
+    private void render(final Engine engine) {
+        do { 
             final var gc = renderer.getBufferGraphics2D();
 
             // Ensure only the visible portions of the canvas are drawn on.
@@ -81,6 +80,6 @@ public class GameView extends View {
             });
         } while(renderer.bufferContentsLost());
 
-        renderer.blit();
+        renderer.blitBufferToSurface();
     }
 }

@@ -32,19 +32,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.json</groupId>
-            <artifactId>json</artifactId>
-            <version>20190722</version>
-        </dependency>
-
-        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.10</version>
@@ -62,17 +49,6 @@
             <groupId>com.github.Valkryst</groupId>
             <artifactId>V2DSprite</artifactId>
             <version>2020.03.01</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.github.Valkryst</groupId>
-            <artifactId>VDice</artifactId>
-            <version>1.1.2</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.Valkryst</groupId>
-            <artifactId>VNameGenerator</artifactId>
-            <version>23da524</version>
         </dependency>
 
         <!-- INI File Parsing -->
@@ -94,6 +70,8 @@
             <version>18.0.0</version>
             <scope>compile</scope>
         </dependency>
+
+        <!-- Testing -->
     </dependencies>
 
     <build>

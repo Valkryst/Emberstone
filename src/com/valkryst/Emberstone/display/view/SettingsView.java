@@ -21,10 +21,14 @@ public class SettingsView extends View {
 
         controller.addModel(model);
 
-        this.setLayout(new GridLayout(0, 2));
+        this.setLayout(new GridBagLayout());
         this.setBackground(Color.WHITE);
 
-        this.add(new Label("AlphaInterpolation"));
+        final var innerPanel = new Panel(new GridLayout(0, 2));
+        innerPanel.setPreferredSize(new Dimension(512, 512));
+        this.add(innerPanel);
+
+        innerPanel.add(new Label("Alpha Interpolation"));
         alphaInterpolationChoice.add("Auto");
         alphaInterpolationChoice.add("Quality");
         alphaInterpolationChoice.add("Speed");
@@ -34,9 +38,9 @@ public class SettingsView extends View {
                 controller.changeAlphaInterpolation((String) e.getItem());
             }
         });
-        this.add(alphaInterpolationChoice);
+        innerPanel.add(alphaInterpolationChoice, "span");
 
-        this.add(new Label("Antialiasing"));
+        innerPanel.add(new Label("Antialiasing"));
         antialiasingChoice.add("Auto");
         antialiasingChoice.add("On");
         antialiasingChoice.add("Off");
@@ -46,9 +50,9 @@ public class SettingsView extends View {
                 controller.changeAntialiasing((String) e.getItem());
             }
         });
-        this.add(antialiasingChoice);
+        innerPanel.add(antialiasingChoice, "span");
 
-        this.add(new Label("Color Rendering"));
+        innerPanel.add(new Label("Color Rendering"));
         colorRenderingChoice.add("Auto");
         colorRenderingChoice.add("Quality");
         colorRenderingChoice.add("Speed");
@@ -58,9 +62,9 @@ public class SettingsView extends View {
                 controller.changeColorRendering((String) e.getItem());
             }
         });
-        this.add(colorRenderingChoice);
+        innerPanel.add(colorRenderingChoice, "span");
 
-        this.add(new Label("Dithering"));
+        innerPanel.add(new Label("Dithering"));
         ditheringChoice.add("Auto");
         ditheringChoice.add("Enable");
         ditheringChoice.add("Disable");
@@ -70,9 +74,9 @@ public class SettingsView extends View {
                 controller.changeDithering((String) e.getItem());
             }
         });
-        this.add(ditheringChoice);
+        innerPanel.add(ditheringChoice, "span");
 
-        this.add(new Label("Interpolation"));
+        innerPanel.add(new Label("Interpolation"));
         interpolationChoice.add("Bicubic");
         interpolationChoice.add("Bilinear");
         interpolationChoice.add("Nearest Neighbor");
@@ -82,9 +86,9 @@ public class SettingsView extends View {
                 controller.changeInterpolation((String) e.getItem());
             }
         });
-        this.add(interpolationChoice);
+        innerPanel.add(interpolationChoice, "span");
 
-        this.add(new Label("Rendering"));
+        innerPanel.add(new Label("Rendering"));
         renderingChoice.add("Auto");
         renderingChoice.add("Quality");
         renderingChoice.add("Speed");
@@ -94,9 +98,9 @@ public class SettingsView extends View {
                 controller.changeRendering((String) e.getItem());
             }
         });
-        this.add(renderingChoice);
+        innerPanel.add(renderingChoice, "span");
 
-        this.add(new Label("Renderer"));
+        innerPanel.add(new Label("Renderer"));
         model.getSupportedRendererNames().forEach(rendererChoice::add);
         rendererChoice.select(model.getRendererName());
         rendererChoice.addItemListener(e -> {
@@ -104,29 +108,29 @@ public class SettingsView extends View {
                 controller.changeRenderer((String) e.getItem());
             }
         });
-        this.add(rendererChoice);
+        innerPanel.add(rendererChoice, "span");
 
-        this.add(new Label("View Width"));
-        this.add(new TextField(model.getViewWidth()));
+        innerPanel.add(new Label("View Width"));
+        innerPanel.add(new TextField(model.getViewWidth()), "span");
 
-        this.add(new Label("View Height"));
-        this.add(new TextField(model.getViewHeight()));
+        innerPanel.add(new Label("View Height"));
+        innerPanel.add(new TextField(model.getViewHeight()), "span");
 
-        this.add(new Label("Windowed"));
-        this.add(new TextField(String.valueOf(model.isWindowed())));
+        innerPanel.add(new Label("Windowed"));
+        innerPanel.add(new TextField(String.valueOf(model.isWindowed())), "span");
 
         var button = new Button("Save");
         button.addActionListener(e -> {
             controller.saveSettings();
             controller.displayMainMenuView(this);
         });
-        this.add(button);
+        innerPanel.add(button);
 
         button = new Button("Cancel");
         button.addActionListener(e -> {
             controller.displayMainMenuView(this);
         });
-        this.add(button);
+        innerPanel.add(button);
     }
 
     @Override

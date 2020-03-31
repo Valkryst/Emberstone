@@ -58,6 +58,12 @@ public class X11GLRenderer extends Renderer {
         }
     }
 
+    /**
+     * Retrieves this renderer's name.
+     *
+     * @return
+     *          This renderer's name.
+     */
     public static String getName() {
         return "OpenGL (X11)";
     }

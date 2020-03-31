@@ -1,5 +1,6 @@
 package com.valkryst.Emberstone.display.controller;
 
+import com.valkryst.Emberstone.display.model.GameModel;
 import com.valkryst.Emberstone.display.view.*;
 
 public class DefaultController extends Controller {
@@ -15,7 +16,9 @@ public class DefaultController extends Controller {
         super.removeView(previousView);
 
         final var controller = new GameController();
+        final var model = new GameModel();
         final var view = new GameView(controller);
+        controller.addModel(model);
         controller.addView(view);
     }
 

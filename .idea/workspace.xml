@@ -7,37 +7,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="720fc8fb-5381-451a-a2af-8b11c39af682" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_annotations_18_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/controller/GameController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/controller/SettingsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/model/SettingsModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/X11GLRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/log/Logger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Valkryst.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/Valkryst.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_13_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_core_2_13_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/model/GameModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_Valkryst_VDice_1_1_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_Valkryst_VNameGenerator_23da524.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_Valkryst_VParser_CFG_1_0_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Projects.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/Settings.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/Display.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/controller/DefaultController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/controller/DefaultController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/CGLRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/controller/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/D3DRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/D3DRenderer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/GDIRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/GDIRenderer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/GLXRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/GLXRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/LWRenderer.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/Renderer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/WGLRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/WGLRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/X11GLRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/X11GLRenderer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/X11Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/X11Renderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/XRenderer.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/view/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/view/GameView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/view/MainMenuView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/view/MainMenuView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/view/SettingsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/view/SettingsView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/log/Logger.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -235,13 +227,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1551034592514</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Adds the ZOMBIE_VILLAGER SpriteType enum.">
-      <created>1552845109467</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1552845109467</updated>
     </task>
     <task id="LOCAL-00021" summary="Adds the ZOMBIE_WOODCUTTER SpriteType enum.">
       <created>1552845163362</created>
@@ -579,7 +564,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585416151660</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary=".">
+      <created>1585528703983</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1585528703983</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -657,30 +649,30 @@
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
     <state x="1027" y="467" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585512731556" />
-    <state x="934" y="328" width="1406" height="813" key="CommitChangelistDialog2" timestamp="1585416150372">
+    <state x="934" y="328" width="1406" height="813" key="CommitChangelistDialog2" timestamp="1585615265575">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
-    <state x="934" y="328" width="1406" height="813" key="CommitChangelistDialog2/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585416150372" />
+    <state x="934" y="328" width="1406" height="813" key="CommitChangelistDialog2/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585615265575" />
     <state x="1060" y="489" key="FileChooserDialogImpl" timestamp="1585512705009">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
     <state x="1060" y="489" key="FileChooserDialogImpl/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585512705009" />
-    <state width="2517" height="397" key="GridCell.Tab.0.bottom" timestamp="1585528654194">
+    <state width="2517" height="397" key="GridCell.Tab.0.bottom" timestamp="1585615213122">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
-    <state width="2517" height="397" key="GridCell.Tab.0.bottom/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585528654194" />
-    <state width="2517" height="397" key="GridCell.Tab.0.center" timestamp="1585528654193">
+    <state width="2517" height="397" key="GridCell.Tab.0.bottom/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585615213122" />
+    <state width="2517" height="397" key="GridCell.Tab.0.center" timestamp="1585615213122">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
-    <state width="2517" height="397" key="GridCell.Tab.0.center/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585528654193" />
-    <state width="2517" height="397" key="GridCell.Tab.0.left" timestamp="1585528654193">
+    <state width="2517" height="397" key="GridCell.Tab.0.center/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585615213122" />
+    <state width="2517" height="397" key="GridCell.Tab.0.left" timestamp="1585615213122">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
-    <state width="2517" height="397" key="GridCell.Tab.0.left/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585528654193" />
-    <state width="2517" height="397" key="GridCell.Tab.0.right" timestamp="1585528654193">
+    <state width="2517" height="397" key="GridCell.Tab.0.left/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585615213122" />
+    <state width="2517" height="397" key="GridCell.Tab.0.right" timestamp="1585615213122">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
-    <state width="2517" height="397" key="GridCell.Tab.0.right/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585528654193" />
+    <state width="2517" height="397" key="GridCell.Tab.0.right/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585615213122" />
     <state x="1450" y="394" key="Maven.ArtifactSearchDialog" timestamp="1585352990013">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
@@ -693,10 +685,10 @@
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
     <state x="245" y="241" width="1341" height="716" key="SettingsEditor/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585412808246" />
-    <state x="872" y="456" key="Vcs.Push.Dialog.v2" timestamp="1585416175933">
+    <state x="872" y="456" key="Vcs.Push.Dialog.v2" timestamp="1585528706900">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
-    <state x="872" y="456" key="Vcs.Push.Dialog.v2/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585416175933" />
+    <state x="872" y="456" key="Vcs.Push.Dialog.v2/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585528706900" />
     <state x="879" y="345" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1585493885736">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>

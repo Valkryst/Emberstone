@@ -57,7 +57,7 @@ public abstract class Renderer {
         parent.updateGraphicsData(getGraphicsConfig());
     }
 
-    public void blit() {
+    public void blitBufferToSurface() {
         final var surfaceGraphics = getSurfaceGraphics2D();
 
         final var settings = SettingsModel.getInstance();
