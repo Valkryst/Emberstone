@@ -1,8 +1,12 @@
 package com.valkryst.Emberstone.display.controller;
 
+import com.valkryst.Emberstone.Keyboard;
+
+import java.awt.event.KeyEvent;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class GameController extends DefaultController {
     private final static int TARGET_FPS = 60;
@@ -14,21 +18,32 @@ public class GameController extends DefaultController {
             stopGame();
         }
 
-        var timeOfLastDeltaTimeUpdate = System.currentTimeMillis();
-        final var fps = new FPS();
-
+        final var lastTime = new AtomicLong(System.currentTimeMillis());
 
         executorService = Executors.newSingleThreadScheduledExecutor();
         executorService.scheduleAtFixedRate(() -> {
             final var currentTime = System.currentTimeMillis();
+            final var deltaTime = (currentTime - lastTime.get()) / 1000.0;
+            lastTime.set(currentTime);
 
-            // Calculate DeltaTime
-            final float deltaTime = (currentTime - timeOfLastDeltaTimeUpdate) / 1000f;
+            final var keyboard = Keyboard.getInstance();
+            if (keyboard.isPressed(KeyEvent.VK_W)) {
+                super.setModelProperty("PlayerVelocityY", -96);
+            } else if (keyboard.isPressed(KeyEvent.VK_S)) {
+                super.setModelProperty("PlayerVelocityY", 96);
+            } else {
+                super.setModelProperty("PlayerVelocityY", 0);
+            }
 
-            // Calculate FPS
+            if (keyboard.isPressed(KeyEvent.VK_A)) {
+                super.setModelProperty("PlayerVelocityX", -96);
+            } else if (keyboard.isPressed(KeyEvent.VK_D)) {
+                super.setModelProperty("PlayerVelocityX", 96);
+            } else {
+                super.setModelProperty("PlayerVelocityX", 0);
+            }
 
             super.setModelProperty("DeltaTime", deltaTime);
-            fps.update();
         }, 0, 1000 / TARGET_FPS, TimeUnit.MILLISECONDS);
     }
 
@@ -39,35 +54,5 @@ public class GameController extends DefaultController {
 
         executorService.shutdown();
         executorService = null;
-    }
-
-    // todo Refactor these classes
-    private static class DeltaTime {
-        private static long timeOfLastUpdate = System.currentTimeMillis();
-
-        public float getDeltaTime() {
-            final var currentTime = System.currentTimeMillis();
-            final float deltaTime = (currentTime - timeOfLastUpdate) / 1000f;
-            timeOfLastUpdate = currentTime;
-            return deltaTime;
-        }
-    }
-
-    private static class FPS {
-        private static long timeOfLastUpdate = System.currentTimeMillis();
-        private static int frameCount = 0;
-        private static int fps = 60;
-
-        public void update() {
-            final var currentTime = System.currentTimeMillis();
-            if (currentTime - timeOfLastUpdate >= 1000) {
-                fps = frameCount;
-                timeOfLastUpdate = currentTime;
-                frameCount = 0;
-                System.out.println("FPS: " + fps);
-            } else {
-                frameCount++;
-            }
-        }
     }
 }

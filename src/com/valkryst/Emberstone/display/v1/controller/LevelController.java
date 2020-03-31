@@ -2,8 +2,8 @@ package com.valkryst.Emberstone.display.v1.controller;
 
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
-import com.valkryst.Emberstone.component.PositionComponent;
 import com.valkryst.Emberstone.component.VelocityComponent;
+import com.valkryst.Emberstone.component.PositionComponent;
 import com.valkryst.Emberstone.display.v1.view.LevelView;
 import com.valkryst.Emberstone.system.MovementSystem;
 
@@ -27,8 +27,8 @@ public class LevelController extends Controller<LevelView> {
         engine.addSystem(new MovementSystem());
 
         final Entity entity = new Entity();
-        entity.add(new PositionComponent(0, 0));
         entity.add(new VelocityComponent(0, 0));
+        entity.add(new PositionComponent(0, 0));
         engine.addEntity(entity);
 
         super.getView().getCanvas().addKeyListener(new KeyListener() {

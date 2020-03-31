@@ -5,12 +5,16 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ * Represents the (x, y, z) position of an entity's top-left corner in the
+ * world.
+ */
 @ToString
 public class PositionComponent implements Component {
     /** Position on the x-axis. */
-    @Getter private float x;
+    @Getter private double x;
     /** Position on the y-axis. */
-    @Getter private float y;
+    @Getter private double y;
     /** Position on the z-axis. */
     @Getter @Setter private int z;
 
@@ -24,7 +28,7 @@ public class PositionComponent implements Component {
      * @param z
      *          Position on the z-axis.
      */
-    public PositionComponent(final float x, final float y, final int z) {
+    public PositionComponent(final double x, final double y, final int z) {
         this.x = x;
         this.y = y;
         this.z = z;
@@ -38,7 +42,7 @@ public class PositionComponent implements Component {
      * @param y
      *          Position on the y-axis.
      */
-    public PositionComponent(final float x, final float y) {
+    public PositionComponent(final double x, final double y) {
         this(x, y, 0);
     }
 
@@ -48,7 +52,7 @@ public class PositionComponent implements Component {
      * @param dx
      *          The change in x.
      */
-    public void updateX(final float dx) {
+    public void updateX(final double dx) {
         x += dx;
     }
 
@@ -58,7 +62,7 @@ public class PositionComponent implements Component {
      * @param dy
      *          The change in y.
      */
-    public void updateY(final float dy) {
+    public void updateY(final double dy) {
         y += dy;
     }
 }

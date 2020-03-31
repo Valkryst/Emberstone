@@ -2,12 +2,9 @@ package com.valkryst.Emberstone.display.model;
 
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
-import com.valkryst.Emberstone.Keyboard;
-import com.valkryst.Emberstone.component.PositionComponent;
 import com.valkryst.Emberstone.component.VelocityComponent;
+import com.valkryst.Emberstone.component.PositionComponent;
 import com.valkryst.Emberstone.system.MovementSystem;
-
-import java.awt.event.KeyEvent;
 
 public class GameModel extends Model {
     private final Engine engine = new Engine();
@@ -21,20 +18,16 @@ public class GameModel extends Model {
         engine.addEntity(playerEntity);
     }
 
-    public void setDeltaTime(final Float deltaTime) {
-        engine.update(deltaTime);
+    public void setPlayerVelocityX(final Integer velocity) {
+        playerEntity.getComponent(VelocityComponent.class).setX(velocity);
+    }
 
-        // todo This control code should be in the controller.
-        final var keyboard = Keyboard.getInstance();
-        if (keyboard.isPressed(KeyEvent.VK_W)) {
-            playerEntity.getComponent(PositionComponent.class).updateY(-32 * deltaTime);
-        } else if (keyboard.isPressed(KeyEvent.VK_S)) {
-            playerEntity.getComponent(PositionComponent.class).updateY(32 * deltaTime);
-        } else if (keyboard.isPressed(KeyEvent.VK_A)) {
-            playerEntity.getComponent(PositionComponent.class).updateX(-32 * deltaTime);
-        } else if (keyboard.isPressed(KeyEvent.VK_D)) {
-            playerEntity.getComponent(PositionComponent.class).updateX(32 * deltaTime);
-        }
+    public void setPlayerVelocityY(final Integer velocity) {
+        playerEntity.getComponent(VelocityComponent.class).setY(velocity);
+    }
+
+    public void setDeltaTime(final Double deltaTime) {
+        engine.update(deltaTime.floatValue());
 
         /*
          * Normally, this should fire a property change for "DeltaTime", but
