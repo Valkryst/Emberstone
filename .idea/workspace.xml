@@ -5,31 +5,39 @@
       <artifact name="Projects:jar" />
     </artifacts-to-build>
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="720fc8fb-5381-451a-a2af-8b11c39af682" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/model/GameModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_Valkryst_VDice_1_1_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_Valkryst_VNameGenerator_23da524.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_Valkryst_VParser_CFG_1_0_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_22.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_badlogicgames_ashley_ashley_1_7_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_badlogicgames_ashley_ashley_1_7_4.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_badlogicgames_gdx_gdx_1_9_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_badlogicgames_gdx_gdx_1_9_9.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_annotations_18_0_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Projects.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/controller/DefaultController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/controller/DefaultController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/Driver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/Keyboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/Keyboard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/D3DRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/D3DRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/GDIRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/GDIRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/GLXRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/GLXRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/Renderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/WGLRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/WGLRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/X11GLRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/X11GLRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/X11Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/X11Renderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/controller/SettingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/controller/SettingsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/model/GameModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/model/GameModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/model/SettingsModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/model/SettingsModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/D3DRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/GDIRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/GLXRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/Renderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/WGLRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/X11GLRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/renderer/X11Renderer.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/view/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/view/GameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/view/LoadGameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/view/LoadGameView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/view/MainMenuView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/view/MainMenuView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/view/SettingsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/view/SettingsView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/log/Logger.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/view/View.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,12 +71,8 @@
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="d19feefb-1b2d-423d-b6d5-648798ced3a3" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
@@ -121,7 +125,6 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -220,6 +223,7 @@
       </list>
     </option>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="720fc8fb-5381-451a-a2af-8b11c39af682" name="Default Changelist" comment="" />
@@ -579,9 +583,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -619,104 +621,6 @@
     <MESSAGE value="* Update project to Java 13" />
     <MESSAGE value="." />
     <option name="LAST_COMMIT_MESSAGE" value="." />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="872" y="393" key="#Java" timestamp="1584890601515">
-      <screen x="0" y="30" width="2560" height="1410" />
-    </state>
-    <state x="872" y="393" key="#Java/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1584890601515" />
-    <state x="384" y="232" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585413130129">
-      <screen x="0" y="30" width="2560" height="1410" />
-    </state>
-    <state x="384" y="232" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585413130129" />
-    <state x="956" y="267" key="#com.intellij.ide.util.MemberChooser" timestamp="1585441674332">
-      <screen x="0" y="30" width="2560" height="1410" />
-    </state>
-    <state x="956" y="267" key="#com.intellij.ide.util.MemberChooser/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585441674332" />
-    <state x="635" y="317" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1585411780013">
-      <screen x="0" y="30" width="2560" height="1410" />
-    </state>
-    <state x="635" y="317" key="#com.intellij.ide.util.TreeClassChooserDialog/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585411780013" />
-    <state x="320" y="467" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1585263938508">
-      <screen x="0" y="30" width="2560" height="1410" />
-    </state>
-    <state x="320" y="467" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585263938508" />
-    <state x="969" y="246" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1585264126905">
-      <screen x="0" y="30" width="2560" height="1410" />
-    </state>
-    <state x="969" y="246" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585264126905" />
-    <state x="1027" y="467" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1585512731556">
-      <screen x="0" y="30" width="2560" height="1410" />
-    </state>
-    <state x="1027" y="467" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585512731556" />
-    <state x="934" y="328" width="1406" height="813" key="CommitChangelistDialog2" timestamp="1585615265575">
-      <screen x="0" y="30" width="2560" height="1410" />
-    </state>
-    <state x="934" y="328" width="1406" height="813" key="CommitChangelistDialog2/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585615265575" />
-    <state x="1060" y="489" key="FileChooserDialogImpl" timestamp="1585512705009">
-      <screen x="0" y="30" width="2560" height="1410" />
-    </state>
-    <state x="1060" y="489" key="FileChooserDialogImpl/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585512705009" />
-    <state width="2517" height="397" key="GridCell.Tab.0.bottom" timestamp="1585615213122">
-      <screen x="0" y="30" width="2560" height="1410" />
-    </state>
-    <state width="2517" height="397" key="GridCell.Tab.0.bottom/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585615213122" />
-    <state width="2517" height="397" key="GridCell.Tab.0.center" timestamp="1585615213122">
-      <screen x="0" y="30" width="2560" height="1410" />
-    </state>
-    <state width="2517" height="397" key="GridCell.Tab.0.center/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585615213122" />
-    <state width="2517" height="397" key="GridCell.Tab.0.left" timestamp="1585615213122">
-      <screen x="0" y="30" width="2560" height="1410" />
-    </state>
-    <state width="2517" height="397" key="GridCell.Tab.0.left/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585615213122" />
-    <state width="2517" height="397" key="GridCell.Tab.0.right" timestamp="1585615213122">
-      <screen x="0" y="30" width="2560" height="1410" />
-    </state>
-    <state width="2517" height="397" key="GridCell.Tab.0.right/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585615213122" />
-    <state x="1450" y="394" key="Maven.ArtifactSearchDialog" timestamp="1585352990013">
-      <screen x="0" y="30" width="2560" height="1410" />
-    </state>
-    <state x="1450" y="394" key="Maven.ArtifactSearchDialog/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585352990013" />
-    <state x="430" y="445" key="RollbackChangesDialog" timestamp="1585093488276">
-      <screen x="0" y="30" width="2560" height="1410" />
-    </state>
-    <state x="430" y="445" key="RollbackChangesDialog/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585093488276" />
-    <state x="245" y="241" width="1341" height="716" key="SettingsEditor" timestamp="1585412808246">
-      <screen x="0" y="30" width="2560" height="1410" />
-    </state>
-    <state x="245" y="241" width="1341" height="716" key="SettingsEditor/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585412808246" />
-    <state x="872" y="456" key="Vcs.Push.Dialog.v2" timestamp="1585528706900">
-      <screen x="0" y="30" width="2560" height="1410" />
-    </state>
-    <state x="872" y="456" key="Vcs.Push.Dialog.v2/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585528706900" />
-    <state x="879" y="345" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1585493885736">
-      <screen x="0" y="30" width="2560" height="1410" />
-    </state>
-    <state x="879" y="345" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585493885736" />
-    <state x="976" y="467" width="607" height="536" key="find.popup" timestamp="1585503574170">
-      <screen x="0" y="30" width="2560" height="1410" />
-    </state>
-    <state x="976" y="467" width="607" height="536" key="find.popup/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585503574170" />
-    <state x="1085" y="598" key="git4idea.rebase.GitRebaseDialog" timestamp="1579563217504">
-      <screen x="0" y="30" width="2560" height="1410" />
-    </state>
-    <state x="1085" y="598" key="git4idea.rebase.GitRebaseDialog/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1579563217504" />
-    <state x="1021" y="475" key="git4idea.rebase.GitRebaseEditor" timestamp="1579563222167">
-      <screen x="0" y="30" width="2560" height="1410" />
-    </state>
-    <state x="1021" y="475" key="git4idea.rebase.GitRebaseEditor/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1579563222167" />
-    <state x="662" y="355" key="new project wizard" timestamp="1583628006398">
-      <screen x="0" y="30" width="2560" height="1410" />
-    </state>
-    <state x="662" y="355" key="new project wizard/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1583628006398" />
-    <state x="1576" y="352" width="672" height="677" key="run.anything.popup" timestamp="1585512762674">
-      <screen x="0" y="30" width="2560" height="1410" />
-    </state>
-    <state x="1576" y="352" width="672" height="677" key="run.anything.popup/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1585512762674" />
-    <state x="943" y="347" width="672" height="678" key="search.everywhere.popup" timestamp="1584902961969">
-      <screen x="0" y="30" width="2560" height="1410" />
-    </state>
-    <state x="943" y="347" width="672" height="678" key="search.everywhere.popup/0.30.2560.1410/-1920.0.1920.1080@0.30.2560.1410" timestamp="1584902961969" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -2,7 +2,7 @@ package com.valkryst.Emberstone.display.view;
 
 import com.valkryst.Emberstone.display.controller.DefaultController;
 
-import java.awt.*;
+import javax.swing.*;
 import java.beans.PropertyChangeEvent;
 
 public class LoadGameView extends View {
@@ -13,7 +13,7 @@ public class LoadGameView extends View {
      *          The controller for this view.
      */
     public LoadGameView(final DefaultController controller) {
-        final var backButton = new Button("Back");
+        final var backButton = new JButton("Back");
 
         backButton.addActionListener(e -> controller.displayMainMenuView(this));
 

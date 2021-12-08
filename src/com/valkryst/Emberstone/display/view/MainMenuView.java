@@ -2,6 +2,7 @@ package com.valkryst.Emberstone.display.view;
 
 import com.valkryst.Emberstone.display.controller.DefaultController;
 
+import javax.swing.*;
 import java.awt.*;
 import java.beans.PropertyChangeEvent;
 
@@ -16,11 +17,11 @@ public class MainMenuView extends View {
         final var innerPanel = new Panel(new GridLayout(0, 1));
         this.add(innerPanel);
 
-        final var newGameButton = new Button("New");
-        final var loadGameButton = new Button("Load");
-        final var settingsButton = new Button("Settings");
-        final var creditsButton = new Button("Credits");
-        final var exitButton = new Button("Exit");
+        final var newGameButton = new JButton("New");
+        final var loadGameButton = new JButton("Load");
+        final var settingsButton = new JButton("Settings");
+        final var creditsButton = new JButton("Credits");
+        final var exitButton = new JButton("Exit");
 
         newGameButton.addActionListener(e -> controller.displayNewGameView(this));
         loadGameButton.addActionListener(e -> controller.displayLoadGameView(this));
@@ -34,7 +35,6 @@ public class MainMenuView extends View {
         innerPanel.add(creditsButton);
         innerPanel.add(exitButton);
 
-        this.setBackground(Color.BLACK);
         this.setLayout(new GridBagLayout());
     }
 

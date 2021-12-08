@@ -1,7 +1,5 @@
 package com.valkryst.Emberstone.display.model;
 
-import com.valkryst.Emberstone.display.renderer.Renderer;
-import com.valkryst.Emberstone.display.renderer.*;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
@@ -15,8 +13,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 import java.util.prefs.Preferences;
 
@@ -41,51 +37,49 @@ public class SettingsModel extends Model {
      * Whether alpha blending algorithm choices should be biased for more speed
      * or quality.
      */
-    @Getter @Setter private String alphaInterpolation;
+    @Getter private String alphaInterpolation;
 
     /**
      * Whether geometry rendering methods of a Graphics2D object should attempt
      * to reduce aliasing artifacts along the edges of shapes.
      */
-    @Getter @Setter private String antialiasing;
+    @Getter private String antialiasing;
 
     /**
      * Whether color conversion algorithms should be biased for more accurate
      * approximations/conversions when storing colors into a destination image
      * or surface with limited color resolution.
      */
-    @Getter @Setter private String colorRendering;
+    @Getter private String colorRendering;
 
     /**
      * Whether color conversion algorithms should be biased to use dithering
      * when storing colors into a destination image or surface with limited
      * color resolution.
      */
-    @Getter @Setter private String dithering;
+    @Getter private String dithering;
 
     /**
      * Controls how image pixels are filtered, or resamples, during image
      * rendering operations.
      */
-    @Getter @Setter private String interpolation;
+    @Getter private String interpolation;
 
     /**
      * Whether rendering algorithm choices should be biased for more speed or
      * quality.
      */
-    @Getter @Setter private String rendering;
+    @Getter private String rendering;
 
-    @Getter @Setter private Class<? extends Renderer> renderer;
+    @Getter private int viewWidth;
 
-    @Getter @Setter private int viewWidth;
+    @Getter private int viewHeight;
 
-    @Getter @Setter private int viewHeight;
-
-    @Getter @Setter private boolean windowed;
+    @Getter private boolean windowed;
 
     /**
      * Constructs a new SettingsModel.
-     *
+	 *
      * @throws IOException
      *          If the settings file doesn't exist and can't be created.
      *          If the settings file is a directory.
@@ -125,11 +119,19 @@ public class SettingsModel extends Model {
         loadString(graphicsSettings, "Dithering").ifPresent(this::setDithering);
         loadString(graphicsSettings, "Interpolation").ifPresent(this::setInterpolation);
         loadString(graphicsSettings, "Rendering").ifPresent(this::setRendering);
-        loadString(graphicsSettings, "Renderer").ifPresent(this::setRenderer);
         loadInteger(graphicsSettings, "ViewWidth").ifPresent(this::setViewWidth);
         loadInteger(graphicsSettings, "ViewHeight").ifPresent(this::setViewHeight);
         loadBoolean(graphicsSettings, "Windowed").ifPresent(this::setWindowed);
     }
+	
+	public void applyRenderingHints(final Graphics2D gc) {
+		gc.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION, getAlphaInterpolationHint());
+		gc.setRenderingHint(RenderingHints.KEY_ANTIALIASING, getAntialiasingHint());
+		gc.setRenderingHint(RenderingHints.KEY_COLOR_RENDERING, getColorRenderingHint());
+		gc.setRenderingHint(RenderingHints.KEY_DITHERING, getDitheringHint());
+		gc.setRenderingHint(RenderingHints.KEY_INTERPOLATION, getInterpolationHint());
+		gc.setRenderingHint(RenderingHints.KEY_RENDERING, getRenderingHint());
+	}
 
     private void generateDefaultSettingsFile() throws IOException {
         rendererDebuggingEnabled = true;
@@ -140,7 +142,6 @@ public class SettingsModel extends Model {
         setDithering("Auto");
         setInterpolation("Nearest Neighbor");
         setRendering("Auto");
-        setRenderer(GDIRenderer.getName());
         setViewWidth(1920);
         setViewHeight(1080);
         setWindowed(true);
@@ -162,7 +163,6 @@ public class SettingsModel extends Model {
         printWriter.println("Dithering = " + dithering);
         printWriter.println("Interpolation = " + interpolation);
         printWriter.println("Rendering = " + rendering);
-        printWriter.println("Renderer = " + getRendererName());
         printWriter.println("ViewWidth = " + viewWidth);
         printWriter.println("ViewHeight = " + viewHeight);
         printWriter.println("Windowed = " + windowed);
@@ -313,64 +313,6 @@ public class SettingsModel extends Model {
         }
     }
 
-    public String getRendererName() {
-        if (renderer.equals(D3DRenderer.class)) {
-            return D3DRenderer.getName();
-        }
-
-        if (renderer.equals(GDIRenderer.class)) {
-            return GDIRenderer.getName();
-        }
-
-        if (renderer.equals(GLXRenderer.class)) {
-            return GLXRenderer.getName();
-        }
-
-        if (renderer.equals(WGLRenderer.class)) {
-            return WGLRenderer.getName();
-        }
-
-        if (renderer.equals(X11GLRenderer.class)) {
-            return X11GLRenderer.getName();
-        }
-
-        if (renderer.equals(X11Renderer.class)) {
-            return X11Renderer.getName();
-        }
-
-        return ""; // todo Returning nothing is an issue.
-    }
-
-    public List<String> getSupportedRendererNames() {
-        final var names = new ArrayList<String>();
-
-        if (D3DRenderer.isSupported()) {
-            names.add(D3DRenderer.getName());
-        }
-
-        if (GDIRenderer.isSupported()) {
-            names.add(GDIRenderer.getName());
-        }
-
-        if (GLXRenderer.isSupported()) {
-            names.add(GLXRenderer.getName());
-        }
-
-        if (WGLRenderer.isSupported()) {
-            names.add(WGLRenderer.getName());
-        }
-
-        if (X11GLRenderer.isSupported()) {
-            names.add(X11GLRenderer.getName());
-        }
-
-        if (X11Renderer.isSupported()) {
-            names.add(X11Renderer.getName());
-        }
-
-        return names;
-    }
-
     public void setAlphaInterpolation(final String alphaInterpolation) {
         switch (alphaInterpolation) {
             case "Auto":
@@ -459,78 +401,6 @@ public class SettingsModel extends Model {
                 // todo Throw an error, or warning, because the value isn't supported.
             }
         }
-    }
-
-    public void setRenderer(final @NonNull String renderer) {
-        final var unsupportedRendererMessage = "This machine can't use the selected renderer: " + renderer;
-
-        if (D3DRenderer.getName().equals(renderer)) {
-            if (!D3DRenderer.isSupported()) {
-                // todo Throw an error, or warning, because this machine can't use the renderer.
-                System.err.println(unsupportedRendererMessage);
-            }
-
-            super.firePropertyChange("Renderer", this.renderer, renderer);
-            this.renderer = D3DRenderer.class;
-            return;
-        }
-
-        if (GDIRenderer.getName().equals(renderer)) {
-            if (!GDIRenderer.isSupported()) {
-                // todo Throw an error, or warning, because this machine can't use the renderer.
-                System.err.println(unsupportedRendererMessage);
-            }
-
-            super.firePropertyChange("Renderer", this.renderer, renderer);
-            this.renderer = GDIRenderer.class;
-            return;
-        }
-
-        if (GLXRenderer.getName().equals(renderer)) {
-            if (!GLXRenderer.isSupported()) {
-                // todo Throw an error, or warning, because this machine can't use the renderer.
-                System.err.println(unsupportedRendererMessage);
-            }
-
-            super.firePropertyChange("Renderer", this.renderer, renderer);
-            this.renderer = GLXRenderer.class;
-            return;
-        }
-
-        if (WGLRenderer.getName().equals(renderer)) {
-            if (!WGLRenderer.isSupported()) {
-                // todo Throw an error, or warning, because this machine can't use the renderer.
-                System.err.println(unsupportedRendererMessage);
-            }
-
-            super.firePropertyChange("Renderer", this.renderer, renderer);
-            this.renderer = WGLRenderer.class;
-            return;
-        }
-
-        if (X11GLRenderer.getName().equals(renderer)) {
-            if (!X11GLRenderer.isSupported()) {
-                // todo Throw an error, or warning, because this machine can't use the renderer.
-                System.err.println(unsupportedRendererMessage);
-            }
-
-            super.firePropertyChange("Renderer", this.renderer, renderer);
-            this.renderer = X11GLRenderer.class;
-            return;
-        }
-
-        if (X11Renderer.getName().equals(renderer)) {
-            if (!X11Renderer.isSupported()) {
-                // todo Throw an error, or warning, because this machine can't use the renderer.
-                System.err.println(unsupportedRendererMessage);
-            }
-
-            super.firePropertyChange("Renderer", this.renderer, renderer);
-            this.renderer = X11Renderer.class;
-            return;
-        }
-
-        // todo Throw an error, or warning, because the value isn't supported.
     }
 
     public void setViewWidth(final @NonNull int viewWidth) {

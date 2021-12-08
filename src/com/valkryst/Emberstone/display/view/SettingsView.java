@@ -3,18 +3,18 @@ package com.valkryst.Emberstone.display.view;
 import com.valkryst.Emberstone.display.controller.SettingsController;
 import com.valkryst.Emberstone.display.model.SettingsModel;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.beans.PropertyChangeEvent;
 
 public class SettingsView extends View {
-    private final Choice alphaInterpolationChoice = new Choice();
-    private final Choice antialiasingChoice = new Choice();
-    private final Choice colorRenderingChoice = new Choice();
-    private final Choice ditheringChoice = new Choice();
-    private final Choice interpolationChoice = new Choice();
-    private final Choice renderingChoice = new Choice();
-    private final Choice rendererChoice = new Choice();
+    private final JComboBox<String> alphaInterpolationComboBox = new JComboBox<>(new String[]{ "Auto", "Quality", "Speed" });
+    private final JComboBox<String> antialiasingComboBox = new JComboBox<>(new String[] { "Auto", "On", "Off" });
+    private final JComboBox<String> colorRenderingComboBox = new JComboBox<>(new String[]{ "Auto", "Quality", "Speed" });
+    private final JComboBox<String> ditheringComboBox = new JComboBox<>(new String[] { "Auto", "Enable", "Disable" });
+    private final JComboBox<String> interpolationComboBox = new JComboBox<>(new String[] { "Bicubic", "Bilinear", "Nearest Neighbor" });
+    private final JComboBox<String> renderingComboBox = new JComboBox<>(new String[]{ "Auto", "Quality", "Speed" });
 
     public SettingsView(final SettingsController controller) {
         final var model = SettingsModel.getInstance();
@@ -22,111 +22,82 @@ public class SettingsView extends View {
         controller.addModel(model);
 
         this.setLayout(new GridBagLayout());
-        this.setBackground(Color.WHITE);
 
-        final var innerPanel = new Panel(new GridLayout(0, 2));
+        final var innerPanel = new JPanel(new GridLayout(0, 2));
         innerPanel.setPreferredSize(new Dimension(512, 512));
         this.add(innerPanel);
 
-        innerPanel.add(new Label("Alpha Interpolation"));
-        alphaInterpolationChoice.add("Auto");
-        alphaInterpolationChoice.add("Quality");
-        alphaInterpolationChoice.add("Speed");
-        alphaInterpolationChoice.select(model.getAlphaInterpolation());
-        alphaInterpolationChoice.addItemListener(e -> {
+        innerPanel.add(new JLabel("Alpha Interpolation"));
+        alphaInterpolationComboBox.setSelectedItem(model.getAlphaInterpolation());
+        alphaInterpolationComboBox.addItemListener(e -> {
             if (e.getStateChange() == ItemEvent.SELECTED) {
                 controller.changeAlphaInterpolation((String) e.getItem());
             }
         });
-        innerPanel.add(alphaInterpolationChoice, "span");
+        innerPanel.add(alphaInterpolationComboBox, "span");
 
-        innerPanel.add(new Label("Antialiasing"));
-        antialiasingChoice.add("Auto");
-        antialiasingChoice.add("On");
-        antialiasingChoice.add("Off");
-        antialiasingChoice.select(model.getAntialiasing());
-        antialiasingChoice.addItemListener(e -> {
+        innerPanel.add(new JLabel("Antialiasing"));
+        antialiasingComboBox.setSelectedItem(model.getAntialiasing());
+        antialiasingComboBox.addItemListener(e -> {
             if (e.getStateChange() == ItemEvent.SELECTED) {
                 controller.changeAntialiasing((String) e.getItem());
             }
         });
-        innerPanel.add(antialiasingChoice, "span");
+        innerPanel.add(antialiasingComboBox, "span");
 
-        innerPanel.add(new Label("Color Rendering"));
-        colorRenderingChoice.add("Auto");
-        colorRenderingChoice.add("Quality");
-        colorRenderingChoice.add("Speed");
-        colorRenderingChoice.select(model.getColorRendering());
-        colorRenderingChoice.addItemListener(e -> {
+        innerPanel.add(new JLabel("Color Rendering"));
+        colorRenderingComboBox.setSelectedItem(model.getColorRendering());
+        colorRenderingComboBox.addItemListener(e -> {
             if (e.getStateChange() == ItemEvent.SELECTED) {
                 controller.changeColorRendering((String) e.getItem());
             }
         });
-        innerPanel.add(colorRenderingChoice, "span");
+        innerPanel.add(colorRenderingComboBox, "span");
 
-        innerPanel.add(new Label("Dithering"));
-        ditheringChoice.add("Auto");
-        ditheringChoice.add("Enable");
-        ditheringChoice.add("Disable");
-        ditheringChoice.select(model.getDithering());
-        ditheringChoice.addItemListener(e -> {
+        innerPanel.add(new JLabel("Dithering"));
+        ditheringComboBox.setSelectedItem(model.getDithering());
+        ditheringComboBox.addItemListener(e -> {
             if (e.getStateChange() == ItemEvent.SELECTED) {
                 controller.changeDithering((String) e.getItem());
             }
         });
-        innerPanel.add(ditheringChoice, "span");
+        innerPanel.add(ditheringComboBox, "span");
 
-        innerPanel.add(new Label("Interpolation"));
-        interpolationChoice.add("Bicubic");
-        interpolationChoice.add("Bilinear");
-        interpolationChoice.add("Nearest Neighbor");
-        interpolationChoice.select(model.getInterpolation());
-        interpolationChoice.addItemListener(e -> {
+        innerPanel.add(new JLabel("Interpolation"));
+        interpolationComboBox.setSelectedItem(model.getInterpolation());
+        interpolationComboBox.addItemListener(e -> {
             if (e.getStateChange() == ItemEvent.SELECTED) {
                 controller.changeInterpolation((String) e.getItem());
             }
         });
-        innerPanel.add(interpolationChoice, "span");
+        innerPanel.add(interpolationComboBox, "span");
 
-        innerPanel.add(new Label("Rendering"));
-        renderingChoice.add("Auto");
-        renderingChoice.add("Quality");
-        renderingChoice.add("Speed");
-        renderingChoice.select(model.getRendering());
-        renderingChoice.addItemListener(e -> {
+        innerPanel.add(new JLabel("Rendering"));
+        renderingComboBox.setSelectedItem(model.getRendering());
+        renderingComboBox.addItemListener(e -> {
             if (e.getStateChange() == ItemEvent.SELECTED) {
                 controller.changeRendering((String) e.getItem());
             }
         });
-        innerPanel.add(renderingChoice, "span");
+        innerPanel.add(renderingComboBox, "span");
 
-        innerPanel.add(new Label("Renderer"));
-        model.getSupportedRendererNames().forEach(rendererChoice::add);
-        rendererChoice.select(model.getRendererName());
-        rendererChoice.addItemListener(e -> {
-            if (e.getStateChange() == ItemEvent.SELECTED) {
-                controller.changeRenderer((String) e.getItem());
-            }
-        });
-        innerPanel.add(rendererChoice, "span");
+        innerPanel.add(new JLabel("View Width"));
+        innerPanel.add(new JTextField(model.getViewWidth()), "span");
 
-        innerPanel.add(new Label("View Width"));
-        innerPanel.add(new TextField(model.getViewWidth()), "span");
+        innerPanel.add(new JLabel("View Height"));
+        innerPanel.add(new JTextField(model.getViewHeight()), "span");
 
-        innerPanel.add(new Label("View Height"));
-        innerPanel.add(new TextField(model.getViewHeight()), "span");
+        innerPanel.add(new JLabel("Windowed"));
+        innerPanel.add(new JTextField(String.valueOf(model.isWindowed())), "span");
 
-        innerPanel.add(new Label("Windowed"));
-        innerPanel.add(new TextField(String.valueOf(model.isWindowed())), "span");
-
-        var button = new Button("Save");
+        var button = new JButton("Save");
         button.addActionListener(e -> {
             controller.saveSettings();
             controller.displayMainMenuView(this);
         });
         innerPanel.add(button);
 
-        button = new Button("Cancel");
+        button = new JButton("Cancel");
         button.addActionListener(e -> {
             controller.displayMainMenuView(this);
         });
@@ -137,31 +108,27 @@ public class SettingsView extends View {
     public void modelPropertyChange(final PropertyChangeEvent event) {
         switch (event.getPropertyName()) {
             case "AlphaInterpolation": {
-                alphaInterpolationChoice.select((String) event.getNewValue());
+                alphaInterpolationComboBox.setSelectedItem(event.getNewValue());
                 break;
             }
             case "Antialiasing": {
-                antialiasingChoice.select((String) event.getNewValue());
+                antialiasingComboBox.setSelectedItem(event.getNewValue());
                 break;
             }
             case "ColorRendering": {
-                colorRenderingChoice.select((String) event.getNewValue());
+                colorRenderingComboBox.setSelectedItem(event.getNewValue());
                 break;
             }
             case "Dithering": {
-                ditheringChoice.select((String) event.getNewValue());
+                ditheringComboBox.setSelectedItem(event.getNewValue());
                 break;
             }
             case "Interpolation": {
-                interpolationChoice.select((String) event.getNewValue());
+                interpolationComboBox.setSelectedItem(event.getNewValue());
                 break;
             }
             case "Rendering": {
-                renderingChoice.select((String) event.getNewValue());
-                break;
-            }
-            case "Renderer": {
-                rendererChoice.select((String) event.getNewValue());
+                renderingComboBox.setSelectedItem(event.getNewValue());
                 break;
             }
         }

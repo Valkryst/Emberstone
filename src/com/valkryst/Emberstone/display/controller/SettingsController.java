@@ -29,9 +29,9 @@ public class SettingsController extends DefaultController {
         super.setModelProperty("Rendering", newValue);
     }
 
-    public void changeRenderer(final String newValue) {
-        super.setModelProperty("Renderer", newValue);
-    }
+	public void changeWindowed(final String newValue) {
+		super.setModelProperty("Windowed", Boolean.parseBoolean(newValue));
+	}
 
     public void saveSettings() {
         try {

@@ -1,20 +1,17 @@
 package com.valkryst.Emberstone;
 
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Keyboard implements KeyListener {
+public class Keyboard extends KeyAdapter {
     private final static Keyboard INSTANCE = new Keyboard();
 
-    private final Map<Integer, Boolean> keyStates = new HashMap<>();
+    private final Map<Integer, Boolean> keyStates = new HashMap<>(128);
 
     /** Constructs a new Keyboard. */
     private Keyboard() {}
-
-    @Override
-    public void keyTyped(final KeyEvent e) {}
 
     @Override
     public void keyPressed(final KeyEvent e) {

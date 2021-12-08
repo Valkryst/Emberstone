@@ -41,7 +41,7 @@ public class GameModel extends Model {
          * we're firing one for "Engine" as a hacky way to pass the engine
          * to the view for rendering.
          *
-         * Nothing outside of the model relies on delta time.
+         * Nothing outside the model relies on delta time.
          */
         super.firePropertyChange("Engine", null, engine);
     }

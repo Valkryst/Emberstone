@@ -14,20 +14,12 @@ public class GameController extends DefaultController {
             stopGame();
         }
 
-        var timeOfLastDeltaTimeUpdate = System.currentTimeMillis();
         final var fps = new FPS();
-
+		final var deltaTime = new DeltaTime();
 
         executorService = Executors.newSingleThreadScheduledExecutor();
         executorService.scheduleAtFixedRate(() -> {
-            final var currentTime = System.currentTimeMillis();
-
-            // Calculate DeltaTime
-            final float deltaTime = (currentTime - timeOfLastDeltaTimeUpdate) / 1000f;
-
-            // Calculate FPS
-
-            super.setModelProperty("DeltaTime", deltaTime);
+            super.setModelProperty("DeltaTime", deltaTime.next());
             fps.update();
         }, 0, 1000 / TARGET_FPS, TimeUnit.MILLISECONDS);
     }
@@ -45,7 +37,7 @@ public class GameController extends DefaultController {
     private static class DeltaTime {
         private static long timeOfLastUpdate = System.currentTimeMillis();
 
-        public float getDeltaTime() {
+        public float next() {
             final var currentTime = System.currentTimeMillis();
             final float deltaTime = (currentTime - timeOfLastUpdate) / 1000f;
             timeOfLastUpdate = currentTime;
@@ -56,15 +48,13 @@ public class GameController extends DefaultController {
     private static class FPS {
         private static long timeOfLastUpdate = System.currentTimeMillis();
         private static int frameCount = 0;
-        private static int fps = 60;
 
         public void update() {
             final var currentTime = System.currentTimeMillis();
             if (currentTime - timeOfLastUpdate >= 1000) {
-                fps = frameCount;
+				System.out.println("FPS: " + frameCount);
                 timeOfLastUpdate = currentTime;
                 frameCount = 0;
-                System.out.println("FPS: " + fps);
             } else {
                 frameCount++;
             }
