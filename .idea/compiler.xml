@@ -11,13 +11,13 @@
         <module name="Projects" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="11">
-      <module name="Projects" target="11" />
+    <bytecodeTargetLevel target="17">
+      <module name="Projects" target="18" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="Projects" options="--add-exports=java.desktop/sun.java2d.d3d=ALL-UNNAMED --add-exports=java.desktop/sun.java2d.pipe.hw=ALL-UNNAMED --add-exports=java.desktop/java.awt.peer=ALL-UNNAMED --add-exports=java.desktop/sun.java2d=ALL-UNNAMED" />
+      <module name="Projects" options="" />
     </option>
   </component>
 </project>
