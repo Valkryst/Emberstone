@@ -10,169 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="720fc8fb-5381-451a-a2af-8b11c39af682" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/V2DSprite.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/java/com/valkryst/Emberstone/FileLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/java/com/valkryst/Emberstone/Video.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/java/com/valkryst/Emberstone/component/AnimationComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/java/com/valkryst/Emberstone/component/CollisionBoxComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/java/com/valkryst/Emberstone/component/FacingComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/java/com/valkryst/Emberstone/component/HitboxComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/java/com/valkryst/Emberstone/component/PositionComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/java/com/valkryst/Emberstone/component/VisibilityComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/java/com/valkryst/Emberstone/display/controller/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/java/com/valkryst/Emberstone/display/controller/MainMenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/java/com/valkryst/Emberstone/display/controller/SettingsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/java/com/valkryst/Emberstone/display/controller/VideoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/java/com/valkryst/Emberstone/display/model/GameModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/java/com/valkryst/Emberstone/display/model/MainMenuModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/java/com/valkryst/Emberstone/display/model/Model.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/java/com/valkryst/Emberstone/display/model/VideoModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/java/com/valkryst/Emberstone/display/view/GameView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/java/com/valkryst/Emberstone/display/view/MainMenuView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/java/com/valkryst/Emberstone/display/view/VideoView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/java/com/valkryst/Emberstone/display/view/View.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/java/com/valkryst/Emberstone/system/AnimationSystem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/java/com/valkryst/Emberstone/system/CameraSystem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/java/com/valkryst/Emberstone/system/CollisionBoxSystem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/java/com/valkryst/Emberstone/system/HitboxSystem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/java/com/valkryst/Emberstone/system/VisibilitySystem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/resources/sprites/player/animations/idle2.tsv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/resources/sprites/player/animations/idle_collisionbox.tsv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/resources/sprites/player/animations/idle_frame.tsv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/resources/sprites/player/animations/idle_hitbox.tsv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/resources/sprites/player/animations/walking_collisionbox.tsv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/resources/sprites/player/animations/walking_frame.tsv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/resources/sprites/player/animations/walking_hitbox.tsv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/resources/sprites/player/image.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Emberstone.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_Valkryst_V2DSprite_2020_03_01.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20190722.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_22.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/Title/RPG Title 1.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/Title/RPG Title 1.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/entities/chest/Artifact.png" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/entities/chest/Artifact.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/entities/chest/Common.png" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/entities/chest/Common.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/entities/chest/Data.json" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/entities/chest/Data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/entities/chest/Epic.png" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/entities/chest/Epic.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/entities/chest/Image.png" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/entities/chest/Image.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/entities/chest/Legendary.png" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/entities/chest/Legendary.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/entities/chest/Rare.png" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/entities/chest/Rare.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/entities/chest/Uncommon.png" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/entities/chest/Uncommon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/entities/player/A/Image.png" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/entities/player/A/Image.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/entities/player/B/Image.png" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/entities/player/B/Image.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/entities/player/C/Image.png" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/entities/player/C/Image.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/entities/player/Data.json" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/entities/player/Data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/entities/portal/Data.json" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/entities/portal/Data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/entities/portal/Image.png" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/entities/portal/Image.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/entities/skeleton/Cultist/Data.json" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/entities/skeleton/Cultist/Data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/entities/skeleton/Cultist/Image.png" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/entities/skeleton/Cultist/Image.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/entities/skeleton/Heavy/Data.json" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/entities/skeleton/Heavy/Data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/entities/skeleton/Heavy/Image.png" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/entities/skeleton/Heavy/Image.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/entities/skeleton/Light/Data.json" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/entities/skeleton/Light/Data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/entities/skeleton/Light/Image.png" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/entities/skeleton/Light/Image.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/entities/zombie/Farmer/Data.json" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/entities/zombie/Farmer/Data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/entities/zombie/Farmer/Image.png" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/entities/zombie/Farmer/Image.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/entities/zombie/Villager/Data.json" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/entities/zombie/Villager/Data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/entities/zombie/Villager/Image.png" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/entities/zombie/Villager/Image.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/entities/zombie/Woodcutter/Data.json" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/entities/zombie/Woodcutter/Data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/entities/zombie/Woodcutter/Image.png" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/entities/zombie/Woodcutter/Image.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/fonts/Deneane.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/fonts/Deneane.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/gui/Button.json" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/gui/Button.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/gui/Button.png" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/gui/Button.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/gui/Character Selection.json" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/gui/Character Selection.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/gui/Character Selection.png" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/gui/Character Selection.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/gui/Controls.json" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/gui/Controls.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/gui/Controls.png" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/gui/Controls.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/gui/Death.json" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/gui/Death.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/gui/Death.png" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/gui/Death.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/gui/Game UI.json" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/gui/Game UI.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/gui/Game UI.png" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/gui/Game UI.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/gui/Inventory.json" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/gui/Inventory.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/gui/Inventory.png" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/gui/Inventory.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/gui/Main Menu.json" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/gui/Main Menu.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/gui/Main Menu.png" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/gui/Main Menu.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/gui/Radio Button.json" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/gui/Radio Button.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/gui/Radio Button.png" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/gui/Radio Button.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/icon/Icon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/icon/Icon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/icon/Icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/icon/Icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/levels/Level.json.bak" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/levels/Level.json.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/levels/Level1.json" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/levels/Level1.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/levels/Level2.json" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/levels/Level2.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/levels/Level3.json" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/levels/Level3.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/levels/Regions.json" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/levels/Regions.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/music/Crypt.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/music/Crypt.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/music/Death.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/music/Death.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/music/Title.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/music/Title.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sfx/Evil Laugh.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/sfx/Evil Laugh.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sfx/Level Up.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/sfx/Level Up.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sfx/Portal Spawn.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/sfx/Portal Spawn.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sfx/combat/Attack - 1.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/sfx/combat/Attack - 1.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sfx/combat/Attack - 10.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/sfx/combat/Attack - 10.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sfx/combat/Attack - 11.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/sfx/combat/Attack - 11.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sfx/combat/Attack - 2.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/sfx/combat/Attack - 2.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sfx/combat/Attack - 3.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/sfx/combat/Attack - 3.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sfx/combat/Attack - 4.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/sfx/combat/Attack - 4.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sfx/combat/Attack - 5.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/sfx/combat/Attack - 5.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sfx/combat/Attack - 6.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/sfx/combat/Attack - 6.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sfx/combat/Attack - 7.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/sfx/combat/Attack - 7.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sfx/combat/Attack - 8.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/sfx/combat/Attack - 8.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sfx/combat/Attack - 9.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/sfx/combat/Attack - 9.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sfx/combat/Impact - 1.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/sfx/combat/Impact - 1.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sfx/combat/Impact - 10.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/sfx/combat/Impact - 10.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sfx/combat/Impact - 2.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/sfx/combat/Impact - 2.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sfx/combat/Impact - 3.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/sfx/combat/Impact - 3.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sfx/combat/Impact - 4.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/sfx/combat/Impact - 4.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sfx/combat/Impact - 5.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/sfx/combat/Impact - 5.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sfx/combat/Impact - 6.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/sfx/combat/Impact - 6.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sfx/combat/Impact - 7.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/sfx/combat/Impact - 7.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sfx/combat/Impact - 8.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/sfx/combat/Impact - 8.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sfx/combat/Impact - 9.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/sfx/combat/Impact - 9.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sfx/combat/Miss - 1.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/sfx/combat/Miss - 1.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sfx/combat/Miss - 2.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/sfx/combat/Miss - 2.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sfx/combat/Miss - 3.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/sfx/combat/Miss - 3.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sfx/combat/Miss - 4.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/sfx/combat/Miss - 4.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sfx/combat/Miss - 5.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/sfx/combat/Miss - 5.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sfx/combat/Miss - 6.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/sfx/combat/Miss - 6.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sfx/combat/Miss - 7.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/sfx/combat/Miss - 7.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sfx/combat/Miss - 8.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/sfx/combat/Miss - 8.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sfx/combat/Miss - 9.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/sfx/combat/Miss - 9.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sfx/inventory/Chest Appear.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/sfx/inventory/Chest Appear.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sfx/inventory/Chest Close.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/sfx/inventory/Chest Close.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sfx/inventory/Chest Open.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/sfx/inventory/Chest Open.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/tilesets/Crypt.json" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/tilesets/Crypt.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/tilesets/Crypt.png" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/tilesets/Crypt.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/video/Credits.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/video/Credits.mp4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/video/Intro.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/video/Intro.mp4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/video/Outro.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/video/Outro.mp4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/main/java/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/java/com/valkryst/Emberstone/Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/Keyboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/java/com/valkryst/Emberstone/Keyboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/component/PositionComponent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/component/VelocityComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/java/com/valkryst/Emberstone/component/VelocityComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/java/com/valkryst/Emberstone/display/Display.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/controller/Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/controller/DefaultController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/java/com/valkryst/Emberstone/display/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/controller/SettingsController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/model/GameModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/model/Model.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/model/SettingsModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/java/com/valkryst/Emberstone/display/model/SettingsModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/v1/controller/Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/v1/controller/LevelController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/v1/view/LevelView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/v1/view/View.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/view/GameView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/view/LoadGameView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/view/MainMenuView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/view/SettingsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/java/com/valkryst/Emberstone/display/view/SettingsView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/display/view/View.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/valkryst/Emberstone/system/MovementSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/java/com/valkryst/Emberstone/system/MovementSystem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -276,23 +120,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;aspect.path.notification.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Development/Java/Emberstone/main/resources/sprites/player/animations&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "aspect.path.notification.shown": "true",
+    "last_opened_file_path": "D:/Development/Java/Emberstone/main/resources/sprites/player/animations",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Problems",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.propCompiler",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Development\Java\Emberstone\main\resources\sprites\player\animations" />
@@ -332,13 +177,25 @@
   </component>
   <component name="RunManager" selected="Application.Driver">
     <configuration name="Driver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="19" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.valkryst.Emberstone.Driver" />
-      <module name="Projects" />
+      <module name="Emberstone" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.valkryst.Emberstone.*" />
           <option name="ENABLED" value="true" />
         </pattern>
+      </extension>
+      <extension name="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
       </extension>
       <method v="2">
         <option name="Make" enabled="true" />

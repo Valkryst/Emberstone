@@ -11,9 +11,9 @@
     <name>${project.artifactId}</name>
 
     <properties>
-        <maven.compiler.source>18</maven.compiler.source>
-        <maven.compiler.target>18</maven.compiler.target>
-        <maven.compiler.release>18</maven.compiler.release>
+        <maven.compiler.source>19</maven.compiler.source>
+        <maven.compiler.target>19</maven.compiler.target>
+        <maven.compiler.release>19</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
@@ -36,7 +36,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.24</version>
+            <version>1.18.26</version>
             <scope>provided</scope>
         </dependency>
 
@@ -179,7 +179,7 @@
                             <icon>main/resources/icon/Icon.ico</icon>
                             <jre>
                                 <!-- Folder containing the JRE -->
-                                <path>jdk-11.0.6</path>
+                                <path>C:\Program Files\Java\jdk\jdk-19.0.2</path>
 
                                 <!-- JVM CLI Args -->
                                 <opts>
