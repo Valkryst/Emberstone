@@ -50,6 +50,11 @@
             <artifactId>V2DSprite</artifactId>
             <version>6d5f29573464eeb40901083e29c376fe1144b459</version>
         </dependency>
+        <dependency>
+            <groupId>com.github.Valkryst</groupId>
+            <artifactId>VMVC</artifactId>
+            <version>0d3561d613db3f790f1639a04fb22a7a63ad44f0</version>
+        </dependency>
 
         <!-- INI File Parsing -->
         <dependency>

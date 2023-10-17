@@ -1,14 +1,18 @@
 package com.valkryst.Emberstone.display.view;
 
+import com.sun.scenario.Settings;
 import com.valkryst.Emberstone.Video;
+import com.valkryst.Emberstone.display.Display;
 import com.valkryst.Emberstone.display.controller.MainMenuController;
 import com.valkryst.Emberstone.display.model.GameModel;
 import com.valkryst.Emberstone.display.model.MainMenuModel;
 import com.valkryst.Emberstone.display.model.SettingsModel;
 import com.valkryst.Emberstone.display.model.VideoModel;
+import com.valkryst.VMVC.view.View;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 public class MainMenuView extends View<MainMenuController> {
     public MainMenuView(final MainMenuController controller) {
@@ -24,16 +28,16 @@ public class MainMenuView extends View<MainMenuController> {
         final var exitButton = new JButton("Exit");
 
         newGameButton.addActionListener(e -> {
-			controller.setContentPane(VideoModel.class, Video.INTRO, GameModel.class);
+            Display.getInstance().setContentPane(new VideoModel(Video.INTRO, GameModel.class).createView());
 		});
         loadGameButton.addActionListener(e -> {
 			System.err.println("Load Game View Not Implemented");
 		});
         settingsButton.addActionListener(e -> {
-			controller.setContentPane(SettingsModel.class);
-		});
+            Display.getInstance().setContentPane(SettingsModel.getInstance().createView());
+        });
         creditsButton.addActionListener(e -> {
-			controller.setContentPane(VideoModel.class, Video.CREDITS, MainMenuModel.class);
+            Display.getInstance().setContentPane(new VideoModel(Video.CREDITS, MainMenuModel.class).createView());
 		});
         exitButton.addActionListener(e -> {
 			System.exit(0);

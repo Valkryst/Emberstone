@@ -1,7 +1,7 @@
 package com.valkryst.Emberstone.display;
 
 import com.valkryst.Emberstone.display.model.SettingsModel;
-import com.valkryst.Emberstone.display.view.View;
+import com.valkryst.VMVC.view.View;
 import lombok.Getter;
 import lombok.NonNull;
 

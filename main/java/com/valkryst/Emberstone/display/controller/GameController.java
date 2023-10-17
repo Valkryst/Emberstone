@@ -7,6 +7,7 @@ import com.valkryst.Emberstone.display.model.GameModel;
 import com.valkryst.Emberstone.display.model.MainMenuModel;
 import com.valkryst.Emberstone.display.model.SettingsModel;
 import com.valkryst.Emberstone.display.view.GameView;
+import com.valkryst.VMVC.controller.Controller;
 import lombok.NonNull;
 
 import java.awt.event.KeyEvent;
@@ -83,7 +84,7 @@ public class GameController extends Controller<GameModel> implements KeyListener
 	public void keyReleased(final KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
 			stopGame();
-			super.setContentPane(MainMenuModel.class);
+			Display.getInstance().setContentPane(new MainMenuModel().createView());
 			return;
 		}
 

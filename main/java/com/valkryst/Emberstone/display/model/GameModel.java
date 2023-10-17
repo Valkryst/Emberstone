@@ -6,6 +6,7 @@ import com.valkryst.Emberstone.component.*;
 import com.valkryst.Emberstone.display.controller.GameController;
 import com.valkryst.Emberstone.display.view.GameView;
 import com.valkryst.Emberstone.system.*;
+import com.valkryst.VMVC.model.Model;
 import lombok.Getter;
 
 public class GameModel extends Model<GameController, GameView> {

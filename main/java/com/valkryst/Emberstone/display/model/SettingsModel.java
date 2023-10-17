@@ -2,6 +2,7 @@ package com.valkryst.Emberstone.display.model;
 
 import com.valkryst.Emberstone.display.controller.SettingsController;
 import com.valkryst.Emberstone.display.view.SettingsView;
+import com.valkryst.VMVC.model.Model;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;

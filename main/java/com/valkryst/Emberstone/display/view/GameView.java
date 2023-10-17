@@ -7,6 +7,7 @@ import com.valkryst.Emberstone.component.*;
 import com.valkryst.Emberstone.display.controller.GameController;
 import com.valkryst.Emberstone.display.model.SettingsModel;
 import com.valkryst.Emberstone.system.CameraSystem;
+import com.valkryst.VMVC.view.View;
 
 import java.awt.*;
 

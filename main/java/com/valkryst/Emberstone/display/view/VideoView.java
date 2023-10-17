@@ -2,6 +2,7 @@ package com.valkryst.Emberstone.display.view;
 
 import com.valkryst.Emberstone.Video;
 import com.valkryst.Emberstone.display.controller.VideoController;
+import com.valkryst.VMVC.view.View;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.Scene;

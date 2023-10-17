@@ -3,6 +3,7 @@ package com.valkryst.Emberstone.display.model;
 import com.valkryst.Emberstone.Video;
 import com.valkryst.Emberstone.display.controller.VideoController;
 import com.valkryst.Emberstone.display.view.VideoView;
+import com.valkryst.VMVC.model.Model;
 import lombok.Getter;
 import lombok.NonNull;
 

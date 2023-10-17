@@ -1,6 +1,7 @@
 package com.valkryst.Emberstone.display.controller;
 
 import com.valkryst.Emberstone.display.model.SettingsModel;
+import com.valkryst.VMVC.controller.Controller;
 import lombok.NonNull;
 
 import java.io.IOException;

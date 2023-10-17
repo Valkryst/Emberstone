@@ -1,7 +1,9 @@
 package com.valkryst.Emberstone.display.view;
 
+import com.valkryst.Emberstone.display.Display;
 import com.valkryst.Emberstone.display.controller.SettingsController;
 import com.valkryst.Emberstone.display.model.MainMenuModel;
+import com.valkryst.VMVC.view.View;
 
 import javax.swing.*;
 import java.awt.*;
@@ -92,13 +94,13 @@ public class SettingsView extends View<SettingsController> {
         var button = new JButton("Save");
         button.addActionListener(e -> {
             controller.saveSettings();
-			controller.setContentPane(MainMenuModel.class);
+            Display.getInstance().setContentPane(new MainMenuModel().createView());
         });
         innerPanel.add(button);
 
         button = new JButton("Cancel");
         button.addActionListener(e -> {
-			controller.setContentPane(MainMenuModel.class);
+            Display.getInstance().setContentPane(new MainMenuModel().createView());
         });
         innerPanel.add(button);
     }
