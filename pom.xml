@@ -151,7 +151,7 @@
                             <classPath>
                                 <mainClass>com.valkryst.Emberstone.Driver</mainClass>
                             </classPath>
-                            <icon>res/icon/Icon.ico</icon>
+                            <icon>src/main/resources/icon/Icon.ico</icon>
                             <jre>
                                 <path>jdk-11.0.2</path>
                             </jre>
